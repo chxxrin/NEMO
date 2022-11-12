@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import History from "../components/History";
-import ImgUploader from "../components/ImgUploader";
 import HistoryTop from "../components/HistoryTop";
-import { MdPersonAddAlt1 } from "react-icons/md";
+import MemberModal from "../components/MemberModal";
+import styled from "styled-components";
+import "../css/History.css";
 
 const HistoryEdit = ({ user }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   const fileInput = React.useRef();
 
   const [imgUpload, setImgUpload] = useState();
@@ -24,11 +34,18 @@ const HistoryEdit = ({ user }) => {
       user.photos[0].img = imgSrc;
     }
   };
+
   return (
-    <div>
+    <div className="container">
       <HistoryTop />
-      <History user={user} trace="Edit" />
-      <button onClick={handleImgButtonClick}>+</button>
+      <History user={user} trace="Edit" idx={0} />
+      <section id="btn">
+        <BtnPurple onClick={openModal}>초대</BtnPurple>
+        <BtnPurple onClick={handleImgButtonClick}>이미지 수정</BtnPurple>
+        <Link to="/history/view">
+          <BtnPurple>완료</BtnPurple>
+        </Link>
+      </section>
       <input
         type="file"
         accept="image/jpg, image/jpeg, image/png"
@@ -36,14 +53,25 @@ const HistoryEdit = ({ user }) => {
         onChange={handleChange}
         style={{ display: "none" }}
       />
-      {imgUpload ? <img src={imgUpload} /> : null}
-      <button>
-        <MdPersonAddAlt1 />
-      </button>
-      <Link to="/history/view">
-        <button type="button">완료</button>
-      </Link>
+      <MemberModal open={modalOpen} close={closeModal} header="사용자 초대하기">
+        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+        laying out print, graphic or web designs. The passage is attributed to
+        an unknown typesetter in the 15th century who is thought to have
+        scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a
+        type specimen book.
+      </MemberModal>
     </div>
   );
 };
 export default HistoryEdit;
+
+const BtnPurple = styled.button`
+  border: none;
+  outline: none;
+  width: 90px;
+  height: 41px;
+  color: white;
+  background-color: #8d4bf6;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+`;

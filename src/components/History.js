@@ -1,38 +1,64 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+import "../css/History.css";
 
 const History = (props) => {
+  const { user, idx, trace } = props;
   const onChangeTitleText = (e) => {
     setEditTitle(e.target.value);
-    props.user.photos[0].title = editTitle;
+    user.photos[idx].title = editTitle;
   };
-  const image = props.user.photos[0].img;
+  const image = user.photos[idx].img;
   const [editTitle, setEditTitle] = useState("");
-  if (props.trace === "View") {
+  if (trace === "View") {
     return (
       <div>
-        <h1 style={{ color: "#8d4bf6", textAlign: "center" }}>
-          {props.user.photos[0].title}
-        </h1>
-        <h2>{props.user.photos[0].coorX}</h2>
-        <h3>{props.user.photos[0].date}</h3>
-        {console.log(props.user.photos[0].img)}
-        <img src={image}></img>
+        <section id="title">
+          <h5>{user.photos[idx].title}</h5>
+          <p>
+            {user.photos[idx].location} {user.photos[idx].date}
+          </p>
+        </section>
+        <section id="pic">
+          <img src={image}></img>
+        </section>
+      </div>
+    );
+  } else if (trace === "Create") {
+    return (
+      <div>
+        <section id="title">
+          <input
+            defaultValue={""}
+            placeholder="제목을 입력해주세요!"
+            onChange={onChangeTitleText}
+          />
+          <p style={{ textAlign: "center" }}>
+            {user.photos[idx].location} {user.photos[idx].date}
+          </p>
+        </section>
+        <section id="newpic">+</section>
       </div>
     );
   } else {
     return (
       <div>
-        {editTitle ? (
-          <input value={editTitle} onChange={onChangeTitleText} />
-        ) : (
-          <input
-            defaultValue={props.user.photos[0].title}
-            onChange={onChangeTitleText}
-          />
-        )}
-        <h2>{props.user.photos[0].coorX}</h2>
-        <h3>{props.user.photos[0].date}</h3>
-        <img src={image}></img>
+        <section id="title">
+          {editTitle ? (
+            <input value={editTitle} onChange={onChangeTitleText} />
+          ) : (
+            <input
+              defaultValue={user.photos[idx].title}
+              onChange={onChangeTitleText}
+            />
+          )}
+          <p style={{ textAlign: "center" }}>
+            {user.photos[idx].location} {user.photos[idx].date}
+          </p>
+        </section>
+        <section id="pic">
+          <img src={image}></img>
+        </section>
       </div>
     );
   }
