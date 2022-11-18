@@ -2,10 +2,13 @@ import React from "react";
 import History from "../components/History";
 import HistoryTop from "../components/HistoryTop";
 import "../css/History.css";
+import NavbarNone from "../components/NavbarNone";
+import "../css/Navbar.css";
 
 const HistoryList = ({ user }) => {
   return (
     <div className="container">
+      <NavbarNone/>
       <HistoryTop />
       <History user={user} trace="View" idx={0} />
       <History user={user} trace="View" idx={1} />

@@ -1,84 +1,195 @@
-
-
 :root {
-    --navBg: #8d4bf6;
-  }
-  
-  .navbar {
-    background-color: var(--navBg);
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
+  --navBg: #ffffff;
+} 
 
-  }
-  
-  .menu-bars {
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-  }
-  
-  .nav-menu {
-    background-color: var(--navBg);
-    width: 250px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    transition: 850ms;
-  }
-  
-  .nav-menu.active {
-    left: 0;
-    transition: 350ms;
-  }
-  
-  .nav-text {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 8px 0 8px 16px;
-    list-style: none;
-    height: 60px;
-  }
-  
-  .nav-text a {
-    text-decoration: none;
-    color: #f5f5f5;
-    font-size: 18px;
-    width: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    border-radius: 4px;
-  }
-  
-  .nav-text a:hover {
-    background-color: #6b43ac;
-    font-weight: bold;
-  }
-  
-  .nav-menu-items {
-    width: 100%;
-    padding: 0;
-  }
-  
-  .navbar-toggle {
-    background-color: var(--navBg);
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-  
-  span {
-    margin-left: 16px;
-    color: white;
-  }
-  
-  /* #060b26; */
+/* .bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+} */
+
+.navbar {
+  /* background-color: var(--navBg); */
+  height: 40px;
+  width: 90%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  border-radius: 15px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 1rem;
+  font-size: 1rem;
+  color:#8d4bf6;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .25);
+  /* color: #8d4bf6; */
+
+}
+
+.menu-bars-close {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color : #8d4bf6;
+
+}
+
+.menu-bars-menu {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color : #8d4bf6;
+
+}
+
+.menu-bars-login {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color : #8d4bf6;
+}
+
+.nav-menu {
+  background-color: var(--navBg);
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style: none;
+  height: 50px;
+
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: rgba(0, 0, 0, .25);
+  font-weight: bold;
+}
+
+.nav-menu-items {
+  width: 100%;
+  padding: 0;
+}
+
+.navbar-toggle {
+  background-color: var(--navBg);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span {
+  margin-left: 16px;
+  color: black;
+}
+
+.profilebox {
+  display: flex;
+  justify-content: center;
+  padding: none;
+  margin: none;
+}
+.profile{
+  color:  black;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.login {
+  text-align: center;
+  color: black;
+}
+/* #060b26; */
+
+
+.mode {
+  display: flex;
+  justify-content: end;
+}
+
+/*navbar border 없앤버전*/
+.navbar-none {
+  height: 40px;
+  width: 90%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 10px;
+  padding-left: 0.8rem;
+  font-size: 1.3rem;
+  color:#8d4bf6;
+}
+
+.letslogin {
+  display:flex;
+  font-size: 18px;
+  padding-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.login {
+  display:flex;
+  font-size: 18px;
+  padding-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.profile-box {
+  display:flex;
+  flex-direction: column;
+}
+
+.alarm-style {
+  display: inline-block;
+  float: right;
+}
