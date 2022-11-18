@@ -6,7 +6,7 @@ import MemberModal from "../components/MemberModal";
 import styled from "styled-components";
 import "../css/History.css";
 
-const HistoryView = ({ user }) => {
+const HistoryEdit = ({ user }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -16,18 +16,45 @@ const HistoryView = ({ user }) => {
     setModalOpen(false);
   };
 
+  const fileInput = React.useRef();
+
+  const [imgUpload, setImgUpload] = useState();
+
+  const handleImgButtonClick = (event) => {
+    event.preventDefault();
+    fileInput.current.click();
+  };
+
+  const handleChange = (event) => {
+    if (event.target.files.length !== 0) {
+      const formData = new FormData();
+      formData.append("img", event.target.files[0]);
+      const imgSrc = URL.createObjectURL(event.target.files[0]);
+      setImgUpload(imgSrc);
+      user.photos[0].img = imgSrc;
+    }
+  };
+
   return (
     <div className="container">
       <HistoryTop />
-      <History user={user} trace="View" idx={0} />
+      <div onClick={handleImgButtonClick}>
+        <History user={user} trace="Create" idx={0} />
+      </div>
+
       <section id="btn">
-        <BtnPurple id="invite" onClick={openModal}>
-          초대
-        </BtnPurple>
-        <Link to="/history/edit">
-          <BtnPurple id="edit">수정</BtnPurple>
+        <BtnPurple onClick={openModal}>초대</BtnPurple>
+        <Link to="/history/view">
+          <BtnPurple type="BtnPurple">완료</BtnPurple>
         </Link>
       </section>
+      <input
+        type="file"
+        accept="image/jpg, image/jpeg, image/png"
+        ref={fileInput}
+        onChange={handleChange}
+        style={{ display: "none" }}
+      />
       <MemberModal open={modalOpen} close={closeModal} header="사용자 초대하기">
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
         laying out print, graphic or web designs. The passage is attributed to
@@ -38,8 +65,7 @@ const HistoryView = ({ user }) => {
     </div>
   );
 };
-
-export default HistoryView;
+export default HistoryEdit;
 
 const BtnPurple = styled.button`
   border: none;
