@@ -14,13 +14,13 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 // DATA FILE
-import { SidebarData } from "../components/SlidebarData";
+import { SidebarData } from "./SlidebarData";
 
 // STYLES
 import "../css/Navbar.css";
 import { BsMusicNote, BsMusicNoteList } from "react-icons/bs";
 
-export default function Navbar() {
+export default function NavbarNone() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -39,14 +39,14 @@ export default function Navbar() {
     <>
       <IconContext.Provider value={{ color: "#8d4bf6" }}>
         {/* All the icons now are white */}
-        <div className="navbar">
+        <div className="navbar-none">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
-          <li className="navbar-toggle">
+            <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
@@ -65,7 +65,6 @@ export default function Navbar() {
                 로그인하세요
               </Link>
             </div>
-
 
             {SidebarData.map((item, index) => {
               return (

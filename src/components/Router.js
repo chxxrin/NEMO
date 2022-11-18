@@ -9,16 +9,20 @@ import HistoryList from "../pages/HistoryList";
 import Map from "../pages/Map";
 import Home from "../pages/Home";
 import Help from "../pages/Help";
+import Like from "../pages/Like";
+import Notice from "../pages/Notice";
+import Modal from "../components/Modal";
 import Navbar from "./Navbar";
 const Router = ({ user }) => {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/login" element={<div>카카오톡로그인</div>} />
         <Route path="/map" element={<Map/>} />
         <Route path="/help" element={<Help />} />
+        <Route path="/like" element={<Like />} />
+        <Route path="/notice" element={<Notice />} />
         <Route path="/history" element={<HistoryList user={user} />} />
         <Route path="/history/view" element={<HistoryView user={user} />} />
         <Route path="/history/edit" element={<HistoryEdit user={user} />} />

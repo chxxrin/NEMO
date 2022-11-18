@@ -6,46 +6,46 @@ import * as IoIcons from "react-icons/io";
 import * as BsIcons from "react-icons/bs";
 
 export const SidebarData = [
-   {
-    title: "HOME",
-    path: "/",
-    icon: <AiIcons.AiFillHome />,
-    cName: "nav-text"
-},
-{
-    title: "LOGIN",
-    path: "/login",
-    icon: <BsIcons.BsFillPersonFill />,
-    cName: "nav-text"
-},
+//    {
+//     title: "HOME",
+//     path: "/",
+//     // icon: <AiIcons.AiFillHome />,
+//     cName: "nav-text"
+// },
+// {
+//     title: "LOGIN",
+//     path: "/login",
+//     // icon: <BsIcons.BsFillPersonFill />,
+//     cName: "nav-text"
+// },
   {
-    title: "HISTORY",
+    title: "히스토리",
     path: "/history",
-    icon: <BsIcons.BsReverseLayoutTextSidebarReverse />,
+    // icon: <BsIcons.BsReverseLayoutTextSidebarReverse />,
     cName: "nav-text"
   },
   {
-    title: "LIKE",
+    title: "즐겨찾기",
     path: "/like",
-    icon: <BsIcons.BsSuitHeartFill />,
+    // icon: <BsIcons.BsSuitHeartFill />,
     cName: "nav-text"
   },
   {
-    title: "INSTAGRAM",
-    path: "/instagram",
-    icon: <BsIcons.BsInstagram />,
-    cName: "nav-text"
-  },
-  {
-    title: "NOTICE",
+    title: "공지사항",
     path: "/notice",
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    // icon: <FaIcons.FaEnvelopeOpenText />,
     cName: "nav-text"
   },
   {
-    title: "HELP",
+    title: "인스타그램",
+    path: "/instagram",
+    // icon: <BsIcons.BsInstagram />,
+    cName: "nav-text"
+  },
+  {
+    title: "도움말",
     path: "/help",
-    icon: <BsIcons.BsQuestionCircleFill />,
+    // icon: <BsIcons.BsQuestionCircleFill />,
     cName: "nav-text"
   },
 ];
