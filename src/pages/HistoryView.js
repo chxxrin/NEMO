@@ -5,6 +5,8 @@ import HistoryTop from "../components/HistoryTop";
 import MemberModal from "../components/MemberModal";
 import styled from "styled-components";
 import "../css/History.css";
+import NavbarNone from "../components/NavbarNone";
+import "../css/Navbar.css";
 
 const HistoryView = ({ user }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -18,6 +20,7 @@ const HistoryView = ({ user }) => {
 
   return (
     <div className="container">
+      <NavbarNone/>
       <HistoryTop />
       <History user={user} trace="View" idx={0} />
       <section id="btn">
