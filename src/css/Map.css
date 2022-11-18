@@ -1,0 +1,60 @@
+#overmap {
+    position:relative;
+    z-index: 2;
+}
+#undermap{
+    position:absolute;
+    z-index: 10000;
+}
+.hi{
+    color:red;
+    background-color: aqua;
+}
+
+.SearchBar{
+    height: 40px;
+    width: 99%;
+    border: 1px solid rgb(44, 174, 44);
+    background: #ffffff;
+    z-index: 10000;
+}
+.SearchInput{
+    font-size:20px;
+    width: 800px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+.SearchButton{
+    width: 9%;
+    height:100%;
+    border: 0px;
+    background: rgb(44, 174, 44);
+    outline: none;
+    float: right;
+    color:#ffffff;
+
+}
+#StoreLeftBox{
+    float: left;
+    width: 30%;
+}
+
+#StoreImg{
+    object-fit: cover;
+    max-width: 100px;
+    max-height: 100px;
+}
+#StoreList{
+    font-size: 20px;
+    list-style: none;
+    padding-left: 0px;
+    text-align: left;
+}
+#z_index{
+    z-index: 100000;
+    position: absolute;
+    width:200px;
+    width:300px;
+}
