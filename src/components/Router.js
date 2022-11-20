@@ -13,6 +13,8 @@ import Like from "../pages/Like";
 import Notice from "../pages/Notice";
 import Modal from "../components/Modal";
 import Navbar from "./Navbar";
+import MapHis from "../pages/MapHis";
+
 const Router = ({ user }) => {
   return (
     <BrowserRouter>
@@ -20,6 +22,7 @@ const Router = ({ user }) => {
         <Route path="/" exact element={<Home />} />
         <Route path="/login" element={<div>카카오톡로그인</div>} />
         <Route path="/map" element={<Map/>} />
+        <Route path="/maphis" element={<MapHis/>}/>
         <Route path="/help" element={<Help />} />
         <Route path="/like" element={<Like />} />
         <Route path="/notice" element={<Notice />} />
