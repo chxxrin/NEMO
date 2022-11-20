@@ -7,8 +7,9 @@ import jsonData from "./map_info.json";
 import Storelogo from '../assets/naecut.png';
 import { json } from 'react-router';
 import { Routes, Route, Link , useNavigate, Outlet,useLocation } from 'react-router-dom'
-const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
 import NavbarMap from '../components/NavbarMap';
+const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
+
 
 //test
 
@@ -138,7 +139,7 @@ export function NaverMapAPI() {
       defaultZoom={13} // 지도 초기 확대 배율
     >
 
-    {/* <div id="undermap" style={{position:"absolute"}}>
+     <div id="undermap" style={{position:"absolute"}}>
 
         <button >hihi</button>
     </div>
