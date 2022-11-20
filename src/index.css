@@ -3,8 +3,8 @@
 body {
   margin: 0;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 code {

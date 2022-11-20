@@ -104,15 +104,16 @@ export function NaverMapAPI() {
         width: '100%', // 네이버지도 가로 길이
         height: '75vh', // 네이버지도 세로 길이
         position:"relative",
-        hidden: flipped
+        hidden: flipped,
+        zIndex : 1
       }}
       defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
       defaultZoom={13} // 지도 초기 확대 배율
     >
       <button id="z_test"></button>
-    {/* <div id="undermap" style={{position:"absolute"}}>
+    <div id="undermap" style={{position:"absolute"}}>
         <button >hihi</button>
-    </div> */}
+    </div>
     <Marker
         key={1}
         position={new navermaps.LatLng(37.551229, 126.988205)}
@@ -146,7 +147,7 @@ export function NaverMapAPI() {
         }   
     </div>
     
-    <div className="StoreInfo" style={{ position:"absolute" }}>
+    <div className="StoreInfo" style={{ position:"absolute" , zIndex:10}}>
             <div id="StoreLeftBox">
                 <img id="StoreImg" src = {Storelogo}></img>
             </div>
