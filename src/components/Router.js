@@ -10,6 +10,8 @@ import Map from "../pages/Map";
 import Home from "../pages/Home";
 import Help from "../pages/Help";
 import Navbar from "./Navbar";
+import MapHis from "../pages/MapHis";
+
 const Router = ({ user }) => {
   return (
     <BrowserRouter>
@@ -18,6 +20,7 @@ const Router = ({ user }) => {
         <Route path="/" exact element={<Home />} />
         <Route path="/login" element={<div>카카오톡로그인</div>} />
         <Route path="/map" element={<Map/>} />
+        <Route path="/maphis" element={<MapHis/>}/>
         <Route path="/help" element={<Help />} />
         <Route path="/history" element={<HistoryList user={user} />} />
         <Route path="/history/view" element={<HistoryView user={user} />} />
