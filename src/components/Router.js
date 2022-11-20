@@ -14,6 +14,7 @@ import Notice from "../pages/Notice";
 import Modal from "../components/Modal";
 import Navbar from "./Navbar";
 import Test from "../pages/Test";
+import KakaoLogin from "../pages/KakaoLogin";
 import MapHis from "../pages/MapHis";
 
 const Router = ({ user }) => {
@@ -22,9 +23,9 @@ const Router = ({ user }) => {
       <Routes>
         <Route path="/test" element={<Test />} />
         <Route path="/" exact element={<Home />} />
-        <Route path="/login" element={<div>카카오톡로그인</div>} />
-        <Route path="/map" element={<Map/>} />
-        <Route path="/maphis" element={<MapHis/>}/>
+        <Route path="/login" element={<KakaoLogin />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/maphis" element={<MapHis />} />
         <Route path="/help" element={<Help />} />
         <Route path="/like" element={<Like />} />
         <Route path="/notice" element={<Notice />} />
