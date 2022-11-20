@@ -30,9 +30,10 @@
   padding-right:1rem;
   color:#8d4bf6;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .25);
-  z-index: 1000;
-  position: relative;
+  z-index: 10000;
+  position: absolute;
   float:left;
+  background-color: white;
 
 }
 
@@ -41,7 +42,7 @@
   font-size: 2rem;
   background: none;
   color : #8d4bf6;
-  z-index: 1000;
+  z-index: 10000;
 
 }
 
@@ -50,7 +51,7 @@
   font-size: 1rem;
   background: none;
   color : #8d4bf6;
-  z-index: 1000;
+  z-index: 10000;
   float:left;
   width:9%;
 }
@@ -75,7 +76,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 1.5rem;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .nav-menu.active {

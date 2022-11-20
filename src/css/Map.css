@@ -1,5 +1,5 @@
 #overmap {
-    position:relative;
+    position:relat;
     z-index: 2;
 }
 #undermap{
@@ -46,13 +46,41 @@
     font-size: 1.3rem;
 }
 
-.SearchContainer {
-    position:relative;
+.SearchInfo {
+    position:absolute;
     z-index:50000;
 }
-#StoreLeftBox{
+.StoreBigBox {
+    margin:20px;
+}
+
+.StoreContainer {
+    position:absolute;
+    border:1px solid D8D8D8;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.15);
+    position: absolute;
+    z-index:5000;
+    top: 60%;
+    left: 0%;
+    right: 0;
+    bottom: 0;
+    height:30%;
+}
+.StoreBorder {
+    border:none;
+    background-color: transparent;
+}
+.StoreLeftBox{
     float: left;
     width: 30%;
+}
+.StoreRightBox {
+    float:right;
+    width:50%;
 }
 
 #StoreImg{
@@ -61,11 +89,16 @@
     max-height: 100px;
 }
 #StoreList{
-    font-size: 20px;
+    font-size: 15px;
     list-style: none;
     padding-left: 0px;
     text-align: left;
 }
+#StoreName {
+    font-size: 20px;
+}
+
+
 #z_index{
     z-index: 100000;
     position: absolute;
@@ -77,15 +110,25 @@
     background-color:transparent; 
     display:flex;
     justify-content: space-evenly;
-    padding:13px;
+    align-items: center;
+    position:absolute;
+    /* z-index: 6000; */
+    top: -78%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+
 }
 .like-btn, .brand-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #DDDDDD;
+    background-color: white;
     border-radius: 15px;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .25);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, .25);
     z-index: 500;
     height: 30px;
     width: 80px;
@@ -97,4 +140,24 @@
     justify-content: center;
     display:flex;
     background-color:transparent;
+}
+
+.new-box {
+    position: absolute;
+    z-index:5000;
+    top: 87%;
+    left: 84%;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin: auto;
+}
+
+.new-btn {
+    border:none;
+    box-shadow: 1px 1px 5px 1px rgba(.15, .15, .15, .15);
+    border-radius: 30px;
+    background: #ffffff;
+    font-size: 1.5rem;
+    color:#8d4bf6;
 }
