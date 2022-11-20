@@ -8,7 +8,7 @@ import "../css/History.css";
 import NavbarNone from "../components/NavbarNone";
 import "../css/Navbar.css";
 
-const HistoryEdit = ({ user }) => {
+const HistoryCreate = ({ user }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -68,7 +68,7 @@ const HistoryEdit = ({ user }) => {
     </div>
   );
 };
-export default HistoryEdit;
+export default HistoryCreate;
 
 const BtnPurple = styled.button`
   border: none;

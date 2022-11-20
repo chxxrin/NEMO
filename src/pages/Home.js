@@ -43,7 +43,9 @@ let Logo = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 200px;
+    color: #8d4bf6;
+    font-size: 50px;
+    padding: 150px;
 `
 
 function Home () {
@@ -74,7 +76,7 @@ function Home () {
 
     return (
       <div>
-          <Logo>logo</Logo>
+          <Logo>MONE</Logo>
             <MainBtn_Purple onClick={navigateToLogin}>로그인</MainBtn_Purple>
             <MainBtn_Purple onClick={navigateToMap}>시작하기</MainBtn_Purple>
             <MainBtn_Gray onClick={openModal} >

@@ -1,13 +1,14 @@
 import { useState,useEffect } from 'react';
 import React from 'react';
-import { RenderAfterNavermapsLoaded, NaverMap, Marker,Circle} from 'react-naver-maps'; // 패키지 불러오기
+import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps'; // 패키지 불러오기
 import '../css/Map.css';
+import '../css/Navbar.css';
 import jsonData from "./map_info.json";
 import Storelogo from '../assets/naecut.png';
 import { json } from 'react-router';
 import { Routes, Route, Link , useNavigate, Outlet,useLocation } from 'react-router-dom'
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
-
+import NavbarMap from '../components/NavbarMap';
 
 //test
 
@@ -17,6 +18,7 @@ export function Zido(){
     <div>{jeju}</div>
   )
 }
+
 
 export function AddMarker({parentMarker}){
 
@@ -42,15 +44,17 @@ export function AddMarker({parentMarker}){
 export function SearchBar({parentFunction}){
   let [search, setSearch] = useState('');
   return(
-    <div className="SearchBar">
-    <input className="SearchInput" type="text" onChange={(e) => {
-      setSearch(e.target.value);
-      
-    }}></input>
-    <button className="SearchButton" onClick={() =>{
-      parentFunction(search);
-    }} >검색</button>
+    <div className="SearchContainer">
+      <div className="SearchBar">
+      <input className="SearchInput" type="text" onChange={(e) => {
+        setSearch(e.target.value);
+        
+      }}></input>
+      <button className="SearchButton" onClick={() =>{
+        parentFunction(search);
+      }} >검색</button>
 
+      </div>
     </div>
   )
 }
@@ -85,34 +89,59 @@ export function NaverMapAPI() {
     const clickedMarker= () =>{
         
     }
+    //여기서부터 빡코딩
+    
+    // const dataList = jsonData.positions;
+
+    // {
+    //   dataList.map(function(a,i){
+    //     return(
+    //       <div>
+    //         {a[i].index}
+    //       </div>
+    //     )
+    //   })
+    // }
+
+    //
+
 
     
   return (
     
     <div>
+      <div>
+        <div className="map-navbar">
+          <NavbarMap>
+            <SearchBar parentFunction={parentFunction}></SearchBar>
+          </NavbarMap>
+        </div>
+          <div className="btns">
+            <button className="like-btn">즐겨찾기</button>
+            <button className="brand-btn">브랜드</button>
+          </div>
+      </div>
 
-    <SearchBar parentFunction={parentFunction}></SearchBar>
-      <button>즐겨찾기</button>
-      <button>브랜드</button>
 
-    
-    
-    <NaverMap id="overmap" 
+    <div className="navermap">
+      {/* id="overmap"  */}
+
+    <NaverMap 
       mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
       style={{
         width: '100%', // 네이버지도 가로 길이
         height: '75vh', // 네이버지도 세로 길이
         position:"relative",
-        hidden: flipped,
-        zIndex: 1
+        hidden: flipped
       }}
-      zIndex={1}
       defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
       defaultZoom={13} // 지도 초기 확대 배율
     >
+
     {/* <div id="undermap" style={{position:"absolute"}}>
+
         <button >hihi</button>
-    </div> */}
+    </div>
     <Marker
         key={1}
         position={new navermaps.LatLng(37.551229, 126.988205)}
@@ -146,7 +175,10 @@ export function NaverMapAPI() {
         }   
     </div>
     
-    <div className="StoreInfo" style={{ position:"absolute" ,zIndex: 10}}>
+
+
+    <div className="StoreInfo" style={{ position:"absolute" }}>
+
             <div id="StoreLeftBox">
                 <img id="StoreImg" src = {Storelogo}></img>
             </div>
@@ -166,8 +198,8 @@ export function NaverMapAPI() {
             <button onClick={()=> {onTrick()}} >강제렌더링 트릭버튼</button>
         </div>
     
-    
     </NaverMap>
+    </div>
     
     <div className="StoreInfo">
             <div id="StoreLeftBox">
@@ -199,16 +231,15 @@ export default function Map() {
   return (
     <RenderAfterNavermapsLoaded
       ncpClientId={'2nyiyeu9o7'} // 자신의 네이버 계정에서 발급받은 Client ID
-      //ncpClientId={process.env.REACT_APP_NAVERMAP_API_KEY}
       error={<p>Maps Load Error</p>}
       loading={<p>Maps Loading...</p>}
     >
       <NaverMapAPI />
+      
 
-      
-      {console.log(jsonData.positions[0].address)}
-      {console.log(process.env.REACT_APP_NAVERMAP_API_KEY)}
-      
+      <div className="hi">
+        <p>hihi</p>
+      </div>
       
       
     </RenderAfterNavermapsLoaded>
