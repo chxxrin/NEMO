@@ -1,6 +1,6 @@
 #overmap {
     position:relative;
-    zIndex: 2;
+    z-index: 2;
 }
 #undermap{
     position:absolute;
