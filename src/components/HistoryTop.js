@@ -6,7 +6,7 @@ const HistoryTop = (props) => {
   return (
     <div className="historyTop">
       <Top>
-        <FaCamera /> HISTORY
+        <FaCamera /> 히스토리
       </Top>
     </div>
   );
@@ -19,4 +19,5 @@ const Top = styled.h2`
   padding: 10px 10px 10px 10px;
   font-weight: bold;
   margin-top: 5px;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 `;
