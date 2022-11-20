@@ -1,10 +1,10 @@
 #overmap {
     position:relative;
-    zIndex: 2;
+    z-index: 2;
 }
 #undermap{
     position:absolute;
-    
+    z-index: 10000;
 }
 .hi{
     color:red;
@@ -13,28 +13,42 @@
 
 .SearchBar{
     height: 40px;
-    width: 99%;
-    border: 1px solid rgb(44, 174, 44);
-    background: #ffffff;
+    width: 100%;
+    /* border: 1px solid rgb(44, 174, 44); */
+    border: none;
+    /* background: #ffffff; */
+    z-index: 5000;
+    position: relative;
+    
     
 }
 .SearchInput{
     font-size:20px;
-    width: 800px;
-    padding: 10px;
+    width: 90%;
+    /* padding: 10px; */
     border: 0px;
     outline: none;
     float: left;
+    z-index: 5000;
+    background-color: transparent;
 }
 .SearchButton{
     width: 9%;
-    height:100%;
-    border: 0px;
-    background: rgb(44, 174, 44);
+    border: none;
+    /* background: rgb(44, 174, 44); */
     outline: none;
     float: right;
     color:#ffffff;
+    z-index:5000;
+    position:relative;
+    background-color: transparent;
+    float:right;
+    font-size: 1rem;
+}
 
+.SearchContainer {
+    position:relative;
+    z-index:50000;
 }
 #StoreLeftBox{
     float: left;
@@ -53,8 +67,34 @@
     text-align: left;
 }
 #z_index{
-    
+    z-index: 100000;
     position: absolute;
     width:200px;
     width:300px;
+}
+
+.btns {
+    background-color:transparent; 
+    display:flex;
+    justify-content: space-evenly;
+    padding:10px;
+}
+.like-btn, .brand-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #DDDDDD;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .25);
+    z-index: 500;
+    height: 30px;
+    width: 80px;
+    font-size: 13px;
+}
+
+.map-navbar{
+    text-align: center;
+    justify-content: center;
+    display:flex;
+    background-color:transparent;
 }
