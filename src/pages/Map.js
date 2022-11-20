@@ -5,7 +5,20 @@ import '../css/Map.css';
 import '../css/Navbar.css';
 import jsonData from "./map_info.json";
 import Storelogo from '../assets/naecut.png';
+import { json } from 'react-router';
+import { Routes, Route, Link , useNavigate, Outlet,useLocation } from 'react-router-dom'
+const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
 import NavbarMap from '../components/NavbarMap';
+
+//test
+
+export function Zido(){
+  var jeju = new window.naver.maps.LatLng(33.3590628, 126.534361);
+  return(
+    <div>{jeju}</div>
+  )
+}
+
 
 export function AddMarker({parentMarker}){
 
@@ -50,8 +63,7 @@ export function NaverMapAPI() {
   let[diff,setDiff] = useState(0); // 마커 인덱스 구분하기 위한 state 변수
   let[modal,setModal] = useState(false);
   let[trick,setTrick] = useState(0);
-
-  
+  let navigate =  useNavigate();
   const parentFunction = (x) => {
     console.log(x);
   };
@@ -207,6 +219,8 @@ export function NaverMapAPI() {
                 </ul>
             </div>
             <button onClick={()=> {onTrick()}} >강제렌더링 트릭버튼</button>
+            <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button>
+            
         </div>
     
     </div>
