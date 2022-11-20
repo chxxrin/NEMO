@@ -10,7 +10,7 @@ import '../css/MapHis.css';
 export function MapHis(){
     const location = useLocation();
     const diff = location.state.diff;
-
+  
 
     return(
         <div>
@@ -22,7 +22,7 @@ export function MapHis(){
                 <div>
                 <ul id="StoreList">
                     <li>
-                        <p>{jsonData.positions[diff].name}</p>
+                        <p className="StoreName">{jsonData.positions[diff].name}</p>
                     </li>
                     <li>
                         <p>{jsonData.positions[diff].address}</p>
@@ -38,14 +38,24 @@ export function MapHis(){
             
             <div className="PictureList">
             <div id="HistoryTitle">History</div>
+
+            
+
                 <div id="Picture1">사진1</div>
                 <div id="Picture2">사진2</div>
                 <div id="Picture3">사진3</div>
-                <div id="Picture4">사진 추가</div>
+                <div id="Picture4">사진 추가</div> 
             </div>
 
         </div>
     )
 }
 
+function HistoryPicture(props) {
+    return (
+        <div>
+            사진1
+        </div>
+    )
+}
 export default MapHis;

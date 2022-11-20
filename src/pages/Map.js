@@ -8,6 +8,8 @@ import Storelogo from '../assets/naecut.png';
 import { json } from 'react-router';
 import { Routes, Route, Link , useNavigate, Outlet,useLocation } from 'react-router-dom'
 import NavbarMap from '../components/NavbarMap';
+import { IoMdNotificationsOff } from 'react-icons/io';
+import * as MdIcons from "react-icons/md";
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
 
 
@@ -121,6 +123,8 @@ export function NaverMapAPI() {
             <button className="like-btn">즐겨찾기</button>
             <button className="brand-btn">브랜드</button>
           </div>
+         
+         
       </div>
 
 
@@ -131,7 +135,7 @@ export function NaverMapAPI() {
       mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
       style={{
         width: '100%', // 네이버지도 가로 길이
-        height: '75vh', // 네이버지도 세로 길이
+        height: '100vh', // 네이버지도 세로 길이 원래는 75%
         position:"relative",
         hidden: flipped
       }}
@@ -196,19 +200,30 @@ export function NaverMapAPI() {
                     </li>
                 </ul>
             </div>
-            <button onClick={()=> {onTrick()}} >강제렌더링 트릭버튼</button>
+           
         </div>
     
     </NaverMap>
     </div>
-    
-    <div className="StoreInfo">
-            <div id="StoreLeftBox">
+
+     {/* 강제랜더링/새로고침버튼 */}
+    <div className="new-box">
+            <button onClick={()=> {onTrick()}} className="new-btn"><MdIcons.MdAutorenew/></button>
+    </div>
+
+    {/* 상세페이지요약 */}
+    <div className="StoreBigBox">
+    <div className="StoreContainer">
+    <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >
+            <div className="StoreLeftBox">
+              
                 <img id="StoreImg" src = {Storelogo}></img>
+
+
             </div>
-            <div id="StoreRightBox">
+            <div className="StoreRightBox">
                 <ul id="StoreList">
-                    <li>
+                    <li id="StoreName">
                         <p>{jsonData.positions[diff].name}</p>
                     </li>
                     <li>
@@ -219,11 +234,12 @@ export function NaverMapAPI() {
                     </li>
                 </ul>
             </div>
-            <button onClick={()=> {onTrick()}} >강제렌더링 트릭버튼</button>
-            <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button>
             
+            {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
+            </button>
         </div>
     
+    </div>
     </div>
   );
 }
@@ -236,12 +252,6 @@ export default function Map() {
       loading={<p>Maps Loading...</p>}
     >
       <NaverMapAPI />
-      
-
-      <div className="hi">
-        <p>hihi</p>
-      </div>
-      
       
     </RenderAfterNavermapsLoaded>
   );
