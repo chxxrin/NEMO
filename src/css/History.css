@@ -12,6 +12,11 @@ section {
   box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   order: 1;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+span {
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
 #title {
@@ -37,7 +42,7 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 130px 50px 130px 50px;
+  padding: 110px 50px 110px 50px;
   color: #8d4bf6;
   font-size: 70px;
   display: flex;
@@ -51,4 +56,5 @@ section {
   border: 0px solid #e2e2e2;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
   justify-content: space-around;
+  
 }

@@ -125,11 +125,11 @@ export function NaverMapAPI() {
       defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
       defaultZoom={13} // 지도 초기 확대 배율
     >
-      
-      <button id="z_test"></button>
+
     {/* <div id="undermap" style={{position:"absolute"}}>
+
         <button >hihi</button>
-    </div> */}
+    </div>
     <Marker
         key={1}
         position={new navermaps.LatLng(37.551229, 126.988205)}
@@ -166,6 +166,7 @@ export function NaverMapAPI() {
 
 
     <div className="StoreInfo" style={{ position:"absolute" }}>
+
             <div id="StoreLeftBox">
                 <img id="StoreImg" src = {Storelogo}></img>
             </div>
