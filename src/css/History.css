@@ -12,11 +12,11 @@ section {
   box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   order: 1;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 }
 
 span {
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 }
 
 #title {
@@ -26,7 +26,7 @@ span {
   padding: 15px 10px 0px 15px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 38px;
+  margin-bottom: 18px;
 }
 
 #pic {
@@ -35,7 +35,7 @@ span {
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #newpic {
@@ -56,5 +56,4 @@ span {
   border: 0px solid #e2e2e2;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
   justify-content: space-around;
-  
 }

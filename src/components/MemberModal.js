@@ -1,8 +1,8 @@
 import React from "react";
-import "../css/Modal.css";
-import { useState } from "react";
+import Member from "./Member";
+import "../css/MemberModal.css";
 
-const Modal = (props) => {
+const MemberModal = (props) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header, save } = props;
 
@@ -17,9 +17,12 @@ const Modal = (props) => {
               &times;
             </button>
           </header>
-          <main>{props.children}</main>
+          <main>
+            {<Member name="시원" />}
+            {<Member name="지우" />}
+          </main>
           <footer>
-            <button className="save" onClick={save}>
+            <button className="save" onClick={close}>
               완료
             </button>
           </footer>
@@ -29,4 +32,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default MemberModal;
