@@ -22,16 +22,47 @@ const HistoryView = ({ user }) => {
         setError(null);
         setHistories(null);
         setLoading(true);
-        const response = await axios.get(API + "/studio/1");
+        const response = await axios.get(
+          `${API}/history/`,
+          {
+            headers: { "Access-Control-Allow-Origin": "*" },
+            params: {
+              studio_id: 1,
+            },
+          },
+          { withCredentials: true }
+        );
         setHistories(response.data);
         console.log(response.data);
       } catch (e) {
         setError(e);
+        console.log(e);
       }
       setLoading(false);
     };
     fetchHistories();
   }, []);
+
+  // useEffect(async () => {
+  //   console.log(`${API}/studio/`);
+  //   await axios
+  //     .get(
+  //       `${API}/history/`,
+  //       {
+  //         headers: { "Access-Control-Allow-Origin": "*" },
+  //         params: {
+  //           studio_id: 1,
+  //         },
+  //       },
+  //       { withCredentials: true }
+  //     )
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   const [modalOpen, setModalOpen] = useState(false);
 
