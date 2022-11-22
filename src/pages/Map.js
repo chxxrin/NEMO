@@ -213,7 +213,6 @@ let [markers, setMarkers] = useState(null);
 
      <div id="undermap" style={{position:"absolute"}}>
 
-        <button >hihi</button>
     </div>
     <Marker
         key={1}
@@ -277,6 +276,15 @@ let [markers, setMarkers] = useState(null);
             <button onClick={()=> {onTrick()}} className="new-btn"><MdIcons.MdAutorenew/></button>
     </div>
 
+        {/* <div className="container">
+              <input
+                type="search"
+                placeholder="검색어를 입력 하세요..."
+                name="query"
+                className="input_search"
+              />
+        </div> */}
+
     {/* 상세페이지요약 */}
     {
       flag ===true ?
@@ -284,10 +292,7 @@ let [markers, setMarkers] = useState(null);
     <div className="StoreContainer">
     <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >
             <div className="StoreLeftBox">
-              
                 <img id="StoreImg" src = {Storelogo}></img>
-
-
             </div>
             <div className="StoreRightBox">
                 <ul id="StoreList">
@@ -299,14 +304,15 @@ let [markers, setMarkers] = useState(null);
                       <p>{index}</p>
                     </li>
                 </ul>
-            </div>
-            
+            </div>        
             {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
             </button>
         </div>
     
     </div> :null
     }
+
+
     </div>
   );
 }

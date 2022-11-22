@@ -40,7 +40,7 @@ export default function NavbarMap({parentFunction}) {
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#8d4bf6" }}>
+      <IconContext.Provider value={{ color: "#7D6E83" }}>
         {/* All the icons now are white */}
         <div className="navbar">
           <Link to="#" className="map-menu-bars">

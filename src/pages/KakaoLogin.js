@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import btn from "../assets/kakao_login_medium_wide.png";
+import { BsFillChatFill } from "react-icons/bs";
 
 const KakaoLogin = () => {
   return (
     <DivBtn>
       <LoginBtn>
-        <img src={btn} />
+        <BsFillChatFill className="logo" /> 카카오 로그인
       </LoginBtn>
     </DivBtn>
   );
@@ -15,16 +15,23 @@ const KakaoLogin = () => {
 export default KakaoLogin;
 
 const LoginBtn = styled.button`
+  position: relative;
+  top: 470px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: none;
-  border-radius: 12px;
+  width: 270px;
+  height: 50px;
+  margin: 20px auto;
+  cursor: pointer;
+  padding: 10px;
   background-color: #fee500;
-  font-size: 15px;
-  position: relative;
-  top: 600px;
+  color: #181602;
+  border: none;
+  font-size: 16px;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  border-radius: 12px;
 `;
 
 const DivBtn = styled.div`
@@ -32,4 +39,9 @@ const DivBtn = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  .logo {
+    justify-self: start;
+    margin-right: 20px;
+  }
 `;

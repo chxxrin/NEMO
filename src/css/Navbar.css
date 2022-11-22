@@ -28,7 +28,7 @@
   padding: 0;
   padding-left:1rem;
   padding-right:1rem;
-  color:#8d4bf6;
+  color:#7D6E83;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .25);
   z-index: 10000;
   position: absolute;
@@ -41,7 +41,7 @@
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
-  color : #8d4bf6;
+  color : #7D6E83;
   z-index: 10000;
 
 }
@@ -50,7 +50,7 @@
   margin-left: 2rem;
   font-size: 1rem;
   background: none;
-  color : #8d4bf6;
+  color : #7D6E83;
   z-index: 10000;
   float:left;
   width:9%;
@@ -60,7 +60,7 @@
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
-  color : #8d4bf6;
+  color : #7D6E83;
 }
 
 .nav-menu {
@@ -169,7 +169,7 @@ span {
   margin-top: 10px;
   padding-left: 0.8rem;
   font-size: 1.3rem;
-  color:#8d4bf6;
+  color:#7D6E83;
 }
 
 .letslogin {

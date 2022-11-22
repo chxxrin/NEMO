@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import History from "../components/History";
 import HistoryTop from "../components/HistoryTop";
 import MemberModal from "../components/MemberModal";
 import styled from "styled-components";
-import "../css/History.css";
 import NavbarNone from "../components/NavbarNone";
+import axios from "axios";
+import imgHolder from "../assets/add_image.png";
+import "../css/History.css";
 import "../css/Navbar.css";
+
+const API = process.env.REACT_APP_API;
 
 const HistoryEdit = ({ user }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -17,52 +21,79 @@ const HistoryEdit = ({ user }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
+  const [image, setImage] = useState({
+    image_file: "",
+    preview_URL: user.photos[0].img,
+  });
 
-  const fileInput = React.useRef();
+  let inputRef;
+  const saveImage = (e) => {
+    e.preventDefault();
 
-  const [imgUpload, setImgUpload] = useState();
-
-  const handleImgButtonClick = (event) => {
-    event.preventDefault();
-    fileInput.current.click();
+    if (e.target.files[0]) {
+      URL.revokeObjectURL(image.preview_URL);
+      const preview_URL = URL.createObjectURL(e.target.files[0]);
+      setImage(() => ({
+        image_file: e.target.files[0],
+        preview_URL: preview_URL,
+      }));
+    }
   };
 
-  const handleChange = (event) => {
-    if (event.target.files.length !== 0) {
+  const deleteImage = () => {
+    URL.revokeObjectURL(image.preview_URL);
+    setImage({
+      image_file: "",
+      preview_URL: user.photos[0].img,
+    });
+  };
+
+  useEffect(() => {
+    return () => {
+      URL.revokeObjectURL(image.preview_URL);
+    };
+  }, []);
+
+  const sendImageToServer = async () => {
+    if (image.image_file) {
       const formData = new FormData();
-      formData.append("img", event.target.files[0]);
-      const imgSrc = URL.createObjectURL(event.target.files[0]);
-      setImgUpload(imgSrc);
-      user.photos[0].img = imgSrc;
+      formData.append("file", image.image_file);
+      await axios.post(API + "/image/upload");
     }
   };
 
   return (
     <div className="container">
-      <NavbarNone/>
+      <NavbarNone />
       <HistoryTop />
-      <History user={user} trace="Edit" idx={0} />
+      <div>
+        <History user={user} trace="Edit" idx={0} />
+
+        <section id="pic">
+          <img src={image.preview_URL} onClick={() => inputRef.click()}></img>
+        </section>
+      </div>
+
       <section id="btn">
         <BtnPurple onClick={openModal}>초대</BtnPurple>
-        <BtnPurple onClick={handleImgButtonClick}>이미지 수정</BtnPurple>
+        <BtnGray onClick={() => inputRef.click()}>사진 변경</BtnGray>
         <Link to="/history/view">
-          <BtnPurple>완료</BtnPurple>
+          <BtnPurple onClick={sendImageToServer}>완료</BtnPurple>
         </Link>
       </section>
       <input
         type="file"
         accept="image/jpg, image/jpeg, image/png"
-        ref={fileInput}
-        onChange={handleChange}
+        onChange={saveImage}
+        onClick={(e) => (e.target.value = null)}
+        ref={(refParam) => (inputRef = refParam)}
         style={{ display: "none" }}
       />
-      <MemberModal open={modalOpen} close={closeModal} header="사용자 초대하기">
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
-        laying out print, graphic or web designs. The passage is attributed to
-        an unknown typesetter in the 15th century who is thought to have
-        scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a
-        type specimen book.
-      </MemberModal>
+      <MemberModal
+        open={modalOpen}
+        close={closeModal}
+        header="사용자 초대하기"
+      ></MemberModal>
     </div>
   );
 };
@@ -74,7 +105,18 @@ const BtnPurple = styled.button`
   width: 90px;
   height: 41px;
   color: white;
-  background-color: #8d4bf6;
+  background-color: #7D6E83;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+`;
+
+const BtnGray = styled.button`
+  border: none;
+  outline: none;
+  width: 90px;
+  height: 41px;
+  color: black;
+  background-color: #e7e7e7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 `;

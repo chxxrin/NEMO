@@ -15,7 +15,7 @@ const HistoryTop = (props) => {
 export default HistoryTop;
 
 const Top = styled.h2`
-  color: #8d4bf6;
+  color: #7D6E83;
   padding: 10px 10px 10px 10px;
   font-weight: bold;
   margin-top: 5px;

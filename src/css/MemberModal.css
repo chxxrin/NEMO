@@ -1,4 +1,4 @@
-.modal {
+.memModal {
   display: none;
   position: fixed;
   top: 0;
@@ -7,71 +7,74 @@
   left: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.6);
-  
 }
-.modal button {
+.memModal button {
   outline: none;
   cursor: pointer;
   border: 0;
-  
 }
-.modal > section {
+.memModal > section {
   width: 90%;
   max-width: 450px;
   margin: 0 auto;
   border-radius: 0.3rem;
   background-color: #fff;
   /* 팝업이 열릴때 스르륵 열리는 효과 */
-  animation: modal-show 0.3s;
+  animation: memModal-show 0.3s;
   overflow: hidden;
 }
-.modal > section > header {
+.memModal > section > header {
   position: relative;
-  padding: 10px;
-  margin: 10px;
-  /* background-color: #f1f1f1; */
-  background-color: #fff;
-  color: #7D6E83;
+  padding: 10px 64px 6px 16px;
+  background-color: transparent;
+  font-size: 20px;
   font-weight: 700;
-  font-size: 1.5rem;
 }
-.modal > section > header button {
+.memModal > section > header button {
   position: absolute;
-  top: 15px;
+  top: 10px;
   right: 15px;
   width: 30px;
   font-size: 21px;
   font-weight: 700;
   text-align: center;
-  color: #fff;
+  color: #7D6E83;
   background-color: transparent;
 }
-.modal > section > main {
+.memModal > section > main {
   padding: 16px;
-  border-bottom: 1px solid #fff;
-  border-top: 1px solid #fff;
-  /* #dee2e6; */
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
 }
-.modal > section > footer {
+.memModal > section > footer {
   padding: 12px 16px;
   text-align: right;
 }
-.modal > section > footer button {
+.save {
   padding: 6px 12px;
-  color: #7D6E83;
-  background-color: #fff; 
-  /* #6c757d; */
+  color: #fff;
+  background-color: #7D6E83;
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 13px;
 }
-.modal.openModal {
+.invite {
+  padding: 6px 12px;
+  color: black;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.memModal.openModal {
   display: flex;
   align-items: center;
   /* 팝업이 열릴때 스르륵 열리는 효과 */
-  animation: modal-bg-show 0.3s;
-  
+  animation: memModal-bg-show 0.3s;
 }
-@keyframes modal-show {
+@keyframes memModal-show {
   from {
     opacity: 0;
     margin-top: -50px;
@@ -81,17 +84,11 @@
     margin-top: 0;
   }
 }
-@keyframes modal-bg-show {
+@keyframes memModal-bg-show {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
-}
-
-.pre-next {
-  display: flex;
-  justify-content: space-between;
-  color: #7D6E83;
 }
