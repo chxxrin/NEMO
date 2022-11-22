@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import DateSelect from "./DateSelect";
+import DateView from "./DateView";
 import "../css/History.css";
 
 const History = (props) => {
@@ -14,10 +16,10 @@ const History = (props) => {
     return (
       <div>
         <section id="title">
-          <h5>{user.photos[idx].title}</h5>
-          <p>
-            {user.photos[idx].location} {user.photos[idx].date}
-          </p>
+          <h5 style={{ marginTop: "5px" }}>{user.photos[idx].title}</h5>
+          <Info>
+            {user.photos[idx].location} <DateView />
+          </Info>
         </section>
         <section id="pic">
           <img src={image}></img>
@@ -33,9 +35,9 @@ const History = (props) => {
             placeholder="제목을 입력해주세요!"
             onChange={onChangeTitleText}
           />
-          <p style={{ textAlign: "center" }}>
-            {user.photos[idx].location} {user.photos[idx].date}
-          </p>
+          <Info>
+            {user.photos[idx].location} <DateSelect />
+          </Info>
         </section>
         <section id="newpic">+</section>
       </div>
@@ -52,9 +54,9 @@ const History = (props) => {
               onChange={onChangeTitleText}
             />
           )}
-          <p style={{ textAlign: "center" }}>
-            {user.photos[idx].location} {user.photos[idx].date}
-          </p>
+          <Info>
+            {user.photos[idx].location} <DateSelect />
+          </Info>
         </section>
         <section id="pic">
           <img src={image}></img>
@@ -65,3 +67,10 @@ const History = (props) => {
 };
 
 export default History;
+
+const Info = styled.div`
+  width: 320px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+`;

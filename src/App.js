@@ -27,11 +27,7 @@ const userDummy = {
 };
 
 function App() {
-  return (
-    <React.StrictMode>
-      <Router user={userDummy} />
-    </React.StrictMode>
-  );
+  return <Router user={userDummy} />;
 }
 
 export default App;
