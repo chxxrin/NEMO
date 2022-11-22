@@ -34,6 +34,6 @@ const XButton = styled.button`
   outline: none;
   border: 0;
   background-color: transparent;
-  color: #8d4bf6;
+  color: #7D6E83;
   text-align: right;
 `;

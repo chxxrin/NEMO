@@ -14,7 +14,7 @@ let PageBtn = styled.button`
     background-color: #ffffff;
     border: none;
     font-size: 20px;
-    color: #8d4bf6;
+    color: #7D6E83;
     cursor: pointer;
     float: right;
 `

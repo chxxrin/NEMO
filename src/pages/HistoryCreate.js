@@ -74,7 +74,7 @@ const BtnPurple = styled.button`
   width: 90px;
   height: 41px;
   color: white;
-  background-color: #8d4bf6;
+  background-color: #7D6E83;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 `;
