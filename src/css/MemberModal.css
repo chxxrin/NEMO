@@ -50,12 +50,23 @@
   padding: 12px 16px;
   text-align: right;
 }
-.memModal > section > footer button {
+.save {
   padding: 6px 12px;
   color: #fff;
   background-color: #7D6E83;
   border-radius: 5px;
   font-size: 13px;
+}
+.invite {
+  padding: 6px 12px;
+  color: black;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }
 .memModal.openModal {
   display: flex;

@@ -5,7 +5,7 @@ import DateView from "./DateView";
 import "../css/History.css";
 
 const History = (props) => {
-  const { user, idx, trace } = props;
+  const { user, idx, trace, src } = props;
   const onChangeTitleText = (e) => {
     setEditTitle(e.target.value);
     user.photos[idx].title = editTitle;
@@ -20,9 +20,6 @@ const History = (props) => {
           <Info>
             {user.photos[idx].location} <DateView />
           </Info>
-        </section>
-        <section id="pic">
-          <img src={image}></img>
         </section>
       </div>
     );
@@ -39,7 +36,6 @@ const History = (props) => {
             {user.photos[idx].location} <DateSelect />
           </Info>
         </section>
-        <section id="newpic">+</section>
       </div>
     );
   } else {
@@ -57,9 +53,6 @@ const History = (props) => {
           <Info>
             {user.photos[idx].location} <DateSelect />
           </Info>
-        </section>
-        <section id="pic">
-          <img src={image}></img>
         </section>
       </div>
     );
