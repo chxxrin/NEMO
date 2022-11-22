@@ -31,7 +31,7 @@
   margin: 10px;
   /* background-color: #f1f1f1; */
   background-color: #fff;
-  color: #8d4bf6;
+  color: #7D6E83;
   font-weight: 700;
   font-size: 1.5rem;
 }
@@ -58,7 +58,7 @@
 }
 .modal > section > footer button {
   padding: 6px 12px;
-  color: #8d4bf6;
+  color: #7D6E83;
   background-color: #fff; 
   /* #6c757d; */
   border-radius: 5px;
@@ -93,5 +93,5 @@
 .pre-next {
   display: flex;
   justify-content: space-between;
-  color: #8d4bf6;
+  color: #7D6E83;
 }

@@ -10,6 +10,7 @@ import { Routes, Route, Link , useNavigate, Outlet,useLocation } from 'react-rou
 import NavbarMap from '../components/NavbarMap';
 import { IoMdNotificationsOff } from 'react-icons/io';
 import * as MdIcons from "react-icons/md";
+
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
 
 
@@ -145,7 +146,6 @@ export function NaverMapAPI() {
 
      <div id="undermap" style={{position:"absolute"}}>
 
-        <button >hihi</button>
     </div>
     <Marker
         key={1}
@@ -211,15 +211,21 @@ export function NaverMapAPI() {
             <button onClick={()=> {onTrick()}} className="new-btn"><MdIcons.MdAutorenew/></button>
     </div>
 
+        {/* <div className="container">
+              <input
+                type="search"
+                placeholder="검색어를 입력 하세요..."
+                name="query"
+                className="input_search"
+              />
+        </div> */}
+
     {/* 상세페이지요약 */}
     <div className="StoreBigBox">
     <div className="StoreContainer">
     <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >
             <div className="StoreLeftBox">
-              
                 <img id="StoreImg" src = {Storelogo}></img>
-
-
             </div>
             <div className="StoreRightBox">
                 <ul id="StoreList">
@@ -233,13 +239,20 @@ export function NaverMapAPI() {
                         <p>TEL : {jsonData.positions[diff].contact}</p>
                     </li>
                 </ul>
-            </div>
-            
+            </div>        
             {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
             </button>
         </div>
     
     </div>
+
+
+
+
+
+
+
+
     </div>
   );
 }

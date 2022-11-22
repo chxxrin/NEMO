@@ -38,7 +38,7 @@
   font-size: 21px;
   font-weight: 700;
   text-align: center;
-  color: #8d4bf6;
+  color: #7D6E83;
   background-color: transparent;
 }
 .memModal > section > main {
@@ -53,7 +53,7 @@
 .memModal > section > footer button {
   padding: 6px 12px;
   color: #fff;
-  background-color: #8d4bf6;
+  background-color: #7D6E83;
   border-radius: 5px;
   font-size: 13px;
 }

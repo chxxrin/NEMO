@@ -6,17 +6,20 @@ import {useState} from 'react';
 import styled from "styled-components";
 import Modal from '../components/Modal';
 
+
+
+//color : 진한보라 #7D6E83,#7F669D, #827397, 연한보라 #B5A8BF
 let MainBtn_Purple = styled.button` 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid #8d4bf6;
+    border: 1px solid #7D6E83;
     width: 250px;
     margin: 20px auto;
     cursor: pointer;
     padding: 10px;
-    background-color: #8d4bf6;
+    background-color: #7D6E83;
     color: white;
     font-size: 16px;
     border-radius: 10px;
@@ -43,7 +46,7 @@ let Logo = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #8d4bf6;
+    color: #7D6E83;
     font-size: 50px;
     padding: 150px;
 `
@@ -76,7 +79,7 @@ function Home () {
 
     return (
       <div>
-          <Logo>MONE</Logo>
+          <Logo>NEMO</Logo>
             <MainBtn_Purple onClick={navigateToLogin}>로그인</MainBtn_Purple>
             <MainBtn_Purple onClick={navigateToMap}>시작하기</MainBtn_Purple>
             <MainBtn_Gray onClick={openModal} >
@@ -88,7 +91,6 @@ function Home () {
 “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”
 The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.
             </Modal>
-            
         </div>
     )
 }

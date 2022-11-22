@@ -5,7 +5,7 @@
 #StoreInfo{
     box-sizing: border-box;
 
-    position: absolute;
+    /* position: absolute; */
     /* width: 368px;
     height: 354px; */
     /* left: 12px;
@@ -16,21 +16,23 @@
     border: 1px solid #E2E2E2;
     box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    
 }
 
 .StoreName {
     font-size: 20px;
 }
-#HistoryTitle{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 14px;
-    top: 390px;
-
+.HistoryTitle{
+    /* position: absolute; */
+    /* width: 100px;
+    height: 100px; */
+    /* left: 14px;
+    top: 390px; */
+    margin-left: 20px;
     font-size:30px;
     font-weight: bold;
-    color:#7016FF;
+    color:#7D6E83;
+    
 }
 #Picture1{
     position: absolute;
@@ -73,14 +75,14 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
 }
 
+/* .HistoryList {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+} */
 .HistoryContainer{
     box-sizing: border-box;
-
-    position: absolute;
-    /* width: 368px;
-    height: 354px; */
-    /* left: 12px;
-    top: 29px; */
+    /* position: absolute; */
     padding: 20px;
     margin: 20px;
     background: #FFFFFF;
@@ -93,13 +95,62 @@ border-radius: 10px;
     width: 150px;
     height:150px;
 
-
-
 }
 
-.HistoryBigBox{
-    position:absolute;
+
+.maphis-container {
+    border: 1px solid gray;
+    box-sizing: border-box;
+
+    /* position: absolute; */
+    padding: 20px;
+    margin: 20px;
+    background: #FFFFFF;
+    border: 1px solid #E2E2E2;
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    width: 170px;
+    height:170px;
     display: flex;
-    justify-content: space-between;
-    top: 65%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
 }
+
+.picture-container {
+    width: 300px;
+    height: 200px;
+    display: grid;
+    flex-direction: column;
+    grid-template-rows: 150px 150px; /* 명시적 2개 행 정의 */
+    grid-template-columns: 170px 170px; /* 명시적 2개 열 정의 */
+    grid-auto-rows: 100px; /* 그 외(암시적) 행의 크기 정의 */
+    gap: 20px;
+  }
+  .picture-item {
+    padding: 20px;
+    margin-left: 15px;
+    margin-top: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E2E2E2;
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7D6E83;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  /* .picture-item:nth-child(3) {
+    grid-row: 2 / 4;
+    
+  } */
+
+  .icon-plus {
+    color:  #7D6E83;
+  }
