@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Member = (props) => {
   const removeUser = () => {
-    console.removeUser("hi");
+    console.log("hi");
   };
   return (
     <div>
@@ -32,6 +32,7 @@ const MemberBox = styled.section`
 
 const XButton = styled.button`
   outline: none;
+  border: 0;
   background-color: transparent;
   color: #8d4bf6;
   text-align: right;

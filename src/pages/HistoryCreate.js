@@ -39,7 +39,7 @@ const HistoryCreate = ({ user }) => {
 
   return (
     <div className="container">
-      <NavbarNone/>
+      <NavbarNone />
       <HistoryTop />
       <div onClick={handleImgButtonClick}>
         <History user={user} trace="Create" idx={0} />
@@ -58,13 +58,11 @@ const HistoryCreate = ({ user }) => {
         onChange={handleChange}
         style={{ display: "none" }}
       />
-      <MemberModal open={modalOpen} close={closeModal} header="사용자 초대하기">
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
-        laying out print, graphic or web designs. The passage is attributed to
-        an unknown typesetter in the 15th century who is thought to have
-        scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a
-        type specimen book.
-      </MemberModal>
+      <MemberModal
+        open={modalOpen}
+        close={closeModal}
+        header="사용자 초대하기"
+      ></MemberModal>
     </div>
   );
 };
