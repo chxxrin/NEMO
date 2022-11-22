@@ -30,10 +30,10 @@ span {
 }
 
 #pic {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px 15px 15px;
   flex-direction: column;
   margin-bottom: 40px;
 }
@@ -43,7 +43,7 @@ span {
   justify-content: center;
   text-align: center;
   padding: 110px 50px 110px 50px;
-  color: #7D6E83;
+  color: #7d6e83;
   font-size: 70px;
   display: flex;
   flex-direction: column;
