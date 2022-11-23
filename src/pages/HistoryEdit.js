@@ -4,7 +4,7 @@ import History from "../components/History";
 import HistoryTop from "../components/HistoryTop";
 import MemberModal from "../components/MemberModal";
 import styled from "styled-components";
-import { TiDeleteOutline } from "react-icons/ti";
+import { TiDelete } from "react-icons/ti";
 import NavbarNone from "../components/NavbarNone";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
@@ -87,10 +87,9 @@ const HistoryEdit = ({ user }) => {
       <HistoryTop />
       <div>
         <History user={user} trace="Edit" idx={0} />
-
         <section id="pic">
           <BtnDelete className="del" onClick={deleteImage}>
-            <TiDeleteOutline />
+            <TiDelete />
           </BtnDelete>
           <img src={image.preview_URL} onClick={() => inputRef.click()}></img>
         </section>
@@ -144,11 +143,15 @@ const BtnGray = styled.button`
 `;
 
 const BtnDelete = styled.button`
-  width: 10px;
-  font-size: 30px;
-  justify-self: right;
+  width: 380px;
+  height: 15px;
+  font-size: 25px;
+  justify-self: right !important;
+  align-items: right !important;
+  text-align: right !important;
+  z-index: 10;
   border: none;
   outline: none;
-  color: black;
+  color: gray;
   background-color: transparent;
 `;

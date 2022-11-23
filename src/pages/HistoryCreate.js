@@ -8,6 +8,7 @@ import NavbarNone from "../components/NavbarNone";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
 import imgHolder from "../assets/add_image.png";
+import { TiDelete } from "react-icons/ti";
 import "../css/History.css";
 import "../css/Navbar.css";
 
@@ -88,6 +89,9 @@ const HistoryCreate = ({ user }) => {
         <History user={user} trace="Create" idx={0} />
 
         <section id="pic">
+          <BtnDelete className="del" onClick={deleteImage}>
+            <TiDelete />
+          </BtnDelete>
           <img src={image.preview_URL} onClick={() => inputRef.click()}></img>
         </section>
       </div>
@@ -195,4 +199,18 @@ const BtnGray = styled.button`
   background-color: #e7e7e7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
+`;
+
+const BtnDelete = styled.button`
+  width: 380px;
+  height: 15px;
+  font-size: 25px;
+  justify-self: right !important;
+  align-items: right !important;
+  text-align: right !important;
+  z-index: 10;
+  border: none;
+  outline: none;
+  color: gray;
+  background-color: transparent;
 `;
