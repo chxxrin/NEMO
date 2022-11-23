@@ -1,20 +1,11 @@
 //pages>Home.js
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 // import '../css/Home.css';
-import { useState } from "react";
-import styled from "styled-components";
-import Modal from "../components/Modal";
-
-// KakaoLogin
-import { BsFillChatFill } from "react-icons/bs";
-const API = process.env.REACT_APP_API;
-const REACT_APP_KAKAO_RESTAPI_KEY = process.env.REACT_APP_KAKAO_RESTAPI_KEY;
-
-const REDIRECT_URI_DEV = "http://localhost:3000/oauth/kakao/callback"; // 개발버전
-const REDIRECT_URI_PROD = ""; // 배포버전버전
-
-const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_KAKAO_RESTAPI_KEY}&response_type=code&redirect_uri=${REDIRECT_URI_DEV}`;
+import { useState } from 'react'
+import styled from 'styled-components'
+import Modal from '../components/Modal'
+import KakaoLoginBtn from '../components/KakaoLoginBtn'
 
 //color : 진한보라 #8861c2,#7F669D, #827397, 연한보라 #B5A8BF
 let MainBtn_Purple = styled.button`
@@ -31,7 +22,7 @@ let MainBtn_Purple = styled.button`
   color: white;
   font-size: 16px;
   border-radius: 10px;
-`;
+`
 
 let MainBtn_Gray = styled.button`
   display: flex;
@@ -47,7 +38,7 @@ let MainBtn_Gray = styled.button`
   color: black;
   font-size: 16px;
   border-radius: 10px;
-`;
+`
 
 let Logo = styled.div`
   display: flex;
@@ -57,42 +48,37 @@ let Logo = styled.div`
   color: #8861c2;
   font-size: 50px;
   padding: 150px;
-`;
+`
 
 function Home() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   //카카오톡 로그인으로 시작하기 버튼을 누르면 /login 페이지로 이동
   const navigateToLogin = () => {
-    navigate("/login");
-  };
+    navigate('/login')
+  }
 
   const navigateToMap = () => {
-    navigate("/map");
-  };
+    navigate('/map')
+  }
 
   const navigateToHelp = () => {
-    navigate("/help");
-  };
+    navigate('/help')
+  }
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false)
 
   const openModal = () => {
-    setModalOpen(true);
-  };
+    setModalOpen(true)
+  }
   const closeModal = () => {
-    setModalOpen(false);
-  };
+    setModalOpen(false)
+  }
 
   return (
     <div>
       <Logo>NEMO</Logo>
-      <a href={KAKAO_AUTH_URL} style={{ textDecoration: "none" }}>
-        <LoginBtn>
-          <BsFillChatFill className="logo" style={{ marginRight: "15px" }} />{" "}
-          카카오 로그인
-        </LoginBtn>
-      </a>
+      <KakaoLoginBtn></KakaoLoginBtn>
       <MainBtn_Purple onClick={navigateToMap}>시작하기</MainBtn_Purple>
       <MainBtn_Gray onClick={openModal}>도움말</MainBtn_Gray>
       <Modal open={modalOpen} close={closeModal} header="4cut 사용방법">
@@ -109,26 +95,7 @@ function Home() {
         the focus is meant to be on design, not content.
       </Modal>
     </div>
-  );
+  )
 }
 
-export default Home;
-
-// KakaoLoginBtn
-const LoginBtn = styled.button`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 250px;
-  margin: 20px auto;
-  cursor: pointer;
-  padding: 10px;
-  background-color: #fee500;
-  color: #181602;
-  border: none;
-  font-size: 16px;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
-  border-radius: 12px;
-`;
+export default Home

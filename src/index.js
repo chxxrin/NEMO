@@ -5,6 +5,8 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import axios from 'axios'
 
+import { AuthProvider } from './contexts/AuthContext'
+
 if (process.env.NODE_ENV === 'development') {
   // yarn start (개발용 API 서버)
   axios.defaults.baseURL = process.env.REACT_APP_API_URL_DEV
@@ -16,5 +18,9 @@ if (process.env.NODE_ENV === 'development') {
 axios.defaults.timeout = 5000
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<App />)
+root.render(
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+)
 reportWebVitals()
