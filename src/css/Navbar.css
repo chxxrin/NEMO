@@ -1,6 +1,6 @@
 :root {
   --navBg: #ffffff;
-} 
+}
 
 /* .bg {
   position: fixed;
@@ -13,7 +13,6 @@
   text-align: center;
 } */
 
-
 .navbar {
   /* background-color: var(--navBg); */
   height: 40px;
@@ -21,46 +20,44 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   border-radius: 15px;
   margin-top: 10px;
   font-size: 1rem;
   padding: 0;
-  padding-left:1rem;
-  padding-right:1rem;
-  color:#7D6E83;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .25);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #8861c2;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
   z-index: 10000;
   position: absolute;
-  float:left;
+  float: left;
   background-color: white;
-
 }
 
 .menu-bars-close {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
-  color : #7D6E83;
+  color: #8861c2;
   z-index: 10000;
-
 }
 
 .menu-bars-menu {
   margin-left: 2rem;
   font-size: 1rem;
   background: none;
-  color : #7D6E83;
+  color: #8861c2;
   z-index: 10000;
-  float:left;
-  width:9%;
+  float: left;
+  width: 9%;
 }
 
 .menu-bars-login {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
-  color : #7D6E83;
+  color: #8861c2;
 }
 
 .nav-menu {
@@ -90,7 +87,6 @@
   align-items: center;
   list-style: none;
   height: 50px;
-
 }
 
 .nav-text a {
@@ -105,7 +101,7 @@
 }
 
 .nav-text a:hover {
-  background-color: rgba(0, 0, 0, .25);
+  background-color: rgba(0, 0, 0, 0.25);
   font-weight: bold;
 }
 
@@ -134,8 +130,8 @@ span {
   padding: none;
   margin: none;
 }
-.profile{
-  color:  black;
+.profile {
+  color: black;
   text-align: center;
   background: none;
   border: none;
@@ -153,7 +149,6 @@ span {
 }
 /* #060b26; */
 
-
 .mode {
   display: flex;
   justify-content: end;
@@ -169,11 +164,11 @@ span {
   margin-top: 10px;
   padding-left: 0.8rem;
   font-size: 1.3rem;
-  color:#7D6E83;
+  color: #8861c2;
 }
 
 .letslogin {
-  display:flex;
+  display: flex;
   font-size: 18px;
   padding-bottom: 20px;
   justify-content: center;
@@ -183,7 +178,7 @@ span {
 }
 
 .login {
-  display:flex;
+  display: flex;
   font-size: 18px;
   padding-bottom: 20px;
   justify-content: center;
@@ -191,9 +186,8 @@ span {
   text-align: center;
 }
 
-
 .profile-box {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 

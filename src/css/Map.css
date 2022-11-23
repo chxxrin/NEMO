@@ -1,55 +1,53 @@
 #overmap {
-    position:relat;
-    z-index: 2;
+  position: relat;
+  z-index: 2;
 }
-#undermap{
-    position:absolute;
-    z-index: 10000;
+#undermap {
+  position: absolute;
+  z-index: 10000;
 }
-.hi{
-    color:red;
-    background-color: aqua;
+.hi {
+  color: red;
+  background-color: aqua;
 }
 
-.SearchBar{
-    height: 40px;
-    width: 100%;
-    /* border: 1px solid rgb(44, 174, 44); */
-    border: none;
-    /* background: #ffffff; */
-    z-index: 5000;
-    position: relative;
-    
-    
+.SearchBar {
+  height: 40px;
+  width: 100%;
+  /* border: 1px solid rgb(44, 174, 44); */
+  border: none;
+  /* background: #ffffff; */
+  z-index: 5000;
+  position: relative;
 }
-.SearchInput{
-    font-size:20px;
-    width: 90%;
-    /* padding: 10px; */
-    border: 0px;
-    outline: none;
-    float: left;
-    z-index: 5000;
-    padding-top: 3px;
-    background-color: transparent;
+.SearchInput {
+  font-size: 20px;
+  width: 90%;
+  /* padding: 10px; */
+  border: 0px;
+  outline: none;
+  float: left;
+  z-index: 5000;
+  padding-top: 3px;
+  background-color: transparent;
 }
-.SearchButton{
-    width: 9%;
-    border: none;
-    /* background: rgb(44, 174, 44); */
-    outline: none;
-    float: right;
-    color:#ffffff;
-    z-index:5000;
-    position:relative;
-    background-color: transparent;
-    float:right;
-    font-size: 1.3rem;
+.SearchButton {
+  width: 9%;
+  border: none;
+  /* background: rgb(44, 174, 44); */
+  outline: none;
+  float: right;
+  color: #ffffff;
+  z-index: 5000;
+  position: relative;
+  background-color: transparent;
+  float: right;
+  font-size: 1.3rem;
 }
 
 .SearchInfo {
-    position:absolute;
-    z-index:50000;
+  position: absolute;
+  z-index: 50000;
 }
 /* .StoreBigBox {
     margin:20px;
@@ -60,118 +58,111 @@
 } */
 
 .StoreContainer {
-    position:absolute;
-    border:1px solid D8D8D8;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.15);
-    position: absolute;
-    z-index:5000;
-    top: 60%;
-    left: 0%;
-    right: 0;
-    bottom: 0;
-    height:30%;
-    width: 340px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  position: absolute;
+  border: 1px solid D8D8D8;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  z-index: 5000;
+  top: 60%;
+  left: 0%;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  width: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .StoreBorder {
-    border:none;
-    background-color: transparent;
+  border: none;
+  background-color: transparent;
 }
-.StoreLeftBox{
-    float: left;
-    width: 30%;
+.StoreLeftBox {
+  float: left;
+  width: 30%;
 }
 .StoreRightBox {
-    float:right;
-    width:50%;
+  float: right;
+  width: 50%;
 }
 
-#StoreImg{
-    object-fit: cover;
-    max-width: 100px;
-    max-height: 100px;
+#StoreImg {
+  object-fit: cover;
+  max-width: 100px;
+  max-height: 100px;
 }
-#StoreList{
-    font-size: 15px;
-    list-style: none;
-    padding-left: 0px;
-    text-align: left;
+#StoreList {
+  font-size: 15px;
+  list-style: none;
+  padding-left: 0px;
+  text-align: left;
 }
 #StoreName {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-
-#z_index{
-    z-index: 100000;
-    position: absolute;
-    width:200px;
-    width:300px;
+#z_index {
+  z-index: 100000;
+  position: absolute;
+  width: 200px;
+  width: 300px;
 }
 
 .btns {
-    background-color:transparent; 
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position:absolute;
-    /* z-index: 6000; */
-    top: -78%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-
-
+  background-color: transparent;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  /* z-index: 6000; */
+  top: -78%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 }
-.like-btn, .brand-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #DDDDDD;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, .25);
-    z-index: 500;
-    height: 30px;
-    width: 80px;
-    font-size: 13px;
+.like-btn,
+.brand-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dddddd;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+  z-index: 500;
+  height: 30px;
+  width: 80px;
+  font-size: 13px;
 }
 
-.map-navbar{
-    text-align: center;
-    justify-content: center;
-    display:flex;
-    background-color:transparent;
+.map-navbar {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  background-color: transparent;
 }
 
 .new-box {
-    position: absolute;
-    z-index:5000;
-    top: 87%;
-    left: 84%;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    margin: auto;
+  position: absolute;
+  z-index: 5000;
+  top: 87%;
+  left: 84%;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  margin: auto;
 }
 
 .new-btn {
-    border:none;
-    box-shadow: 1px 1px 5px 1px rgba(.15, .15, .15, .15);
-    border-radius: 30px;
-    background: #ffffff;
-    font-size: 1.5rem;
-    color:#7D6E83;
+  border: none;
+  box-shadow: 1px 1px 5px 1px rgba(0.15, 0.15, 0.15, 0.15);
+  border-radius: 30px;
+  background: #ffffff;
+  font-size: 1.5rem;
+  color: #8861c2;
 }
-
-
-
-

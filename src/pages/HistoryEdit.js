@@ -91,7 +91,15 @@ const HistoryEdit = ({ user }) => {
           <BtnDelete className="del" onClick={deleteImage}>
             <TiDelete />
           </BtnDelete>
-          <img src={image.preview_URL} onClick={() => inputRef.click()}></img>
+          <img
+            style={{
+              width: "350px",
+              height: "400px",
+              objectFit: "contain",
+            }}
+            src={image.preview_URL}
+            onClick={() => inputRef.click()}
+          ></img>
         </section>
       </div>
 
@@ -126,7 +134,7 @@ const BtnPurple = styled.button`
   width: 90px;
   height: 41px;
   color: white;
-  background-color: #7d6e83;
+  background-color: #8861c2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 `;

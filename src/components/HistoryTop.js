@@ -15,9 +15,9 @@ const HistoryTop = (props) => {
 export default HistoryTop;
 
 const Top = styled.h2`
-  color: #7D6E83;
+  color: #8861c2;
   padding: 10px 10px 10px 10px;
   font-weight: bold;
   margin-top: 5px;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 `;
