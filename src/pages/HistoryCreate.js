@@ -27,7 +27,7 @@ const HistoryCreate = ({ user }) => {
         (uri) => {
           resolve(uri);
         },
-        "blob"
+        "file"
       );
     });
 
