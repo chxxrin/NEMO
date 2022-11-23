@@ -1,60 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import History from "../components/History";
-import HistoryTop from "../components/HistoryTop";
-import MemberModal from "../components/MemberModal";
-import styled from "styled-components";
-import NavbarNone from "../components/NavbarNone";
-import axios from "axios";
-import "../css/History.css";
-import "../css/Navbar.css";
-
-const API = process.env.REACT_APP_API;
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import History from '../components/History'
+import HistoryTop from '../components/HistoryTop'
+import MemberModal from '../components/MemberModal'
+import styled from 'styled-components'
+import NavbarNone from '../components/NavbarNone'
+import axios from 'axios'
+import '../css/History.css'
+import '../css/Navbar.css'
 
 const HistoryView = ({ user }) => {
-  const [histories, setHistories] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [histories, setHistories] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchHistories = async () => {
       try {
-        setError(null);
-        setHistories(null);
-        setLoading(true);
+        setError(null)
+        setHistories(null)
+        setLoading(true)
         const response = await axios.get(
-          `${API}/studio/`,
+          'studio/',
           {
-            headers: { "Access-Control-Allow-Origin": "*" },
+            headers: { 'Access-Control-Allow-Origin': '*' },
             params: {
               studio_id: 1,
             },
           },
           { withCredentials: true }
-        );
-        setHistories(response.data);
-        console.log(response.data);
+        )
+        setHistories(response.data)
+        console.log(response.data)
       } catch (e) {
-        setError(e);
-        console.log(e);
+        setError(e)
+        console.log(e)
       }
-      setLoading(false);
-    };
-    fetchHistories();
-  }, []);
+      setLoading(false)
+    }
+    fetchHistories()
+  }, [])
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false)
 
   const openModal = () => {
-    setModalOpen(true);
-  };
+    setModalOpen(true)
+  }
   const closeModal = () => {
-    setModalOpen(false);
-  };
+    setModalOpen(false)
+  }
 
-  if (loading) return <div>로딩중</div>;
-  if (error) return <div>에러</div>;
-  if (!histories) return <div>no histories</div>;
+  if (loading) return <div>로딩중</div>
+  if (error) return <div>에러</div>
+  if (!histories) return <div>no histories</div>
 
   return (
     <div className="container">
@@ -75,10 +73,10 @@ const HistoryView = ({ user }) => {
         header="사용자 초대하기"
       ></MemberModal>
     </div>
-  );
-};
+  )
+}
 
-export default HistoryView;
+export default HistoryView
 
 const BtnPurple = styled.button`
   border: none;
@@ -89,4 +87,4 @@ const BtnPurple = styled.button`
   background-color: #8861c2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
-`;
+`

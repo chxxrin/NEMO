@@ -19,7 +19,7 @@ import { IoMdNotificationsOff } from 'react-icons/io'
 import * as MdIcons from 'react-icons/md'
 import axios from 'axios'
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY
-const API = process.env.REACT_APP_API
+
 //test
 export function Zido() {
   var jeju = new window.naver.maps.LatLng(33.3590628, 126.534361)
@@ -31,7 +31,7 @@ export function GetMarker({ parentGetmarkerIndex }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const params = { search: '서울' }
-  const URL = API + '/studio/'
+
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
@@ -39,7 +39,7 @@ export function GetMarker({ parentGetmarkerIndex }) {
         setMarkers(null)
         setLoading(true)
         //const response = await axios.get(API + "/studio/");
-        const response = await axios.get(URL, { params })
+        const response = await axios.get('studio/', { params })
         setMarkers(response.data)
       } catch (e) {
         setError(e)
@@ -120,7 +120,7 @@ export function NaverMapAPI() {
         setError(null)
         //setStoreresult(null);
         setLoading(true)
-        const response = await axios.get(API + '/studio/' + x)
+        const response = await axios.get('studio/' + x)
         setStoreresult(response.data)
         console.log(response.data)
       } catch (e) {
@@ -150,7 +150,7 @@ export function NaverMapAPI() {
 
   const clickedMarker = () => {}
   const params = { search: '서울' }
-  const URL = API + '/studio/'
+  const URL = '/studio/'
   // useEffect(() => {
   //   const fetchMarkers = async () => {
   //     try {

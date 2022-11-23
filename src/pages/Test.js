@@ -1,32 +1,30 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
-const API = process.env.REACT_APP_API;
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Test = () => {
-  const [studios, setStudios] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [studios, setStudios] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   useEffect(() => {
     const fetchStudios = async () => {
       try {
-        setError(null);
-        setStudios(null);
-        setLoading(true);
-        const response = await axios.get(API + "/studio/");
-        setStudios(response.data);
-        console.log(response.data);
+        setError(null)
+        setStudios(null)
+        setLoading(true)
+        const response = await axios.get('studio/')
+        setStudios(response.data)
+        console.log(response.data)
       } catch (e) {
-        setError(e);
+        setError(e)
       }
-      setLoading(false);
-    };
-    fetchStudios();
-  }, []);
+      setLoading(false)
+    }
+    fetchStudios()
+  }, [])
 
-  if (loading) return <div>로딩중</div>;
-  if (error) return <div>에러</div>;
-  if (!studios) return <div>no studios</div>;
+  if (loading) return <div>로딩중</div>
+  if (error) return <div>에러</div>
+  if (!studios) return <div>no studios</div>
   return (
     <ul>
       {studios.map((studio) => (
@@ -35,7 +33,7 @@ const Test = () => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default Test;
+export default Test
