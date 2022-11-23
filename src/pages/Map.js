@@ -243,7 +243,28 @@ export function NaverMapAPI() {
       {/* 상세페이지요약 */}
       {flag === true ? (
         <div className="StoreBigBox" storeresult={storeresult}>
-          <div className="StoreContainer">
+         <div className="StoreContainer">
+  <button
+    className="StoreBorder"
+    onClick={() => {
+        navigate("/maphis", { state: { storeresult: storeresult } });
+    }}
+  >
+      <div className="leftbox">
+        <div className="StoreCompany">{storeresult.company}</div>
+        <div className="StoreName">{storeresult.name}</div>
+        <div>{storeresult.address}</div>
+        <div>TEL : {storeresult.contact}</div>
+      </div>
+      
+      <div className="rightbox">
+        <img id="StoreImg" src={Storelogo}></img>
+      </div>
+    </button>
+</div>   
+
+
+          {/* <div className="StoreContainer">
             <button
               className="StoreBorder"
               onClick={() => {
@@ -268,10 +289,10 @@ export function NaverMapAPI() {
                     <p>TEL : {storeresult.contact}</p>
                   </li>
                 </ul>
-              </div>
+              </div> */}
               {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
-            </button>
-          </div>
+            {/* </button>
+          </div> */}
         </div>
       ) : null}
     </div>
