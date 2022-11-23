@@ -4,7 +4,7 @@ import { ko } from "date-fns/esm/locale";
 import styled from "styled-components";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateSelect = (props) => {
+const DateSelect = ({ setDate, date }) => {
   const [startDate, setStartDate] = useState(new Date());
   const DateInput = React.forwardRef(({ value, onClick }, ref) => (
     <button
@@ -23,7 +23,11 @@ const DateSelect = (props) => {
         dateFormat="yyyy-MM-dd"
         selected={startDate}
         maxDate={new Date()}
-        onChange={(date) => setStartDate(date)}
+        onChange={(date) => {
+          const d = new Date(date).toISOString().substring(0, 10);
+          setDate(d);
+          setStartDate(date);
+        }}
         closeOnScroll={true}
         customInput={<DateInput />}
       />
