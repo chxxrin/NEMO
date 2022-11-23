@@ -20,23 +20,17 @@ import * as MdIcons from "react-icons/md";
 import axios from "axios";
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
 const API = process.env.REACT_APP_API;
-
-
 //test
-
 export function Zido() {
   var jeju = new window.naver.maps.LatLng(33.3590628, 126.534361);
   return <div>{jeju}</div>;
 }
-
 //마커띄우기
-
-export function GetMarker({parentGetmarkerIndex}){
-
+export function GetMarker({ parentGetmarkerIndex }) {
   let [markers, setMarkers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const params = {search:"서울"};
+  const params = { search: "서울" };
   const URL = API + "/studio/";
   useEffect(() => {
     const fetchMarkers = async () => {
@@ -45,9 +39,8 @@ export function GetMarker({parentGetmarkerIndex}){
         setMarkers(null);
         setLoading(true);
         //const response = await axios.get(API + "/studio/");
-        const response = await axios.get(URL,{params});
+        const response = await axios.get(URL, { params });
         setMarkers(response.data);
-        
       } catch (e) {
         setError(e);
       }
@@ -55,28 +48,26 @@ export function GetMarker({parentGetmarkerIndex}){
     };
     fetchMarkers();
   }, []);
-
   if (loading) return <div>로딩중</div>;
   if (error) return <div>에러</div>;
   if (!markers) return <div>no studios</div>;
   return (
     <div>
-    {    
-      markers.map((a) => (
-        
-        <Marker key={a.id}
-        position={new window.naver.maps.LatLng(a.latitude,a.longitude)}
-      animation={0}
-      onClick={() => {console.log(a.id); parentGetmarkerIndex(a.id);}} // console.log 필수
-        >
-        </Marker>
-      ))
-      }  
-      </div>
+      {markers.map((a) => (
+        <Marker
+          key={a.id}
+          position={new window.naver.maps.LatLng(a.latitude, a.longitude)}
+          animation={0}
+          onClick={() => {
+            console.log(a.id);
+            parentGetmarkerIndex(a.id);
+          }} // console.log 필수
+        ></Marker>
+      ))}
+    </div>
   );
-};
+}
 // 아래꺼 무시
-
 export function SearchBar({ parentFunction }) {
   let [search, setSearch] = useState("");
   return (
@@ -101,94 +92,85 @@ export function SearchBar({ parentFunction }) {
     </div>
   );
 }
-
 export function NaverMapAPI() {
-
-  let[diff,setDiff] = useState(0); // 마커 인덱스 구분하기 위한 state 변수
-  let[index,setIndex] = useState(0); // all 마커 인덱스 구분하기 위한 state 변수
-  let[modal,setModal] = useState(false);
-  let[trick,setTrick] = useState(0);
-  let navigate =  useNavigate();
-let [markers, setMarkers] = useState(null);
+  let [diff, setDiff] = useState(0); // 마커 인덱스 구분하기 위한 state 변수
+  let [index, setIndex] = useState(0); // all 마커 인덱스 구분하기 위한 state 변수
+  let [modal, setModal] = useState(false);
+  let [trick, setTrick] = useState(0);
+  let navigate = useNavigate();
+  let [markers, setMarkers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  let[result,setResult] = useState(null);
-  let[flag,setFlag] = useState(false);
-  let[storeresult,setStoreresult] = useState(0);
+  let [result, setResult] = useState(null);
+  let [flag, setFlag] = useState(false);
+  let [storeresult, setStoreresult] = useState(0);
   const parentFunction = (x) => {
     console.log(x);
   };
-  
-  const parentGetmarkerIndex = (x) =>{
+
+  const parentGetmarkerIndex = (x) => {
     setIndex(x);
     console.log(index);
     setFlag(true);
     console.log(flag);
     //const URL = API + "/studio/"+x+"/";
-    
+
     const onestudio = async () => {
       try {
         setError(null);
         //setStoreresult(null);
         setLoading(true);
-        const response = await axios.get(API + "/studio/" +x);
+        const response = await axios.get(API + "/studio/" + x);
         setStoreresult(response.data);
         console.log(response.data);
       } catch (e) {
         setError(e);
       }
       setLoading(false);
-      
     };
     onestudio();
-
     //const response = axios.get(URL);
     //console.log(response.data.id);
     //setStoreresult(response.data);
     //console.log(storeresult);
-  }
-  const onTrick = () =>{
-    if(trick==0){
+  };
+  const onTrick = () => {
+    if (trick == 0) {
       setTrick(2);
     } else {
       setTrick(0);
     }
   };
   const navermaps = window.naver.maps;
-  const [flipped,setFlipped] = useState(true);
-    const onFlip =() =>{
-        setFlipped(current => !current);
-        console.log(flipped)
-      }
-  
-    const clickedMarker= () =>{
-        
-    }
-    const params = {search:"서울"};
-    const URL = API + "/studio/";
-    // useEffect(() => {
-    //   const fetchMarkers = async () => {
-    //     try {
-    //       setError(null);
-    //       setMarkers(null);
-    //       setLoading(true);
-    //       //const response = await axios.get(API + "/studio/");
-    //       const response = await axios.get(URL,{params});
-    //       setResult(response.data);
-    //       console.log(result[0].address)
-    //     } catch (e) {
-    //       setError(e);
-    //     }
-    //     setLoading(false);
-    //   };
-    //   fetchMarkers();
-    // }, []);
-    //여기서부터 빡코딩
-    
-    // const dataList = jsonData.positions;
+  const [flipped, setFlipped] = useState(true);
+  const onFlip = () => {
+    setFlipped((current) => !current);
+    console.log(flipped);
+  };
+
+  const clickedMarker = () => {};
+  const params = { search: "서울" };
+  const URL = API + "/studio/";
+  // useEffect(() => {
+  //   const fetchMarkers = async () => {
+  //     try {
+  //       setError(null);
+  //       setMarkers(null);
+  //       setLoading(true);
+  //       //const response = await axios.get(API + "/studio/");
+  //       const response = await axios.get(URL,{params});
+  //       setResult(response.data);
+  //       console.log(result[0].address)
+  //     } catch (e) {
+  //       setError(e);
+  //     }
+  //     setLoading(false);
+  //   };
+  //   fetchMarkers();
+  // }, []);
+  //여기서부터 빡코딩
 
   // const dataList = jsonData.positions;
-
   // {
   //   dataList.map(function(a,i){
   //     return(
@@ -198,12 +180,11 @@ let [markers, setMarkers] = useState(null);
   //     )
   //   })
   // }
-
-
-  const aaa =() =>{
+  //
+  const aaa = () => {
     console.log(result[0].address);
-  }
-    
+  };
+
   return (
     <div>
       <div>
@@ -217,10 +198,8 @@ let [markers, setMarkers] = useState(null);
           <button className="brand-btn">브랜드</button>
         </div>
       </div>
-
       <div className="navermap">
         {/* id="overmap"  */}
-
         <NaverMap
           mapDivId={"maps-getting-started-uncontrolled"} // default: react-naver-map
           style={{
@@ -233,26 +212,6 @@ let [markers, setMarkers] = useState(null);
           defaultZoom={13} // 지도 초기 확대 배율
         >
           <div id="undermap" style={{ position: "absolute" }}></div>
-          <Marker
-            key={1}
-            position={new navermaps.LatLng(37.551229, 126.988205)}
-            animation={2}
-            onClick={() => {
-              console.log(this.key);
-            }}
-          />
-          <Marker
-            key={2}
-            position={new navermaps.LatLng(37.561229, 126.998205)}
-            animation={2}
-            onClick={() => {
-              console.log("hi");
-            }}
-          />
-          <Marker
-            position={{ lat: 37.3595704, lng: 127.105399 }}
-            onClick={onFlip}
-          />
 
           <div onClick={() => setTrick(!trick)}>
             <p>{trick}</p>
@@ -267,53 +226,9 @@ let [markers, setMarkers] = useState(null);
               ></Marker>
             ))}
           </div>
-
-
-    <div className="navermap">
-      {/* id="overmap"  */}
-
-    <NaverMap 
-      mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-      style={{
-        width: '100%', // 네이버지도 가로 길이
-        height: '100vh', // 네이버지도 세로 길이 원래는 75%
-        position:"relative",
-        hidden: flipped
-      }}
-      defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
-      defaultZoom={13} // 지도 초기 확대 배율
-    >
-
-     <div id="undermap" style={{position:"absolute"}}>
-
-    </div>
-    
-    
-    <div onClick={() => setTrick(!trick)} >
-        <p>{trick}</p>
-        {    
-        jsonData.positions.map((a) => (
-          
-          <Marker key={a.index}
-          position={new window.naver.maps.LatLng(a.lat,a.lng)}
-        animation={trick}
-        onClick={() => {setDiff(a.index);}}
-          >
-            
-          </Marker>
-        ))
-        }   
-       
-    </div>
-        <GetMarker parentGetmarkerIndex={parentGetmarkerIndex}></GetMarker>
-    
-
-
-    
-    
-    </NaverMap>
-    </div>
-
+          <GetMarker parentGetmarkerIndex={parentGetmarkerIndex}></GetMarker>
+        </NaverMap>
+      </div>
       {/* 강제랜더링/새로고침버튼 */}
       <div className="new-box">
         <button
@@ -325,44 +240,43 @@ let [markers, setMarkers] = useState(null);
           <MdIcons.MdAutorenew />
         </button>
       </div>
-
-
-    {/* 상세페이지요약 */}
-    {
-      flag ===true ?
-    <div className="StoreBigBox" storeresult={storeresult}>
-    <div className="StoreContainer">
-    <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{storeresult:storeresult}})}} >
-            <div className="StoreLeftBox">
-              <img id="StoreImg" src={Storelogo}></img>
-            </div>
-            <div className="StoreRightBox">
+      {/* 상세페이지요약 */}
+      {flag === true ? (
+        <div className="StoreBigBox" storeresult={storeresult}>
+          <div className="StoreContainer">
+            <button
+              className="StoreBorder"
+              onClick={() => {
+                navigate("/maphis", { state: { storeresult: storeresult } });
+              }}
+            >
+              <div className="StoreLeftBox">
+                <img id="StoreImg" src={Storelogo}></img>
+              </div>
+              <div className="StoreRightBox">
                 <ul id="StoreList">
-                    <li id="StoreName">
-                        <p>{storeresult.company}</p>
-                    </li>
-                    <li id="StoreName">
-                        <p>{storeresult.name}</p>
-                    </li>
-                    <li>
-                        <p>{storeresult.address}</p>
-                    </li>
-                    <li>
-                        <p>TEL : {storeresult.contact}</p>
-                    </li>
+                  <li id="StoreName">
+                    <p>{storeresult.company}</p>
+                  </li>
+                  <li id="StoreName">
+                    <p>{storeresult.name}</p>
+                  </li>
+                  <li>
+                    <p>{storeresult.address}</p>
+                  </li>
+                  <li>
+                    <p>TEL : {storeresult.contact}</p>
+                  </li>
                 </ul>
-            </div>        
-            {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
-          </button>
+              </div>
+              {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
+            </button>
+          </div>
         </div>
-    
-    </div> :null
-    }
-
+      ) : null}
     </div>
   );
 }
-
 export default function Map() {
   return (
     <RenderAfterNavermapsLoaded
