@@ -27,7 +27,7 @@ const HistoryEdit = ({ user }) => {
         (uri) => {
           resolve(uri);
         },
-        "blob"
+        "file"
       );
     });
 
