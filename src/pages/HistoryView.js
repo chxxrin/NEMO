@@ -8,11 +8,15 @@ import NavbarNone from '../components/NavbarNone'
 import axios from 'axios'
 import '../css/History.css'
 import '../css/Navbar.css'
+import { useLocation } from 'react-router-dom'
 
 const HistoryView = ({ user }) => {
   const [histories, setHistories] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+
+  const location = useLocation()
+  const hashed_history_id = location.pathname.split('/')[3]
 
   useEffect(() => {
     const fetchHistories = async () => {
@@ -20,18 +24,18 @@ const HistoryView = ({ user }) => {
         setError(null)
         setHistories(null)
         setLoading(true)
-        const response = await axios.get(
-          'studio/',
-          {
-            headers: { 'Access-Control-Allow-Origin': '*' },
-            params: {
-              studio_id: 1,
+        const response = await axios
+          .get(
+            `history/hashed/${hashed_history_id}`,
+            {
+              headers: { 'Access-Control-Allow-Origin': '*' },
             },
-          },
-          { withCredentials: true }
-        )
-        setHistories(response.data)
-        console.log(response.data)
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log(res.data) // 데이터 잘 가공해주셈!!
+            setHistories(res.data)
+          })
       } catch (e) {
         setError(e)
         console.log(e)
@@ -58,7 +62,7 @@ const HistoryView = ({ user }) => {
     <div className="container">
       <NavbarNone />
       <HistoryTop />
-      <History user={user} trace="View" idx={0} />
+      <History historyObj={histories} trace="View" idx={0} />
       <section id="btn">
         <BtnPurple id="invite" onClick={openModal}>
           초대

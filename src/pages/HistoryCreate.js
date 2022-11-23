@@ -14,7 +14,7 @@ import { BsWindowSidebar } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
 const HistoryCreate = ({ user }) => {
-  const { useNavigate } = useNavigate()
+  const navigate = useNavigate()
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
   const [image, setImage] = useState({
@@ -42,7 +42,7 @@ const HistoryCreate = ({ user }) => {
         console.log(res.data)
         const hashed_history_id = res.data.hashed_history_id
         window.alert('히스토리가 등록되었습니다.')
-        Navigate(`/history/${hashed_history_id}/view`)
+        navigate(`/history/view/${hashed_history_id}`)
       })
       .catch((error) => {
         window.alert(error.message)

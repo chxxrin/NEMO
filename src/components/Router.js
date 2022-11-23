@@ -30,9 +30,18 @@ const Router = ({ user }) => {
         <Route path="/like" element={<Like />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/history" element={<HistoryList user={user} />} />
-        <Route path="/history/view" element={<HistoryView user={user} />} />
-        <Route path="/history/edit" element={<HistoryEdit user={user} />} />
-        <Route path="/history/create" element={<HistoryCreate user={user} />} />
+        <Route
+          path="/history/view/:hashed_history_id"
+          element={<HistoryView user={user} />}
+        />
+        <Route
+          path="/history/edit/:hashed_history_id"
+          element={<HistoryEdit user={user} />}
+        />
+        <Route
+          path="/history/create/"
+          element={<HistoryCreate user={user} />}
+        />
       </Routes>
     </BrowserRouter>
   )
