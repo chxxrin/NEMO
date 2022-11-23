@@ -25,17 +25,12 @@ export function MapHis(){
                 <img src={Storelogo} style={{width: 300, height: 200}}></img>
                 </div>
                 <div>
-                <ul id="StoreList">
-                    <li>
-                        <p className="StoreName">{storeresult.name}</p>
-                    </li>
-                    <li>
-                        <p>{storeresult.address}</p>
-                    </li>
-                    <li>
-                        <p>TEL : {storeresult.contact}</p>
-                    </li>
-                </ul>
+                <div className="leftbox">
+                    <div className="StoreCompany">{storeresult.company}</div>
+                    <div className="StoreName">{storeresult.name}</div>
+                    <div>{storeresult.address}</div>
+                    <div>TEL : {storeresult.contact}</div>
+                </div>
                 </div>
                 </div>
                 

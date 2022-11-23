@@ -11,6 +11,9 @@
     background-color: aqua;
 }
 
+span {
+    padding: none;
+}
 .SearchBar{
     height: 40px;
     width: 100%;
@@ -59,54 +62,37 @@
     position: absolute;
 } */
 
-.StoreContainer {
-    position:absolute;
-    border:1px solid D8D8D8;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.15);
-    position: absolute;
-    z-index:5000;
-    top: 60%;
-    left: 0%;
-    right: 0;
-    bottom: 0;
-    height:30%;
-    width: 340px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-}
-.StoreBorder {
-    border:none;
-    background-color: transparent;
-}
+
 .StoreLeftBox{
     float: left;
-    width: 30%;
+    width: 60%;
+    /* padding-top: 30px; */
+    display: block;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: start;
+    margin: auto;
+    /* padding: 40px; */
 }
 .StoreRightBox {
     float:right;
-    width:50%;
+    width:30%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
 }
 
-#StoreImg{
-    object-fit: cover;
-    max-width: 100px;
-    max-height: 100px;
-}
+
 #StoreList{
     font-size: 15px;
     list-style: none;
     padding-left: 0px;
     text-align: left;
 }
-#StoreName {
-    font-size: 20px;
-}
+
 
 
 #z_index{
@@ -170,6 +156,69 @@
     background: #ffffff;
     font-size: 1.5rem;
     color:#7D6E83;
+}
+
+
+
+.StoreContainer {
+    border:1px solid D8D8D8;
+    border-radius: 10px;
+    /* padding: 20px; */
+    /* margin: 20px; */
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.15);
+    position: absolute;
+    z-index:5000;
+    top: 60%;
+    left: 0%;
+    right: 0;
+    bottom: 0;
+    height:26%;
+    width: 340px;
+    display: block;
+    padding:10px;
+    align-items: center;
+    margin: auto;
+    grid-template-columns: 4fr 1fr;
+
+}
+
+.StoreBorder {
+    border:none;
+    background-color: transparent;
+    grid-template-columns: 4fr 1fr;
+    display: flex;
+}
+.leftbox{
+    display: block;
+    padding: 10px;
+    text-align: start;
+    justify-content: center;
+}
+
+.StoreCompany {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.StoreName {
+    font-size: 15px;
+    color: gray;
+}
+
+.rightbox {
+    padding: 10px;
+    margin:  auto;
+    display:flex;
+}
+
+#StoreImg{
+    object-fit: cover;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto;
+
+    
 }
 
 
