@@ -14,7 +14,7 @@ import "../css/History.css";
 
 export function MapHis(){
     const location = useLocation();
-    const diff = location.state.diff;
+    const storeresult = location.state.storeresult;
   
 
     return(
@@ -27,13 +27,13 @@ export function MapHis(){
                 <div>
                 <ul id="StoreList">
                     <li>
-                        <p className="StoreName">{jsonData.positions[diff].name}</p>
+                        <p className="StoreName">{storeresult.name}</p>
                     </li>
                     <li>
-                        <p>{jsonData.positions[diff].address}</p>
+                        <p>{storeresult.address}</p>
                     </li>
                     <li>
-                        <p>TEL : {jsonData.positions[diff].contact}</p>
+                        <p>TEL : {storeresult.contact}</p>
                     </li>
                 </ul>
                 </div>

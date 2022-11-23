@@ -266,7 +266,7 @@ let [markers, setMarkers] = useState(null);
       flag ===true ?
     <div className="StoreBigBox" storeresult={storeresult}>
     <div className="StoreContainer">
-    <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >
+    <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{storeresult:storeresult}})}} >
             <div className="StoreLeftBox">
                 <img id="StoreImg" src = {Storelogo}></img>
             </div>
