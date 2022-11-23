@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import MemberModal from "../components/MemberModal";
-import Resizer from "react-image-file-resizer";
 import imgHolder from "../assets/add_image.png";
 import { TiDelete } from "react-icons/ti";
 import "../css/History.css";
@@ -19,22 +18,6 @@ const HistoryImageUploader = ({ preview_URL, setImage, image }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
-
-  const resizeFile = (file) =>
-    new Promise((resolve) => {
-      Resizer.imageFileResizer(
-        file,
-        300,
-        300,
-        "JPEG",
-        100,
-        0,
-        (uri) => {
-          resolve(uri);
-        },
-        "file"
-      );
-    });
 
   let inputRef;
   const saveImage = async (e) => {
