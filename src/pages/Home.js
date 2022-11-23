@@ -6,6 +6,16 @@ import { useState } from "react";
 import styled from "styled-components";
 import Modal from "../components/Modal";
 
+// KakaoLogin
+import { BsFillChatFill } from "react-icons/bs";
+const API = process.env.REACT_APP_API;
+const REACT_APP_KAKAO_RESTAPI_KEY = process.env.REACT_APP_KAKAO_RESTAPI_KEY;
+
+const REDIRECT_URI_DEV = "http://localhost:3000/oauth/kakao/callback"; // 개발버전
+const REDIRECT_URI_PROD = ""; // 배포버전버전
+
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_KAKAO_RESTAPI_KEY}&response_type=code&redirect_uri=${REDIRECT_URI_DEV}`;
+
 //color : 진한보라 #8861c2,#7F669D, #827397, 연한보라 #B5A8BF
 let MainBtn_Purple = styled.button`
   display: flex;
@@ -77,7 +87,12 @@ function Home() {
   return (
     <div>
       <Logo>NEMO</Logo>
-      <MainBtn_Purple onClick={navigateToLogin}>로그인</MainBtn_Purple>
+      <a href={KAKAO_AUTH_URL} style={{ textDecoration: "none" }}>
+        <LoginBtn>
+          <BsFillChatFill className="logo" style={{ marginRight: "15px" }} />{" "}
+          카카오 로그인
+        </LoginBtn>
+      </a>
       <MainBtn_Purple onClick={navigateToMap}>시작하기</MainBtn_Purple>
       <MainBtn_Gray onClick={openModal}>도움말</MainBtn_Gray>
       <Modal open={modalOpen} close={closeModal} header="4cut 사용방법">
@@ -98,3 +113,22 @@ function Home() {
 }
 
 export default Home;
+
+// KakaoLoginBtn
+const LoginBtn = styled.button`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 250px;
+  margin: 20px auto;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #fee500;
+  color: #181602;
+  border: none;
+  font-size: 16px;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  border-radius: 12px;
+`;
