@@ -2,187 +2,83 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import History from "../components/History";
 import HistoryTop from "../components/HistoryTop";
-import MemberModal from "../components/MemberModal";
-import styled from "styled-components";
 import NavbarNone from "../components/NavbarNone";
+import styled from "styled-components";
 import axios from "axios";
-import Resizer from "react-image-file-resizer";
 import imgHolder from "../assets/add_image.png";
-import { TiDelete } from "react-icons/ti";
+import HistoryImageUploader from "../components/HistoryImageUploader";
+import HistoryInfo from "../components/HistoryInfo";
 import "../css/History.css";
 import "../css/Navbar.css";
+import { BsWindowSidebar } from "react-icons/bs";
 
 const API = process.env.REACT_APP_API;
 
 const HistoryCreate = ({ user }) => {
-  const resizeFile = (file) =>
-    new Promise((resolve) => {
-      Resizer.imageFileResizer(
-        file,
-        300,
-        300,
-        "JPEG",
-        100,
-        0,
-        (uri) => {
-          resolve(uri);
-        },
-        "file"
-      );
-    });
-
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
   const [image, setImage] = useState({
     image_file: "",
     preview_URL: imgHolder,
   });
 
-  let inputRef;
-  const saveImage = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (e.target.files[0]) {
-      URL.revokeObjectURL(image.preview_URL);
-      const newImage = await resizeFile(e.target.files[0]);
-      const new_URL = URL.createObjectURL(newImage);
-      setImage(() => ({
-        image_file: newImage,
-        preview_URL: new_URL,
-      }));
-    }
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("history_date", date);
+    formData.append("studio_id", 1);
+    formData.append("fileObj", image.image_file);
+    console.log(image.image_file);
+    console.log(image.image_file instanceof Blob);
+    axios
+      .post(`${API}/history/`, formData, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        window.alert("히스토리가 등록되었습니다.");
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   };
-
-  const deleteImage = () => {
-    URL.revokeObjectURL(image.preview_URL);
-    setImage({
-      image_file: "",
-      preview_URL: imgHolder,
-    });
-  };
-
-  useEffect(() => {
-    return () => {
-      URL.revokeObjectURL(image.preview_URL);
-    };
-  }, []);
-
-  const sendImageToServer = async () => {
-    if (image.image_file) {
-      const formData = new FormData();
-      formData.append("file", image.image_file);
-      await axios.post(API + "/image/upload");
-    }
-  };
-
   return (
     <div className="container">
       <NavbarNone />
       <HistoryTop />
-      <div>
-        <History user={user} trace="Create" idx={0} />
-
-        <section id="pic">
-          <BtnDelete className="del" onClick={deleteImage}>
-            <TiDelete />
-          </BtnDelete>
-          <img src={image.preview_URL} onClick={() => inputRef.click()}></img>
-        </section>
-      </div>
-
-      <section id="btn">
-        <BtnPurple onClick={openModal}>초대</BtnPurple>
-        <BtnGray onClick={() => inputRef.click()}>사진 변경</BtnGray>
-        <Link to="/history/view">
-          <BtnPurple onClick={sendImageToServer}>완료</BtnPurple>
-        </Link>
-      </section>
-      <input
-        type="file"
-        accept="image/jpg, image/jpeg, image/png"
-        onChange={saveImage}
-        onClick={(e) => (e.target.value = null)}
-        ref={(refParam) => (inputRef = refParam)}
-        style={{ display: "none" }}
+      <HistoryInfo
+        setTitle={setTitle}
+        setDate={setDate}
+        title={title}
+        date={date}
+        user={user}
+        idx={0}
       />
-      <MemberModal
-        open={modalOpen}
-        close={closeModal}
-        header="사용자 초대하기"
-      ></MemberModal>
+      <HistoryImageUploader
+        setImage={setImage}
+        image={image}
+        preview_URL={image.preview_URL}
+      />
+      <ButtonPostDiv>
+        <Link to="/history/view">
+          <BtnPost onClick={handleSubmit}>히스토리 등록하기</BtnPost>
+        </Link>
+      </ButtonPostDiv>
     </div>
   );
-
-  // const [modalOpen, setModalOpen] = useState(false);
-
-  // const openModal = () => {
-  //   setModalOpen(true);
-  // };
-  // const closeModal = () => {
-  //   setModalOpen(false);
-  // };
-
-  // const fileInput = React.useRef();
-
-  // const [imgUpload, setImgUpload] = useState();
-
-  // const handleImgButtonClick = (event) => {
-  //   event.preventDefault();
-  //   fileInput.current.click();
-  // };
-
-  // const handleChange = (event) => {
-  //   if (event.target.files.length !== 0) {
-  //     const formData = new FormData();
-  //     formData.append("img", event.target.files[0]);
-  //     const imgSrc = URL.createObjectURL(event.target.files[0]);
-  //     setImgUpload(imgSrc);
-  //     user.photos[0].img = imgSrc;
-  //   }
-  // };
-
-  // return (
-  //   <div className="container">
-  //     <NavbarNone />
-  //     <HistoryTop />
-  //     <div onClick={handleImgButtonClick}>
-  //       <History user={user} trace="Create" idx={0} />
-  //     </div>
-
-  //     <section id="btn">
-  //       <BtnPurple onClick={openModal}>초대</BtnPurple>
-  //       <Link to="/history/view">
-  //         <BtnPurple type="BtnPurple">완료</BtnPurple>
-  //       </Link>
-  //     </section>
-  //     <input
-  //       type="file"
-  //       accept="image/jpg, image/jpeg, image/png"
-  //       ref={fileInput}
-  //       onChange={handleChange}
-  //       style={{ display: "none" }}
-  //     />
-  //     <MemberModal
-  //       open={modalOpen}
-  //       close={closeModal}
-  //       header="사용자 초대하기"
-  //     ></MemberModal>
-  //   </div>
-  // );
 };
 
 export default HistoryCreate;
 
-const BtnPurple = styled.button`
+const BtnPost = styled.button`
   border: none;
   outline: none;
-  width: 90px;
+  width: 276px;
   height: 41px;
   color: white;
   background-color: #7d6e83;
@@ -190,27 +86,9 @@ const BtnPurple = styled.button`
   border-radius: 20px;
 `;
 
-const BtnGray = styled.button`
-  border: none;
-  outline: none;
-  width: 90px;
-  height: 41px;
-  color: black;
-  background-color: #e7e7e7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 20px;
-`;
-
-const BtnDelete = styled.button`
-  width: 380px;
-  height: 15px;
-  font-size: 25px;
-  justify-self: right !important;
-  align-items: right !important;
-  text-align: right !important;
-  z-index: 10;
-  border: none;
-  outline: none;
-  color: gray;
-  background-color: transparent;
+const ButtonPostDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 `;

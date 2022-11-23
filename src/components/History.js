@@ -5,7 +5,7 @@ import DateView from "./DateView";
 import "../css/History.css";
 
 const History = (props) => {
-  const { user, idx, trace, src } = props;
+  const { user, idx, trace } = props;
   const onChangeTitleText = (e) => {
     setEditTitle(e.target.value);
     user.photos[idx].title = editTitle;
@@ -19,21 +19,6 @@ const History = (props) => {
           <h5 style={{ marginTop: "5px" }}>{user.photos[idx].title}</h5>
           <Info>
             {user.photos[idx].location} <DateView />
-          </Info>
-        </section>
-      </div>
-    );
-  } else if (trace === "Create") {
-    return (
-      <div>
-        <section id="title">
-          <input
-            defaultValue={""}
-            placeholder="제목을 입력해주세요!"
-            onChange={onChangeTitleText}
-          />
-          <Info>
-            {user.photos[idx].location} <DateSelect />
           </Info>
         </section>
       </div>
