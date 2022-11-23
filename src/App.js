@@ -33,7 +33,7 @@ function App() {
   const initializeUserInfo = () => {
     const token = localStorage.getItem('token')
     if (!token) return
-    axios.defaults.headers.common['Authorization'] = token
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
     axios.get('/oauth/user').then((res) => {
       // res.data : 유저 데이터 객체
       // avatar, client_id, email, id ,is_member, name

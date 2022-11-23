@@ -51,7 +51,8 @@ const KakaoCallback = () => {
       if (res.status === 201) {
         // 로컬스토리지에 토큰 저장
         localStorage.setItem('token', res.data.access_token)
-        axios.defaults.headers.common['Authorization'] = res.data.access_token
+        axios.defaults.headers.common['Authorization'] =
+          'Bearer ' + res.data.access_token
         axios
           .get('/oauth/user')
           .then((res) => {
