@@ -23,7 +23,7 @@ const HistoryView = ({ user }) => {
         setHistories(null);
         setLoading(true);
         const response = await axios.get(
-          `${API}/history/`,
+          `${API}/studio/`,
           {
             headers: { "Access-Control-Allow-Origin": "*" },
             params: {
@@ -42,27 +42,6 @@ const HistoryView = ({ user }) => {
     };
     fetchHistories();
   }, []);
-
-  // useEffect(async () => {
-  //   console.log(`${API}/studio/`);
-  //   await axios
-  //     .get(
-  //       `${API}/history/`,
-  //       {
-  //         headers: { "Access-Control-Allow-Origin": "*" },
-  //         params: {
-  //           studio_id: 1,
-  //         },
-  //       },
-  //       { withCredentials: true }
-  //     )
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, []);
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -107,7 +86,7 @@ const BtnPurple = styled.button`
   width: 90px;
   height: 41px;
   color: white;
-  background-color: #7D6E83;
+  background-color: #7d6e83;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 `;

@@ -6,13 +6,31 @@ import MemberModal from "../components/MemberModal";
 import styled from "styled-components";
 import NavbarNone from "../components/NavbarNone";
 import axios from "axios";
+import Resizer from "react-image-file-resizer";
 import imgHolder from "../assets/add_image.png";
+import { TiDelete } from "react-icons/ti";
 import "../css/History.css";
 import "../css/Navbar.css";
 
 const API = process.env.REACT_APP_API;
 
 const HistoryCreate = ({ user }) => {
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        300,
+        300,
+        "JPEG",
+        100,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "blob"
+      );
+    });
+
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -27,15 +45,16 @@ const HistoryCreate = ({ user }) => {
   });
 
   let inputRef;
-  const saveImage = (e) => {
+  const saveImage = async (e) => {
     e.preventDefault();
 
     if (e.target.files[0]) {
       URL.revokeObjectURL(image.preview_URL);
-      const preview_URL = URL.createObjectURL(e.target.files[0]);
+      const newImage = await resizeFile(e.target.files[0]);
+      const new_URL = URL.createObjectURL(newImage);
       setImage(() => ({
-        image_file: e.target.files[0],
-        preview_URL: preview_URL,
+        image_file: newImage,
+        preview_URL: new_URL,
       }));
     }
   };
@@ -70,6 +89,9 @@ const HistoryCreate = ({ user }) => {
         <History user={user} trace="Create" idx={0} />
 
         <section id="pic">
+          <BtnDelete className="del" onClick={deleteImage}>
+            <TiDelete />
+          </BtnDelete>
           <img src={image.preview_URL} onClick={() => inputRef.click()}></img>
         </section>
       </div>
@@ -163,7 +185,7 @@ const BtnPurple = styled.button`
   width: 90px;
   height: 41px;
   color: white;
-  background-color: #7D6E83;
+  background-color: #7d6e83;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 `;
@@ -177,4 +199,18 @@ const BtnGray = styled.button`
   background-color: #e7e7e7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
+`;
+
+const BtnDelete = styled.button`
+  width: 380px;
+  height: 15px;
+  font-size: 25px;
+  justify-self: right !important;
+  align-items: right !important;
+  text-align: right !important;
+  z-index: 10;
+  border: none;
+  outline: none;
+  color: gray;
+  background-color: transparent;
 `;

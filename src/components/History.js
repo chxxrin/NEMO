@@ -39,6 +39,7 @@ const History = (props) => {
       </div>
     );
   } else {
+    // trace === "edit"
     return (
       <div>
         <section id="title">

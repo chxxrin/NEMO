@@ -1,26 +1,32 @@
-import { useState,useEffect } from 'react';
-import React from 'react';
-import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps'; // 패키지 불러오기
-import '../css/Map.css';
-import '../css/Navbar.css';
+import { useState, useEffect } from "react";
+import React from "react";
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps"; // 패키지 불러오기
+import "../css/Map.css";
+import "../css/Navbar.css";
 import jsonData from "./map_info.json";
-import Storelogo from '../assets/naecut.png';
-import { json } from 'react-router';
-import { Routes, Route, Link , useNavigate, Outlet,useLocation } from 'react-router-dom'
-import NavbarMap from '../components/NavbarMap';
-import { IoMdNotificationsOff } from 'react-icons/io';
+import Storelogo from "../assets/naecut.png";
+import { json } from "react-router";
+import {
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
+import NavbarMap from "../components/NavbarMap";
+import { IoMdNotificationsOff } from "react-icons/io";
 import * as MdIcons from "react-icons/md";
 import axios from "axios";
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY;
 const API = process.env.REACT_APP_API;
 
+
 //test
 
-export function Zido(){
+export function Zido() {
   var jeju = new window.naver.maps.LatLng(33.3590628, 126.534361);
-  return(
-    <div>{jeju}</div>
-  )
+  return <div>{jeju}</div>;
 }
 
 //마커띄우기
@@ -71,27 +77,33 @@ export function GetMarker({parentGetmarkerIndex}){
 };
 // 아래꺼 무시
 
-
-
-export function SearchBar({parentFunction}){
-  let [search, setSearch] = useState('');
-  return(
+export function SearchBar({ parentFunction }) {
+  let [search, setSearch] = useState("");
+  return (
     <div className="SearchContainer">
       <div className="SearchBar">
-      <input className="SearchInput" type="text" onChange={(e) => {
-        setSearch(e.target.value);
-        
-      }}></input>
-      <button className="SearchButton" onClick={() =>{
-        parentFunction(search);
-      }} >검색</button>
-
+        <input
+          className="SearchInput"
+          type="text"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        ></input>
+        <button
+          className="SearchButton"
+          onClick={() => {
+            parentFunction(search);
+          }}
+        >
+          검색
+        </button>
       </div>
     </div>
-  )
+  );
 }
 
 export function NaverMapAPI() {
+
   let[diff,setDiff] = useState(0); // 마커 인덱스 구분하기 위한 state 변수
   let[index,setIndex] = useState(0); // all 마커 인덱스 구분하기 위한 state 변수
   let[modal,setModal] = useState(false);
@@ -138,11 +150,10 @@ let [markers, setMarkers] = useState(null);
   const onTrick = () =>{
     if(trick==0){
       setTrick(2);
-    }
-    else{
+    } else {
       setTrick(0);
     }
-  }
+  };
   const navermaps = window.naver.maps;
   const [flipped,setFlipped] = useState(true);
     const onFlip =() =>{
@@ -176,24 +187,24 @@ let [markers, setMarkers] = useState(null);
     
     // const dataList = jsonData.positions;
 
-    // {
-    //   dataList.map(function(a,i){
-    //     return(
-    //       <div>
-    //         {a[i].index}
-    //       </div>
-    //     )
-    //   })
-    // }
+  // const dataList = jsonData.positions;
 
-    //
+  // {
+  //   dataList.map(function(a,i){
+  //     return(
+  //       <div>
+  //         {a[i].index}
+  //       </div>
+  //     )
+  //   })
+  // }
+
 
   const aaa =() =>{
     console.log(result[0].address);
   }
     
   return (
-    
     <div>
       <div>
         <div className="map-navbar">
@@ -201,13 +212,61 @@ let [markers, setMarkers] = useState(null);
             <SearchBar parentFunction={parentFunction}></SearchBar>
           </NavbarMap>
         </div>
-          <div className="btns">
-            <button className="like-btn">즐겨찾기</button>
-            <button className="brand-btn">브랜드</button>
-          </div>
-         
-         
+        <div className="btns">
+          <button className="like-btn">즐겨찾기</button>
+          <button className="brand-btn">브랜드</button>
+        </div>
       </div>
+
+      <div className="navermap">
+        {/* id="overmap"  */}
+
+        <NaverMap
+          mapDivId={"maps-getting-started-uncontrolled"} // default: react-naver-map
+          style={{
+            width: "100%", // 네이버지도 가로 길이
+            height: "100vh", // 네이버지도 세로 길이 원래는 75%
+            position: "relative",
+            hidden: flipped,
+          }}
+          defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
+          defaultZoom={13} // 지도 초기 확대 배율
+        >
+          <div id="undermap" style={{ position: "absolute" }}></div>
+          <Marker
+            key={1}
+            position={new navermaps.LatLng(37.551229, 126.988205)}
+            animation={2}
+            onClick={() => {
+              console.log(this.key);
+            }}
+          />
+          <Marker
+            key={2}
+            position={new navermaps.LatLng(37.561229, 126.998205)}
+            animation={2}
+            onClick={() => {
+              console.log("hi");
+            }}
+          />
+          <Marker
+            position={{ lat: 37.3595704, lng: 127.105399 }}
+            onClick={onFlip}
+          />
+
+          <div onClick={() => setTrick(!trick)}>
+            <p>{trick}</p>
+            {jsonData.positions.map((a) => (
+              <Marker
+                key={a.index}
+                position={new window.naver.maps.LatLng(a.lat, a.lng)}
+                animation={trick}
+                onClick={() => {
+                  setDiff(a.index);
+                }}
+              ></Marker>
+            ))}
+          </div>
 
 
     <div className="navermap">
@@ -255,10 +314,17 @@ let [markers, setMarkers] = useState(null);
     </NaverMap>
     </div>
 
-     {/* 강제랜더링/새로고침버튼 */}
-    <div className="new-box">
-            <button onClick={()=> {onTrick()}} className="new-btn"><MdIcons.MdAutorenew/></button>
-    </div>
+      {/* 강제랜더링/새로고침버튼 */}
+      <div className="new-box">
+        <button
+          onClick={() => {
+            onTrick();
+          }}
+          className="new-btn"
+        >
+          <MdIcons.MdAutorenew />
+        </button>
+      </div>
 
 
     {/* 상세페이지요약 */}
@@ -268,7 +334,7 @@ let [markers, setMarkers] = useState(null);
     <div className="StoreContainer">
     <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{storeresult:storeresult}})}} >
             <div className="StoreLeftBox">
-                <img id="StoreImg" src = {Storelogo}></img>
+              <img id="StoreImg" src={Storelogo}></img>
             </div>
             <div className="StoreRightBox">
                 <ul id="StoreList">
@@ -287,12 +353,11 @@ let [markers, setMarkers] = useState(null);
                 </ul>
             </div>        
             {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
-            </button>
+          </button>
         </div>
     
     </div> :null
     }
-
 
     </div>
   );
@@ -306,7 +371,6 @@ export default function Map() {
       loading={<p>Maps Loading...</p>}
     >
       <NaverMapAPI />
-      
     </RenderAfterNavermapsLoaded>
   );
 }
