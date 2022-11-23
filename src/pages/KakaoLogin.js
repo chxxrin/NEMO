@@ -1,13 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { BsFillChatFill } from "react-icons/bs";
+import axios from "axios";
+
+const API = process.env.REACT_APP_API;
+const REACT_APP_KAKAO_RESTAPI_KEY = process.env.REACT_APP_KAKAO_RESTAPI_KEY
+
+const REDIRECT_URI_DEV= "http://localhost:3000/oauth/kakao/callback" // 개발버전
+const REDIRECT_URI_PROD= "" // 배포버전버전
+
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_KAKAO_RESTAPI_KEY}&response_type=code&redirect_uri=${REDIRECT_URI_DEV}`
 
 const KakaoLogin = () => {
+
   return (
+    
     <DivBtn>
-      <LoginBtn>
-        <BsFillChatFill className="logo" /> 카카오 로그인
-      </LoginBtn>
+      <a href={KAKAO_AUTH_URL}>
+        <LoginBtn>
+          <BsFillChatFill className="logo"/> 카카오 로그인
+        </LoginBtn>
+      </a>
     </DivBtn>
   );
 };

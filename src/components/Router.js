@@ -15,6 +15,7 @@ import Modal from "../components/Modal";
 import Navbar from "./Navbar";
 import Test from "../pages/Test";
 import KakaoLogin from "../pages/KakaoLogin";
+import KakaoCallback from "../pages/KakaoCallback";
 import MapHis from "../pages/MapHis";
 
 const Router = ({ user }) => {
@@ -24,6 +25,7 @@ const Router = ({ user }) => {
         <Route path="/test" element={<Test />} />
         <Route path="/" exact element={<Home />} />
         <Route path="/login" element={<KakaoLogin />} />
+        <Route path="/oauth/kakao/callback" element={<KakaoCallback />} />
         <Route path="/map" element={<Map />} />
         <Route path="/maphis" element={<MapHis />} />
         <Route path="/help" element={<Help />} />
