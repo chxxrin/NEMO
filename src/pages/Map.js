@@ -102,24 +102,38 @@ let [markers, setMarkers] = useState(null);
   const [error, setError] = useState(null);
   let[result,setResult] = useState(null);
   let[flag,setFlag] = useState(false);
-  let[storeresult,setStoreresult] = useState(1);
+  let[storeresult,setStoreresult] = useState(0);
   const parentFunction = (x) => {
     console.log(x);
   };
   
   const parentGetmarkerIndex = (x) =>{
     setIndex(x);
-    //console.log(index);
+    console.log(index);
     setFlag(true);
-    const URL = API + "/studio/"+{x}+"/";
-    const response = axios.get(URL);
-    console.log(response.data.id);
+    console.log(flag);
+    //const URL = API + "/studio/"+x+"/";
+    
+    const onestudio = async () => {
+      try {
+        setError(null);
+        //setStoreresult(null);
+        setLoading(true);
+        const response = await axios.get(API + "/studio/" +x);
+        setStoreresult(response.data);
+        console.log(response.data);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+      
+    };
+    onestudio();
+
+    //const response = axios.get(URL);
+    //console.log(response.data.id);
     //setStoreresult(response.data);
     //console.log(storeresult);
-  }
-  const parentGetmarkerData = (x) =>{
-    setResult(x);
-    console.log(result[0].address)
   }
   const onTrick = () =>{
     if(trick==0){
@@ -141,23 +155,23 @@ let [markers, setMarkers] = useState(null);
     }
     const params = {search:"서울"};
     const URL = API + "/studio/";
-    useEffect(() => {
-      const fetchMarkers = async () => {
-        try {
-          setError(null);
-          setMarkers(null);
-          setLoading(true);
-          //const response = await axios.get(API + "/studio/");
-          const response = await axios.get(URL,{params});
-          setResult(response.data);
-          console.log(result[0].address)
-        } catch (e) {
-          setError(e);
-        }
-        setLoading(false);
-      };
-      fetchMarkers();
-    }, []);
+    // useEffect(() => {
+    //   const fetchMarkers = async () => {
+    //     try {
+    //       setError(null);
+    //       setMarkers(null);
+    //       setLoading(true);
+    //       //const response = await axios.get(API + "/studio/");
+    //       const response = await axios.get(URL,{params});
+    //       setResult(response.data);
+    //       console.log(result[0].address)
+    //     } catch (e) {
+    //       setError(e);
+    //     }
+    //     setLoading(false);
+    //   };
+    //   fetchMarkers();
+    // }, []);
     //여기서부터 빡코딩
     
     // const dataList = jsonData.positions;
@@ -214,22 +228,7 @@ let [markers, setMarkers] = useState(null);
      <div id="undermap" style={{position:"absolute"}}>
 
     </div>
-    <Marker
-        key={1}
-        position={new navermaps.LatLng(37.551229, 126.988205)}
-        animation={2}
-        onClick={() => {console.log(this.key)}}
-      />
-      <Marker
-        key={2}
-        position={new navermaps.LatLng(37.561229, 126.998205)}
-        animation={2}
-        onClick={() => {console.log("hi")}}
-      />
-        <Marker
-    position={{ lat: 37.3595704, lng: 127.105399 }}
-    onClick={onFlip}
-    />
+    
     
     <div onClick={() => setTrick(!trick)} >
         <p>{trick}</p>
@@ -251,22 +250,7 @@ let [markers, setMarkers] = useState(null);
     
 
 
-    <div className="StoreInfo" style={{ position:"absolute" }}>
-
-            <div id="StoreLeftBox">
-                <img id="StoreImg" src = {Storelogo}></img>
-            </div>
-            <div id="StoreRightBox">
-                <ul id="StoreList">
-                    
-                    <li>
-                        <p>{jsonData.positions[diff].name}</p>
-                    </li>
-                    
-                </ul>
-            </div>
-           
-        </div>
+    
     
     </NaverMap>
     </div>
@@ -276,19 +260,11 @@ let [markers, setMarkers] = useState(null);
             <button onClick={()=> {onTrick()}} className="new-btn"><MdIcons.MdAutorenew/></button>
     </div>
 
-        {/* <div className="container">
-              <input
-                type="search"
-                placeholder="검색어를 입력 하세요..."
-                name="query"
-                className="input_search"
-              />
-        </div> */}
 
     {/* 상세페이지요약 */}
     {
       flag ===true ?
-    <div className="StoreBigBox">
+    <div className="StoreBigBox" storeresult={storeresult}>
     <div className="StoreContainer">
     <button className="StoreBorder"onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >
             <div className="StoreLeftBox">
@@ -297,11 +273,16 @@ let [markers, setMarkers] = useState(null);
             <div className="StoreRightBox">
                 <ul id="StoreList">
                     <li id="StoreName">
-                        <p></p>
+                        <p>{storeresult.company}</p>
                     </li>
-                    
+                    <li id="StoreName">
+                        <p>{storeresult.name}</p>
+                    </li>
                     <li>
-                      <p>{index}</p>
+                        <p>{storeresult.address}</p>
+                    </li>
+                    <li>
+                        <p>TEL : {storeresult.contact}</p>
                     </li>
                 </ul>
             </div>        
