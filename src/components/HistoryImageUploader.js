@@ -26,8 +26,6 @@ const HistoryImageUploader = ({ preview_URL, setImage, image }) => {
     if (e.target.files[0]) {
       URL.revokeObjectURL(image.preview_URL);
       const preview_URL = URL.createObjectURL(e.target.files[0]);
-      const newImage = await resizeFile(e.target.files[0]);
-      const new_URL = URL.createObjectURL(newImage);
       setImage(() => ({
         image_file: e.target.files[0],
         preview_URL: preview_URL,
@@ -97,7 +95,7 @@ const BtnPurple = styled.button`
   width: 90px;
   height: 41px;
   color: white;
-  background-color: #7d6e83;
+  background-color: #8861c2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 `;

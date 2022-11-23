@@ -21,67 +21,72 @@ import "../css/Navbar.css";
 import "../css/Map.css";
 import { BsMusicNote, BsMusicNoteList } from "react-icons/bs";
 
-export default function NavbarMap({parentFunction}) {
+export default function NavbarMap({ parentFunction }) {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
 
   const navigate = useNavigate();
 
-    const navigateToAlarm = () => {
-        navigate("/alarm");
-      };
+  const navigateToAlarm = () => {
+    navigate("/alarm");
+  };
 
-    const navigateToLogin = () => {
-        navigate("/login");
-      };
-      let [search, setSearch] = useState('');
-
+  const navigateToLogin = () => {
+    navigate("/login");
+  };
+  let [search, setSearch] = useState("");
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#7D6E83" }}>
+      <IconContext.Provider value={{ color: "#8861c2" }}>
         {/* All the icons now are white */}
         <div className="navbar">
           <Link to="#" className="map-menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          
+
           <div className="SearchContainer">
             <div className="SearchBar">
-            <input className="SearchInput" type="text" onChange={(e) => {
-              setSearch(e.target.value);
-            }}></input>
-            <button className="SearchButton" onClick={() =>{
-              parentFunction(search);
-            }} ><AiIcons.AiOutlineSearch/></button>
+              <input
+                className="SearchInput"
+                type="text"
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+              ></input>
+              <button
+                className="SearchButton"
+                onClick={() => {
+                  parentFunction(search);
+                }}
+              >
+                <AiIcons.AiOutlineSearch />
+              </button>
             </div>
           </div>
-
-
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
-          <li className="navbar-toggle">
+            <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
               <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
-                 <BiIcons.BiBell />
+                  <BiIcons.BiBell />
                 </div>
               </Link>
             </li>
 
             <div className="profile-box">
-              <Link to="/login" className="login" style={{fontSize:"4rem"}}>
-                <BsIcons.BsPersonCircle/>
+              <Link to="/login" className="login" style={{ fontSize: "4rem" }}>
+                <BsIcons.BsPersonCircle />
               </Link>
               <Link to="/login" className="letslogin">
                 로그인하세요
               </Link>
             </div>
-
 
             {SidebarData.map((item, index) => {
               return (

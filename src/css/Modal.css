@@ -7,13 +7,11 @@
   left: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.6);
-  
 }
 .modal button {
   outline: none;
   cursor: pointer;
   border: 0;
-  
 }
 .modal > section {
   width: 90%;
@@ -31,7 +29,7 @@
   margin: 10px;
   /* background-color: #f1f1f1; */
   background-color: #fff;
-  color: #7D6E83;
+  color: #8861c2;
   font-weight: 700;
   font-size: 1.5rem;
 }
@@ -58,8 +56,8 @@
 }
 .modal > section > footer button {
   padding: 6px 12px;
-  color: #7D6E83;
-  background-color: #fff; 
+  color: #8861c2;
+  background-color: #fff;
   /* #6c757d; */
   border-radius: 5px;
   font-size: 30px;
@@ -69,7 +67,6 @@
   align-items: center;
   /* 팝업이 열릴때 스르륵 열리는 효과 */
   animation: modal-bg-show 0.3s;
-  
 }
 @keyframes modal-show {
   from {
@@ -93,5 +90,5 @@
 .pre-next {
   display: flex;
   justify-content: space-between;
-  color: #7D6E83;
+  color: #8861c2;
 }

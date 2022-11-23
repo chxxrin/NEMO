@@ -81,7 +81,7 @@ const BtnPost = styled.button`
   width: 276px;
   height: 41px;
   color: white;
-  background-color: #7d6e83;
+  background-color: #8861c2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 `;

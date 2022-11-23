@@ -27,17 +27,17 @@ export default function Navbar() {
 
   const navigate = useNavigate();
 
-    const navigateToAlarm = () => {
-        navigate("/alarm");
-      };
+  const navigateToAlarm = () => {
+    navigate("/alarm");
+  };
 
-    const navigateToLogin = () => {
-        navigate("/login");
-      };
+  const navigateToLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#7D6E83" }}>
+      <IconContext.Provider value={{ color: "#8861c2" }}>
         {/* All the icons now are white */}
         <div className="navbar">
           <Link to="#" className="menu-bars">
@@ -46,26 +46,25 @@ export default function Navbar() {
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
-          <li className="navbar-toggle">
+            <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
               <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
-                 <BiIcons.BiBell />
+                  <BiIcons.BiBell />
                 </div>
               </Link>
             </li>
 
             <div className="profile-box">
-              <Link to="/login" className="login" style={{fontSize:"4rem"}}>
-                <BsIcons.BsPersonCircle/>
+              <Link to="/login" className="login" style={{ fontSize: "4rem" }}>
+                <BsIcons.BsPersonCircle />
               </Link>
               <Link to="/login" className="letslogin">
                 로그인하세요
               </Link>
             </div>
-
 
             {SidebarData.map((item, index) => {
               return (

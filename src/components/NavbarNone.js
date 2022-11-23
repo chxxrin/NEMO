@@ -27,17 +27,17 @@ export default function NavbarNone() {
 
   const navigate = useNavigate();
 
-    const navigateToAlarm = () => {
-        navigate("/alarm");
-      };
+  const navigateToAlarm = () => {
+    navigate("/alarm");
+  };
 
-    const navigateToLogin = () => {
-        navigate("/login");
-      };
+  const navigateToLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#7D6E83" }}>
+      <IconContext.Provider value={{ color: "#8861c2" }}>
         {/* All the icons now are white */}
         <div className="navbar-none">
           <Link to="#" className="menu-bars">
@@ -52,14 +52,14 @@ export default function NavbarNone() {
               </Link>
               <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
-                 <BiIcons.BiBell />
+                  <BiIcons.BiBell />
                 </div>
               </Link>
             </li>
 
             <div className="profile-box">
-              <Link to="/login" className="login" style={{fontSize:"4rem"}}>
-                <BsIcons.BsPersonCircle/>
+              <Link to="/login" className="login" style={{ fontSize: "4rem" }}>
+                <BsIcons.BsPersonCircle />
               </Link>
               <Link to="/login" className="letslogin">
                 로그인하세요
