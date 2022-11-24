@@ -227,9 +227,9 @@ export function NaverMapAPI() {
               <div className="leftbox">
                 <div className="StoreCompany">{storeresult.company}</div>
                 <div className="StoreName">{storeresult.name}</div>
-                <div>{storeresult.address}</div>
-                {storeresult.contact!==null ?  (
-                <div>TEL : {storeresult.contact}</div>) : null}
+                <div className="StoreAddress">{storeresult.address}</div>
+                <br/>{storeresult.contact!==null ?  (
+                <div className="StoreTel">TEL : {storeresult.contact}</div>) : null}
               </div>
               <div className="rightbox">
                 {logoImgSelector(storeresult.company)}

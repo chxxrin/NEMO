@@ -113,8 +113,8 @@ export function MapHis() {
           <div className="leftbox">
             <div className="StoreCompany">{storeresult.company}</div>
             <div className="StoreName">{storeresult.name}</div>
-            <div>{storeresult.address}</div>
-            <div>TEL : {storeresult.contact}</div>
+            <div className="StoreAddress">{storeresult.address}</div>
+            <div className="StoreTel">TEL : {storeresult.contact}</div>
           </div>
         </div>
       </div>

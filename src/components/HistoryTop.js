@@ -17,10 +17,12 @@ export default HistoryTop;
 
 const Top = styled.h2`
   color: #8861c2;
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 20px;
+  margin: auto;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
 `;
