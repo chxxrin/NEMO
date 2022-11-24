@@ -12,20 +12,16 @@ import help5 from '../assets/help5.jpg'
 import help6 from '../assets/info6.png'
 import '../css/Help.css'
 const helpingimages = [
-  help1,
   help2,
   help3,
   help4,
   help5,
-  help6
 ]
 const helpingtext = [
-  "히스토리에서 사진을 추가해서 \n 나만의 히스토리를 모아보세요 !",
-  "궁금한 네컷 사진점을 검색해 보세요! \n 위치와 정보를 알려줄거에요^.^",
+  "궁금한 네컷 사진점을 검색해 보세요! \n 위치와 정보를 알려줄거에요 ^.^",
   "검색 기능으로 다양한 네컷 사진관들의 \n검색결과를 확인해볼까요?",
   "히스토리에 사진을 추가해서 \n나만의 히스토리를 모아보세요!",
-  "카카오톡 아이디로 친구를 추가하고 \n히스토리를 공유하세요!",
-  "6: 이건 제외할것"
+  "카카오톡 아이디로 친구를 추가하고 \n히스토리를 공유하세요!"
 ]
 
 let PageBox = styled.div`
@@ -62,11 +58,11 @@ function Help() {
         }} ><BsIcons.BsCaretLeftFill /></PageBtn>
         </div>
         <div style={{float:"left"}}>
-        <PageNum>{i} / 6</PageNum>
+        <PageNum>{i} / 4</PageNum>
         </div>
         <div style={{float:"left"}}>
         <PageBtn onClick={()=>{
-          if(i<6){
+          if(i<4){
             setI(i+1);
           }
         }} ><BsIcons.BsCaretRightFill /></PageBtn>
@@ -80,9 +76,6 @@ function Help() {
       <div id="helpingtext" style={{justifyContent: "center" ,float:"center"}}>
         {helpingtext[i-1]}
       </div>
-      {/* <div id="greedydiv" style={{}}>
-        
-      </div> */}
     </div>
     
   );
