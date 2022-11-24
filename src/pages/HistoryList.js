@@ -48,6 +48,7 @@ const HistoryList = () => {
   console.log(histories);
 
   // console.log(Object.keys(histories[0].history.title));
+
   return (
     <div className="container">
       <NavbarNone />

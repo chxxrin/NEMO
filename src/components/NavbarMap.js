@@ -137,12 +137,12 @@ export default function NavbarMap({ parentFunction }) {
           </div>
 
 
-            <div className="SearchBar">
+            {/* <div className="SearchBar">
 
             <input className="SearchInput"
                     value={query}
                     onChange={e => setQuery(e.target.value)} />
-            </div>
+            </div> */}
   
 {query ? (
         <div className="SearchOutput">
