@@ -5,10 +5,19 @@ import { BsFillChatFill } from 'react-icons/bs'
 
 const REACT_APP_KAKAO_RESTAPI_KEY = process.env.REACT_APP_KAKAO_RESTAPI_KEY
 
-const REDIRECT_URI_DEV = 'http://localhost:3000/oauth/kakao/callback' // 개발버전
-const REDIRECT_URI_PROD = '' // 배포버전버전
+let REDIRECT_URI = ''
 
-const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_KAKAO_RESTAPI_KEY}&response_type=code&redirect_uri=${REDIRECT_URI_DEV}`
+if (process.env.REACT_APP_ENV === 'development') {
+  // npm run dev (개발용 API 서버)
+  REDIRECT_URI = 'http://localhost:3000/oauth/kakao/callback'
+} else {
+  // npm start, npm build (배포용 API 서버)
+  REDIRECT_URI = 'http://ne-mo.me/oauth/kakao/callback'
+}
+
+console.log(REDIRECT_URI)
+
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_KAKAO_RESTAPI_KEY}&response_type=code&redirect_uri=${REDIRECT_URI}`
 
 function KakaoLoginBtn() {
   return (
