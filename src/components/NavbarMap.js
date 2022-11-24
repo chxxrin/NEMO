@@ -136,7 +136,16 @@ export default function NavbarMap({ parentFunction }) {
             />
           </div>
 
-          <div className="SearchOutput">
+
+            <div className="SearchBar">
+
+            <input className="SearchInput"
+                    value={query}
+                    onChange={e => setQuery(e.target.value)} />
+            </div>
+  
+{query ? (
+        <div className="SearchOutput">
             <div>
               {studios.map((studio) => (
                 <div key={studio.id} className="output-border">
@@ -154,7 +163,9 @@ export default function NavbarMap({ parentFunction }) {
                 </div>
               ))}
             </div>
-          </div>
+        </div>
+           ): null}
+
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
