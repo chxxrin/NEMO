@@ -6,6 +6,13 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Modal from '../components/Modal'
 import KakaoLoginBtn from '../components/KakaoLoginBtn'
+import logo from '../assets/nemo-logo.png'
+
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 //color : 진한보라 #8861c2,#7F669D, #827397, 연한보라 #B5A8BF
 let MainBtn_Purple = styled.button`
@@ -40,14 +47,11 @@ let MainBtn_Gray = styled.button`
   border-radius: 10px;
 `
 
-let Logo = styled.div`
-  display: flex;
+const LogoImg = styled.img`
+  width: 250px;
+  height: 250px;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #8861c2;
-  font-size: 50px;
-  padding: 150px;
 `
 
 function Home() {
@@ -76,8 +80,9 @@ function Home() {
   }
 
   return (
-    <div>
-      <Logo>NEMO</Logo>
+    <Div>
+      {/* <Logo>NEMO</Logo> */}
+      <LogoImg src={logo}></LogoImg>
       <KakaoLoginBtn></KakaoLoginBtn>
       <MainBtn_Purple onClick={navigateToMap}>시작하기</MainBtn_Purple>
       <MainBtn_Gray onClick={openModal}>도움말</MainBtn_Gray>
@@ -94,7 +99,7 @@ function Home() {
         laying out pages with meaningless filler text can be very useful when
         the focus is meant to be on design, not content.
       </Modal>
-    </div>
+    </Div>
   )
 }
 
