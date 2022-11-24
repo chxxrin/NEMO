@@ -13,6 +13,7 @@ import History from "../components/History";
 import HistoryView from "./HistoryView";
 import * as AiIcons from "react-icons/ai";
 import NavbarNone from "../components/NavbarNone";
+import { useAuthContext } from "../contexts/AuthContext";
 import {
   Routes,
   Route,
@@ -23,8 +24,19 @@ import {
 } from "react-router-dom";
 import "../css/MapHis.css";
 import "../css/History.css";
+import KakaoLoginModal from "../components/KakaoLoginModal";
 
 export function MapHis() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const { isAuth, userData } = useAuthContext();
   const location = useLocation();
   const storeresult = location.state.storeresult;
   console.log(location);
@@ -51,10 +63,27 @@ export function MapHis() {
     }
   };
 
+  const createHistoryIfUser = () => {
+    if (isAuth) {
+      return (
+        <div>
+          <Link to="/history/create">
+            <AiIcons.AiOutlinePlus className="icon-plus" />
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <AiIcons.AiOutlinePlus onClick={openModal} className="icon-plus" />
+        </div>
+      );
+    }
+  };
+
   return (
     <div>
       <NavbarNone />
-
       <div id="StoreInfo">
         <div>{logoImgSelector(storeresult.company)}</div>
         <div>
@@ -66,15 +95,16 @@ export function MapHis() {
           </div>
         </div>
       </div>
+      <KakaoLoginModal
+        open={modalOpen}
+        close={closeModal}
+        header="로그인 후 이용해주세요!"
+      />
 
       <div className="PictureList">
         <div className="HistoryTitle">HISTORY</div>
         <div className="picture-container">
-          <div className="picture-item">
-            <Link to="/history/create">
-              <AiIcons.AiOutlinePlus className="icon-plus" />
-            </Link>
-          </div>
+          <div className="picture-item">{createHistoryIfUser()}</div>
           <div className="picture-item"></div>
           <div className="picture-item"></div>
           <div className="picture-item"></div>

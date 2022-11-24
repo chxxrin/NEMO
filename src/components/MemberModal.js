@@ -18,8 +18,8 @@ const MemberModal = (props) => {
             </button>
           </header>
           <main>
-            {<Member name="시원" />}
-            {<Member name="지우" />}
+            {<Member name="김민수" />}
+            {<Member name="이주연" />}
           </main>
           <footer>
             <div className="buttons">
