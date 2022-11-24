@@ -31,10 +31,6 @@ const HistoryList = () => {
             console.log("1", res.data);
             setHistories(res.data);
             console.log("2", histories);
-
-            for (const data of res.data) {
-              console.log(data.history.title);
-            }
           });
       } catch (e) {
         setError(e);
@@ -45,10 +41,6 @@ const HistoryList = () => {
     fetchHistories();
   }, []);
   let i = 0;
-
-  console.log(histories);
-
-  // console.log(Object.keys(histories[0].history.title));
 
   return (
     <div className="container">
