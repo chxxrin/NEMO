@@ -4,6 +4,7 @@ import HistoryTop from "../components/HistoryTop";
 import NavbarNone from "../components/NavbarNone";
 import HistoryImageViewer from "../components/HistoryImageViewer";
 import HistoryInfoViewer from "../components/HistoryInfoViewer";
+import HistoryListViewer from "../components/HistoryListViewer";
 import "../css/History.css";
 import "../css/Navbar.css";
 import axios from "axios";
@@ -57,8 +58,8 @@ const HistoryList = () => {
         {Object.values(histories).map((value, i) => {
           return (
             <div>
-              <HistoryInfoViewer historyObj={value} trace="list" />{" "}
-              <HistoryImageViewer historyObj={value} />
+              {/* <HistoryInfoViewer historyObj={value} trace="list" />{" "} */}
+              <HistoryListViewer historyObj={value} />
             </div>
           );
         })}
