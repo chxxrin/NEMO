@@ -1,29 +1,30 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import MemberModal from "../components/MemberModal";
-import DateView from "./DateView";
-import "../css/History.css";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import MemberModal from '../components/MemberModal'
+import DateView from './DateView'
+import '../css/History.css'
+import KakaoShareBtn from './KakaoShareBtn'
 
-const HistroyImageViewer = ({ historyObj }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+const HistroyImageViewer = ({ historyObj, hashed_history_id }) => {
+  const [modalOpen, setModalOpen] = useState(false)
 
   const openModal = () => {
-    setModalOpen(true);
-  };
+    setModalOpen(true)
+  }
   const closeModal = () => {
-    setModalOpen(false);
-  };
+    setModalOpen(false)
+  }
 
   return (
     <div>
       <section id="pic">
         <img
           style={{
-            marginTop: "10px",
-            width: "350px",
-            height: "400px",
-            objectFit: "contain",
+            marginTop: '10px',
+            width: '350px',
+            height: '400px',
+            objectFit: 'contain',
           }}
           src={historyObj.files[0].url}
         ></img>
@@ -44,11 +45,15 @@ const HistroyImageViewer = ({ historyObj }) => {
         close={closeModal}
         header="사용자 초대하기"
       />
+      <KakaoShareBtn
+        hashed_history_id={hashed_history_id}
+        historyObj={historyObj}
+      ></KakaoShareBtn>
     </div>
-  );
-};
+  )
+}
 
-export default HistroyImageViewer;
+export default HistroyImageViewer
 
 const BtnPurple = styled.button`
   border: none;
@@ -59,11 +64,11 @@ const BtnPurple = styled.button`
   background-color: #8861c2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
-`;
+`
 
 const Info = styled.div`
   width: 320px;
   height: 50px;
   display: flex;
   justify-content: space-between;
-`;
+`

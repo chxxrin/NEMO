@@ -65,7 +65,10 @@ const HistoryView = () => {
       <NavbarNone />
       <HistoryTop />
       <HistoryInfoViewer historyObj={histories} />
-      <HistoryImageViewer historyObj={histories} />
+      <HistoryImageViewer
+        historyObj={histories}
+        hashed_history_id={hashed_history_id}
+      />
     </div>
   )
 }
