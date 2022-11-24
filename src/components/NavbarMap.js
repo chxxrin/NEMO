@@ -106,20 +106,19 @@ export default function NavbarMap({ parentFunction }) {
               </div>
             )}
 
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
 
-            {SidebarData.map((item, index) => {
+            {SidebarData.map((item) => {
               return (
-                <div>
-                  <li key={index} className={item.cName}>
-                    <Link to={item.path}>
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </Link>
-                  </li>
-                </div>
+                <li key={item.title} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
               );
             })}
+
             {isAuth ? (
               <div className="logout-btn" onClick={logout}>
                 로그아웃

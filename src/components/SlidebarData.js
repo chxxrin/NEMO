@@ -19,6 +19,13 @@ export const SidebarData = [
   //     cName: "nav-text"
   // },
   {
+    title: "지도",
+    path: "/map",
+    // icon: <BsIcons.BsReverseLayoutTextSidebarReverse />,
+    cName: "nav-text",
+  },
+
+  {
     title: "히스토리",
     path: "/history",
     // icon: <BsIcons.BsReverseLayoutTextSidebarReverse />,
