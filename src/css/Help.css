@@ -1,8 +1,9 @@
 .HelpBtn{
-    margin:0 auto;
-    justify-content: center;
+ padding: 5% 30%;
 }
-#HelpImg{
-    width: 20;
-    height: 70;
+
+
+#outer{
+    justify-content: center;
+    margin:0 auto;
 }
