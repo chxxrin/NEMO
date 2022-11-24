@@ -30,8 +30,12 @@ const HistroyImageViewer = ({ historyObj, hashed_history_id }) => {
         ></img>
       </section>
 
-      <section id="btn">
-        <BtnPurple onClick={openModal}>초대</BtnPurple>
+      <section id="btn" style={{ alignItems: 'center' }}>
+        {/* <BtnPurple onClick={openModal}>초대</BtnPurple> */}
+        <KakaoShareBtn
+          hashed_history_id={hashed_history_id}
+          historyObj={historyObj}
+        ></KakaoShareBtn>
         <Link to="/map">
           <BtnPurple id="map">완료</BtnPurple>
         </Link>
@@ -45,10 +49,6 @@ const HistroyImageViewer = ({ historyObj, hashed_history_id }) => {
         close={closeModal}
         header="사용자 초대하기"
       />
-      <KakaoShareBtn
-        hashed_history_id={hashed_history_id}
-        historyObj={historyObj}
-      ></KakaoShareBtn>
     </div>
   )
 }
