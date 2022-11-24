@@ -213,7 +213,7 @@ export function NaverMapAPI() {
         >
           <div id="undermap" style={{ position: 'absolute' }}></div>
 
-          <div onClick={() => setTrick(!trick)}>
+          {/* <div onClick={() => setTrick(!trick)}>
             <p>{trick}</p>
             {jsonData.positions.map((a) => (
               <Marker
@@ -225,7 +225,7 @@ export function NaverMapAPI() {
                 }}
               ></Marker>
             ))}
-          </div>
+          </div> */}
           <GetMarker parentGetmarkerIndex={parentGetmarkerIndex}></GetMarker>
         </NaverMap>
       </div>
