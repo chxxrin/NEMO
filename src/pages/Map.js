@@ -71,7 +71,7 @@ export function GetMarker({ parentGetmarkerIndex }) {
     </div>
   );
 }
-// 아래꺼 무시
+
 export function SearchBar({ parentFunction }) {
   let [search, setSearch] = useState("");
   return (

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import { json } from "react-router";
+import { Navigate } from "react-router-dom";
 import jsonData from "./map_info.json";
 import NaecutLogo from "../assets/naecut.png";
 import HarufilmLogo from "../assets/harufilm.png";
@@ -27,6 +28,7 @@ import "../css/History.css";
 import KakaoLoginModal from "../components/KakaoLoginModal";
 
 export function MapHis() {
+  let navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -67,9 +69,14 @@ export function MapHis() {
     if (isAuth) {
       return (
         <div>
-          <Link to="/history/create">
-            <AiIcons.AiOutlinePlus className="icon-plus" />
-          </Link>
+          <AiIcons.AiOutlinePlus
+            onClick={() => {
+              navigate("/history/create", {
+                state: { storeresult: storeresult },
+              });
+            }}
+            className="icon-plus"
+          />
         </div>
       );
     } else {
