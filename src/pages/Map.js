@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react'
 import React from 'react'
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps' // 패키지 불러오기
@@ -6,6 +7,21 @@ import '../css/Navbar.css'
 import jsonData from './map_info.json'
 import Storelogo from '../assets/naecut.png'
 import { json } from 'react-router'
+=======
+import { useState, useEffect } from "react";
+import React from "react";
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps"; // 패키지 불러오기
+import "../css/Map.css";
+import "../css/Navbar.css";
+import jsonData from "./map_info.json";
+import NaecutLogo from "../assets/naecut.png";
+import HarufilmLogo from "../assets/harufilm.png";
+import PhotograyLogo from "../assets/photogray.png";
+import PhotoismLogo from "../assets/photoism.png";
+import PhotomaticLogo from "../assets/photomatic.png";
+import PhotosignatureLogo from "../assets/signature.png";
+import { json } from "react-router";
+>>>>>>> master
 import {
   Routes,
   Route,
@@ -35,12 +51,20 @@ export function GetMarker({ parentGetmarkerIndex }) {
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
+<<<<<<< HEAD
         setError(null)
         setMarkers(null)
         setLoading(true)
         //const response = await axios.get(API + "/studio/");
         const response = await axios.get('studio/', { params })
         setMarkers(response.data)
+=======
+        setError(null);
+        setMarkers(null);
+        setLoading(true);
+        const response = await axios.get("studio/", { params });
+        setMarkers(response.data);
+>>>>>>> master
       } catch (e) {
         setError(e)
       }
@@ -126,6 +150,7 @@ export function NaverMapAPI() {
       } catch (e) {
         setError(e)
       }
+<<<<<<< HEAD
       setLoading(false)
     }
     onestudio()
@@ -134,6 +159,12 @@ export function NaverMapAPI() {
     //setStoreresult(response.data);
     //console.log(storeresult);
   }
+=======
+      setLoading(false);
+    };
+    onestudio();
+  };
+>>>>>>> master
   const onTrick = () => {
     if (trick == 0) {
       setTrick(2)
@@ -148,42 +179,24 @@ export function NaverMapAPI() {
     console.log(flipped)
   }
 
-  const clickedMarker = () => {}
-  const params = { search: '서울' }
-  const URL = '/studio/'
-  // useEffect(() => {
-  //   const fetchMarkers = async () => {
-  //     try {
-  //       setError(null);
-  //       setMarkers(null);
-  //       setLoading(true);
-  //       //const response = await axios.get(API + "/studio/");
-  //       const response = await axios.get(URL,{params});
-  //       setResult(response.data);
-  //       console.log(result[0].address)
-  //     } catch (e) {
-  //       setError(e);
-  //     }
-  //     setLoading(false);
-  //   };
-  //   fetchMarkers();
-  // }, []);
-  //여기서부터 빡코딩
-
-  // const dataList = jsonData.positions;
-  // {
-  //   dataList.map(function(a,i){
-  //     return(
-  //       <div>
-  //         {a[i].index}
-  //       </div>
-  //     )
-  //   })
-  // }
-  //
-  const aaa = () => {
-    console.log(result[0].address)
-  }
+  const clickedMarker = () => {};
+  const params = { search: "서울" };
+  const URL = "/studio/";
+  const logoImgSelector = (param) => {
+    if (param === "인생네컷") {
+      return <img id="StoreImg" src={NaecutLogo} />;
+    } else if (param === "하루필름") {
+      return <img id="StoreImg" src={HarufilmLogo} />;
+    } else if (param === "포토그레이") {
+      return <img id="StoreImg" src={PhotograyLogo} />;
+    } else if (param === "포토이즘") {
+      return <img id="StoreImg" src={PhotoismLogo} />;
+    } else if (param === "포토매틱") {
+      return <img id="StoreImg" src={PhotomaticLogo} />;
+    } else if (param === "포토시그니처") {
+      return <img id="StoreImg" src={PhotosignatureLogo} />;
+    }
+  };
 
   return (
     <div>
@@ -213,7 +226,7 @@ export function NaverMapAPI() {
         >
           <div id="undermap" style={{ position: 'absolute' }}></div>
 
-          <div onClick={() => setTrick(!trick)}>
+          {/* <div onClick={() => setTrick(!trick)}>
             <p>{trick}</p>
             {jsonData.positions.map((a) => (
               <Marker
@@ -225,10 +238,11 @@ export function NaverMapAPI() {
                 }}
               ></Marker>
             ))}
-          </div>
+          </div> */}
           <GetMarker parentGetmarkerIndex={parentGetmarkerIndex}></GetMarker>
         </NaverMap>
       </div>
+<<<<<<< HEAD
       {/* 강제랜더링/새로고침버튼 */}
       {/* <div className="new-box">
         <button
@@ -242,6 +256,9 @@ export function NaverMapAPI() {
       </div> */}
 
       {/* 상세페이지요약 */}
+=======
+
+>>>>>>> master
       {flag === true ? (
         <div className="StoreBigBox" storeresult={storeresult}>
           <div className="StoreContainer">
@@ -259,42 +276,11 @@ export function NaverMapAPI() {
                 <div>{storeresult.address}</div>
                 <div>TEL : {storeresult.contact}</div>
               </div>
-
               <div className="rightbox">
-                <img id="StoreImg" src={Storelogo}></img>
+                {logoImgSelector(storeresult.company)}
               </div>
             </button>
           </div>
-
-          {/* <div className="StoreContainer">
-            <button
-              className="StoreBorder"
-              onClick={() => {
-                navigate("/maphis", { state: { storeresult: storeresult } });
-              }}
-            >
-              <div className="StoreLeftBox">
-                <img id="StoreImg" src={Storelogo}></img>
-              </div>
-              <div className="StoreRightBox">
-                <ul id="StoreList">
-                  <li id="StoreName">
-                    <p>{storeresult.company}</p>
-                  </li>
-                  <li id="StoreName">
-                    <p>{storeresult.name}</p>
-                  </li>
-                  <li>
-                    <p>{storeresult.address}</p>
-                  </li>
-                  <li>
-                    <p>TEL : {storeresult.contact}</p>
-                  </li>
-                </ul>
-              </div> */}
-          {/* <button onClick={() => {navigate('/maphis', {state:{diff:diff}})}} >상세</button> */}
-          {/* </button>
-          </div> */}
         </div>
       ) : null}
     </div>
