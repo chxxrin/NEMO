@@ -22,9 +22,6 @@
 
 }
 
-.StoreName {
-  font-size: 20px;
-}
 .HistoryTitle {
   /* position: absolute; */
   /* width: 100px;
@@ -35,7 +32,7 @@
     margin-left: 20px;
     font-size:30px;
     font-weight: bold;
-    color:#7D6E83;
+    color:#8861c2;
     margin: auto;
     text-align: center;
     
@@ -148,7 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #7D6E83;
+    color: #8861c2;
     font-size: 40px;
     font-weight: bold;
     margin : 3px;

@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import DateSelect from "./DateSelect";
+import '../css/History.css';
 
 const HistoryInfo = (props) => {
   const { user, idx, setTitle, setDate, title, date } = props;
@@ -32,6 +33,7 @@ const Info = styled.div`
   height: 50px;
   display: flex;
   justify-content: space-between;
+  padding-right: 15px;
 `;
 
 const Input = styled.input`

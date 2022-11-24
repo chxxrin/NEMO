@@ -230,7 +230,7 @@ export function NaverMapAPI() {
         </NaverMap>
       </div>
       {/* 강제랜더링/새로고침버튼 */}
-      <div className="new-box">
+      {/* <div className="new-box">
         <button
           onClick={() => {
             onTrick();
@@ -239,7 +239,10 @@ export function NaverMapAPI() {
         >
           <MdIcons.MdAutorenew />
         </button>
-      </div>
+      </div> */}
+
+
+
       {/* 상세페이지요약 */}
       {flag === true ? (
         <div className="StoreBigBox" storeresult={storeresult}>

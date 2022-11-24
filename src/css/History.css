@@ -23,7 +23,8 @@ span {
   align-items: baseline;
   justify-content: center;
   text-align: center;
-  padding: 15px 10px 0px 15px;
+  padding: 20px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   margin-bottom: 18px;
@@ -33,7 +34,9 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px 15px 15px 15px;
+    /* padding: 5px 15px 15px 15px; */
+  padding: 20px;
+  margin: 20px;
   flex-direction: column;
   margin-bottom: 20px;
 }
@@ -56,4 +59,8 @@ span {
   border: 0px solid #e2e2e2;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
   justify-content: space-around;
+}
+
+.del {
+  padding-right: 30px;
 }
