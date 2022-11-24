@@ -148,7 +148,7 @@ export default function NavbarMap({ parentFunction }) {
                     onChange={e => setQuery(e.target.value)} />
             </div>
   
-
+{query ? (
         <div className="SearchOutput">
             <div>
                 {studios.map((studio) => (
@@ -156,7 +156,7 @@ export default function NavbarMap({ parentFunction }) {
 
                   <button
                     className="Search-btn"
-                    onClick={(value) => {
+                    onClick={() => {
                     navigate(`/maphis/${studio.id}`, {
                     state: { storeresult: studio },
                     });
@@ -169,7 +169,9 @@ export default function NavbarMap({ parentFunction }) {
                 </div>
                 ))}
             </div>
+      
         </div>
+           ): null}
 
 
 

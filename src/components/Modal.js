@@ -5,7 +5,7 @@ import * as GrIcons from "react-icons/gr";
 import * as IoIcons from "react-icons/io";
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav'; 
-import { HelpData } from "../components/HelpData";
+import { HelpData } from "./HelpData";
 
 const Modal = (props) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
