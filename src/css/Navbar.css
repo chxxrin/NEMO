@@ -18,15 +18,15 @@
   height: 40px;
   width: 350px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border: 1px solid #dddddd;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-top: 10px;
   font-size: 1rem;
   padding: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
   color: #8861c2;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
   z-index: 10000;
@@ -162,7 +162,7 @@ span {
   display: flex;
   justify-content: start;
   align-items: center;
-  margin:10px;
+  margin: 10px;
   padding-left: 0.8rem;
   font-size: 1.3rem;
   color: #8861c2;
@@ -191,18 +191,22 @@ span {
   text-align: center;
 }
 .logout-btn {
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-size: 15px;
   display: flex;
-  justify-items: left;
-  color: LightGray;
-  position: absolute;
-  bottom: 60px;
-  left: 30px;
+  justify-items: right;
+  color: rgba(0, 0, 0, 0.662);
+  margin-top: 5px;
+  right: 30px;
+}
+
+.logout-btn:hover {
+  font-weight: 900;
+  cursor: pointer;
 }
 
 .user-name {
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-size: 20px;
   margin-bottom: 20px;
 }
@@ -217,7 +221,6 @@ hr.solid {
   flex-direction: column;
 }
 
-
 .map-logo {
   margin: auto;
   display: flex;
@@ -226,4 +229,8 @@ hr.solid {
   text-decoration: none;
   color: #8861c2;
   font-weight: bold;
+}
+
+.map-menu-bars {
+  padding-left: 1rem;
 }

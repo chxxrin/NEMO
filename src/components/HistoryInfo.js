@@ -2,10 +2,10 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import DateSelect from "./DateSelect";
-import '../css/History.css';
+import "../css/History.css";
 
 const HistoryInfo = (props) => {
-  const { user, idx, setTitle, setDate, title, date } = props;
+  const { user, idx, setTitle, setDate, title, date, studio, location } = props;
   return (
     <div className="info-wrapper">
       <section id="title">
@@ -18,8 +18,7 @@ const HistoryInfo = (props) => {
           value={title}
         />
         <Info className="info">
-          {user.photos[idx].location}{" "}
-          <DateSelect setDate={setDate} date={date} />
+          {studio + " "} {location} <DateSelect setDate={setDate} date={date} />
         </Info>
       </section>
     </div>

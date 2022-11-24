@@ -56,10 +56,10 @@ export default function NavbarNone() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Link to="/map" className="map-logo">
-              {/* <img id="logo" src={logo} width="100px"></img> */}
-              NEMO
-            </Link>
-          </div>
+            {/* <img id="logo" src={logo} width="100px"></img> */}
+            NEMO
+          </Link>
+        </div>
 
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
@@ -67,6 +67,13 @@ export default function NavbarNone() {
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose onClick={handleClick} />
               </Link>
+              {isAuth ? (
+                <div className="logout-btn" onClick={logout}>
+                  로그아웃
+                </div>
+              ) : (
+                <div></div>
+              )}
               {/* <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
                   <BiIcons.BiBell />
@@ -107,13 +114,6 @@ export default function NavbarNone() {
                 </li>
               );
             })}
-            {isAuth ? (
-              <div className="logout-btn" onClick={logout}>
-                로그아웃
-              </div>
-            ) : (
-              <div></div>
-            )}
           </ul>
         </nav>
       </IconContext.Provider>

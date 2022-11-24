@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import History from "../components/History";
-import HistoryTop from "../components/HistoryTop";
-import MemberModal from "../components/MemberModal";
-import styled from "styled-components";
-import { TiDelete } from "react-icons/ti";
-import NavbarNone from "../components/NavbarNone";
-import axios from "axios";
-import Resizer from "react-image-file-resizer";
-import imgHolder from "../assets/add_image.png";
-import "../css/History.css";
-import "../css/Navbar.css";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import History from '../components/History'
+import HistoryTop from '../components/HistoryTop'
+import MemberModal from '../components/MemberModal'
+import styled from 'styled-components'
+import { TiDelete } from 'react-icons/ti'
+import NavbarNone from '../components/NavbarNone'
+import axios from 'axios'
+import Resizer from 'react-image-file-resizer'
+import imgHolder from '../assets/add_image.png'
+import '../css/History.css'
+import '../css/Navbar.css'
 
-const API = process.env.REACT_APP_API;
+const API = process.env.REACT_APP_API
 
 const HistoryEdit = ({ user }) => {
   const resizeFile = (file) =>
@@ -21,65 +21,65 @@ const HistoryEdit = ({ user }) => {
         file,
         300,
         300,
-        "JPEG",
+        'JPEG',
         100,
         0,
         (uri) => {
-          resolve(uri);
+          resolve(uri)
         },
-        "file"
-      );
-    });
+        'file'
+      )
+    })
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false)
 
   const openModal = () => {
-    setModalOpen(true);
-  };
+    setModalOpen(true)
+  }
   const closeModal = () => {
-    setModalOpen(false);
-  };
+    setModalOpen(false)
+  }
   const [image, setImage] = useState({
-    image_file: "",
+    image_file: '',
     preview_URL: user.photos[0].img,
-  });
+  })
 
-  let inputRef;
+  let inputRef
   const saveImage = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (e.target.files[0]) {
-      URL.revokeObjectURL(image.preview_URL);
-      const newImage = await resizeFile(e.target.files[0]);
-      const new_URL = URL.createObjectURL(newImage);
+      URL.revokeObjectURL(image.preview_URL)
+      const newImage = await resizeFile(e.target.files[0])
+      const new_URL = URL.createObjectURL(newImage)
       setImage(() => ({
         image_file: newImage,
         preview_URL: new_URL,
-      }));
+      }))
     }
-  };
+  }
 
   const deleteImage = () => {
-    URL.revokeObjectURL(image.preview_URL);
+    URL.revokeObjectURL(image.preview_URL)
     setImage({
-      image_file: "",
+      image_file: '',
       preview_URL: imgHolder,
-    });
-  };
+    })
+  }
 
   useEffect(() => {
     return () => {
-      URL.revokeObjectURL(image.preview_URL);
-    };
-  }, []);
+      URL.revokeObjectURL(image.preview_URL)
+    }
+  }, [])
 
   const sendImageToServer = async () => {
     if (image.image_file) {
-      const formData = new FormData();
-      formData.append("file", image.image_file);
-      await axios.post(API + "/image/upload");
+      const formData = new FormData()
+      formData.append('file', image.image_file)
+      await axios.post(API + '/image/upload')
     }
-  };
+  }
 
   return (
     <div className="container">
@@ -93,9 +93,9 @@ const HistoryEdit = ({ user }) => {
           </BtnDelete>
           <img
             style={{
-              width: "350px",
-              height: "400px",
-              objectFit: "contain",
+              width: '350px',
+              height: '400px',
+              objectFit: 'contain',
             }}
             src={image.preview_URL}
             onClick={() => inputRef.click()}
@@ -116,7 +116,7 @@ const HistoryEdit = ({ user }) => {
         onChange={saveImage}
         onClick={(e) => (e.target.value = null)}
         ref={(refParam) => (inputRef = refParam)}
-        style={{ display: "none" }}
+        style={{ display: 'none' }}
       />
       <MemberModal
         open={modalOpen}
@@ -124,9 +124,9 @@ const HistoryEdit = ({ user }) => {
         header="사용자 초대하기"
       ></MemberModal>
     </div>
-  );
-};
-export default HistoryEdit;
+  )
+}
+export default HistoryEdit
 
 const BtnPurple = styled.button`
   border: none;
@@ -137,7 +137,7 @@ const BtnPurple = styled.button`
   background-color: #8861c2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
-`;
+`
 
 const BtnGray = styled.button`
   border: none;
@@ -148,7 +148,7 @@ const BtnGray = styled.button`
   background-color: #e7e7e7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
-`;
+`
 
 const BtnDelete = styled.button`
   width: 380px;
@@ -162,4 +162,4 @@ const BtnDelete = styled.button`
   outline: none;
   color: gray;
   background-color: transparent;
-`;
+`

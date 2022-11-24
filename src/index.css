@@ -1,8 +1,13 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  min-height: 100%;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
