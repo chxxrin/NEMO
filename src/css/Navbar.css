@@ -18,15 +18,15 @@
   height: 40px;
   width: 350px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border: 1px solid #dddddd;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-top: 10px;
   font-size: 1rem;
   padding: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
   color: #8861c2;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
   z-index: 10000;
@@ -226,4 +226,8 @@ hr.solid {
   text-decoration: none;
   color: #8861c2;
   font-weight: bold;
+}
+
+.map-menu-bars {
+  padding-left: 1rem;
 }
