@@ -46,7 +46,7 @@ const HistoryCreate = ({ user }) => {
         console.log(res.data)
         const hashed_history_id = res.data.hashed_history_id
         window.alert('히스토리가 등록되었습니다.')
-        navigate(`/history/view/${hashed_history_id}`)
+        navigate(`/history/view/${hashed_history_id}?is_newUser=0`)
       })
       .catch((error) => {
         window.alert(error.message)

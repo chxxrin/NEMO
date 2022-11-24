@@ -39,8 +39,8 @@ function KakaoShareBtn({ hashed_history_id, historyObj }) {
         description: `${historyObj.studio.company} ${historyObj.studio.name} 에서의 네컷사진을 같이 봐요! 📸`,
         imageUrl: 'http://ne-mo.me/nemo-logo-256.png',
         link: {
-          mobileWebUrl: `${MOBILE_WEB_URL}/history/view/${hashed_history_id}`,
-          webUrl: `${MOBILE_WEB_URL}/history/view/${hashed_history_id}`,
+          mobileWebUrl: `${MOBILE_WEB_URL}/history/view/${hashed_history_id}?is_newUser=1`,
+          webUrl: `${MOBILE_WEB_URL}/history/view/${hashed_history_id}?is_newUser=1`,
         },
       },
     })

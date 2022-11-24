@@ -5,12 +5,14 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../contexts/AuthContext'
+import { useHashHistoryIdContext } from '../contexts/HashHistoryIdContext'
 
 const REACT_APP_KAKAO_RESTAPI_KEY = process.env.REACT_APP_KAKAO_RESTAPI_KEY
 
 // 카카오 로그인 후, 리다이렉트 되는 페이지
 const KakaoCallback = () => {
   const { setIsAuth, setUserData } = useAuthContext()
+  // const { hashHistoryId, setHashHistoryId } = useHashHistoryIdContext()
 
   const navigate = useNavigate()
 
@@ -59,16 +61,23 @@ const KakaoCallback = () => {
             // res.data : 유저 데이터 객체
             setIsAuth(true)
             setUserData(res.data)
-            console.log(res.data)
-            navigate('/map') // 로그인 완료 후 /map 으로 이동
+            // console.log(res.data)
+            const hashHistoryId = localStorage.getItem('hashed_history_id')
+            console.log('hashHistoryId', hashHistoryId)
+            if (hashHistoryId) {
+              navigate(`/history/view/${hashHistoryId}?is_newUser=0`)
+              // setHashHistoryId(null)
+            } else {
+              navigate('/map') // 로그인 완료 후 /map 으로 이동
+            }
           })
           .catch((err) => {
             window.alert('로그인에 실패하였습니다.') // 여유되면 모달로 표시
-            navigate('/login') // 로그인 실패하면 /login 으로 이동
+            navigate('/') // 로그인 실패하면 /login 으로 이동
           })
       } else {
         window.alert('로그인에 실패하였습니다.') // 여유되면 모달로 표시
-        navigate('/login') // 로그인 실패하면 /login 으로 이동
+        navigate('/') // 로그인 실패하면 /login 으로 이동
       }
     })
   }
