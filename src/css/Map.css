@@ -15,26 +15,9 @@ span {
   padding: none;
 }
 
-/*.SearchBar {
-  height: 40px;
-  width: 400px;
-   border: 1px solid rgb(44, 174, 44);
-  background: #ffffff; 
-  z-index: 5000;
-  position: relative; 
-}*/
 
-.SearchInput {
-  font-size: 20px;
-  width: 90%;
-  /* padding: 10px; */
-  border: 0px;
-  outline: none;
-  float: left;
-  z-index: 5000;
-  padding-top: 3px;
-  background-color: transparent;
-}
+
+
 .SearchButton {
   width: 9%;
   border: none;

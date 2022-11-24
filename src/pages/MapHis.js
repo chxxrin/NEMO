@@ -1,19 +1,20 @@
-import { useState, useEffect } from "react";
-import React from "react";
-import { json } from "react-router";
-import jsonData from "./map_info.json";
-import NaecutLogo from "../assets/naecut.png";
-import HarufilmLogo from "../assets/harufilm.png";
-import PhotograyLogo from "../assets/photogray.png";
-import PhotoismLogo from "../assets/photoism.png";
-import PhotomaticLogo from "../assets/photomatic.png";
-import PhotosignatureLogo from "../assets/signature.png";
-import styled from "styled-components";
-import History from "../components/History";
-import HistoryView from "./HistoryView";
-import * as AiIcons from "react-icons/ai";
-import NavbarNone from "../components/NavbarNone";
-import { useAuthContext } from "../contexts/AuthContext";
+import { useState, useEffect } from 'react'
+import React from 'react'
+import { json } from 'react-router'
+import { Navigate } from 'react-router-dom'
+import jsonData from './map_info.json'
+import NaecutLogo from '../assets/naecut.png'
+import HarufilmLogo from '../assets/harufilm.png'
+import PhotograyLogo from '../assets/photogray.png'
+import PhotoismLogo from '../assets/photoism.png'
+import PhotomaticLogo from '../assets/photomatic.png'
+import PhotosignatureLogo from '../assets/signature.png'
+import styled from 'styled-components'
+import History from '../components/History'
+import HistoryView from './HistoryView'
+import * as AiIcons from 'react-icons/ai'
+import NavbarNone from '../components/NavbarNone'
+import { useAuthContext } from '../contexts/AuthContext'
 import {
   Routes,
   Route,
@@ -21,65 +22,87 @@ import {
   useNavigate,
   Outlet,
   useLocation,
-} from "react-router-dom";
-import "../css/MapHis.css";
-import "../css/History.css";
-import KakaoLoginModal from "../components/KakaoLoginModal";
+} from 'react-router-dom'
+import '../css/MapHis.css'
+import '../css/History.css'
+import KakaoLoginModal from '../components/KakaoLoginModal'
+import axios from 'axios'
 
 export function MapHis() {
-  const [modalOpen, setModalOpen] = useState(false);
+  let navigate = useNavigate()
+  const [modalOpen, setModalOpen] = useState(false)
 
   const openModal = () => {
-    setModalOpen(true);
-  };
+    setModalOpen(true)
+  }
   const closeModal = () => {
-    setModalOpen(false);
-  };
+    setModalOpen(false)
+  }
 
-  const { isAuth, userData } = useAuthContext();
-  const location = useLocation();
-  const storeresult = location.state.storeresult;
-  console.log(location);
-  console.log("storeresult", storeresult);
+  const { isAuth, userData } = useAuthContext()
+  const location = useLocation()
+  const storeresult = location.state.storeresult
+  console.log(location)
+  console.log('storeresult', storeresult)
+
+  const fetch = async () => {
+    await axios
+      .get('history/', {
+        params: { studio_id: storeresult.id },
+        // headers: { 'Access-Control-Allow-Origin': '*' },
+
+        withCredetials: true,
+      })
+      .then((res) => console.log(res))
+  }
+
+  useEffect(() => {
+    fetch()
+  }, [])
 
   const logoImgSelector = (param) => {
-    if (param === "인생네컷") {
+    if (param === '인생네컷') {
       return (
         <img
-          style={{ width: "120px", height: "120px", objectfit: "contain" }}
+          style={{ width: '120px', height: '120px', objectfit: 'contain' }}
           src={NaecutLogo}
         />
-      );
-    } else if (param === "하루필름") {
-      return <LogoImg src={HarufilmLogo} />;
-    } else if (param === "포토그레이") {
-      return <LogoImg src={PhotograyLogo} />;
-    } else if (param === "포토이즘") {
-      return <LogoImg src={PhotoismLogo} />;
-    } else if (param === "포토매틱") {
-      return <LogoImg src={PhotomaticLogo} />;
-    } else if (param === "포토시그니처") {
-      return <LogoImg src={PhotosignatureLogo} />;
+      )
+    } else if (param === '하루필름') {
+      return <LogoImg src={HarufilmLogo} />
+    } else if (param === '포토그레이') {
+      return <LogoImg src={PhotograyLogo} />
+    } else if (param === '포토이즘') {
+      return <LogoImg src={PhotoismLogo} />
+    } else if (param === '포토매틱') {
+      return <LogoImg src={PhotomaticLogo} />
+    } else if (param === '포토시그니처') {
+      return <LogoImg src={PhotosignatureLogo} />
     }
-  };
+  }
 
   const createHistoryIfUser = () => {
     if (isAuth) {
       return (
         <div>
-          <Link to="/history/create">
-            <AiIcons.AiOutlinePlus className="icon-plus" />
-          </Link>
+          <AiIcons.AiOutlinePlus
+            onClick={() => {
+              navigate('/history/create', {
+                state: { storeresult: storeresult },
+              })
+            }}
+            className="icon-plus"
+          />
         </div>
-      );
+      )
     } else {
       return (
         <div>
           <AiIcons.AiOutlinePlus onClick={openModal} className="icon-plus" />
         </div>
-      );
+      )
     }
-  };
+  }
 
   return (
     <div>
@@ -111,10 +134,10 @@ export function MapHis() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default MapHis;
+export default MapHis
 
 const LogoImg = styled.img`
   display: flex;
@@ -122,5 +145,5 @@ const LogoImg = styled.img`
   align-self: center;
   width: 150px;
   height: 150px;
-  objectfit: "contain";
-`;
+  objectfit: 'contain';
+`

@@ -12,7 +12,7 @@ import "../css/Navbar.css";
 import { useLocation } from "react-router-dom";
 import HistoryInfoViewer from "../components/HistoryInfoViewer";
 
-const HistoryView = ({ user }) => {
+const HistoryView = () => {
   const [histories, setHistories] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -59,13 +59,16 @@ const HistoryView = ({ user }) => {
   if (loading) return <div>로딩중</div>;
   if (error) return <div>에러</div>;
   if (!histories) return <div>no histories</div>;
-
+  console.log(histories);
   return (
     <div className="container">
       <NavbarNone />
       <HistoryTop />
       <HistoryInfoViewer historyObj={histories} />
-      <HistoryImageViewer historyObj={histories} trace="View" idx={0} />
+      <HistoryImageViewer
+        historyObj={histories}
+        hashed_history_id={hashed_history_id}
+      />
     </div>
   );
 };
