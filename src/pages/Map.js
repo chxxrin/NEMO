@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import React from "react";
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps"; // 패키지 불러오기
 import "../css/Map.css";
@@ -22,6 +22,7 @@ import {
 import NavbarMap from '../components/NavbarMap'
 import { IoMdNotificationsOff } from 'react-icons/io'
 import * as MdIcons from 'react-icons/md'
+import * as RiIcons from 'react-icons/ri'
 import axios from 'axios'
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY
 
@@ -32,10 +33,11 @@ export function Zido() {
 }
 //마커띄우기
 export function GetMarker({ parentGetmarkerIndex }) {
+
   let [markers, setMarkers] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const params = { search: '서울' }
+  const params = { search: "서울" }
 
   useEffect(() => {
     const fetchMarkers = async () => {
@@ -52,7 +54,7 @@ export function GetMarker({ parentGetmarkerIndex }) {
     }
     fetchMarkers()
   }, [])
-  if (loading) return <div>로딩중</div>
+  if (loading) return <div><RiIcons.RiLoader2Line/></div>
   if (error) return <div>에러</div>
   if (!markers) return <div>no studios</div>
   return (
@@ -226,7 +228,8 @@ export function NaverMapAPI() {
                 <div className="StoreCompany">{storeresult.company}</div>
                 <div className="StoreName">{storeresult.name}</div>
                 <div>{storeresult.address}</div>
-                <div>TEL : {storeresult.contact}</div>
+                {storeresult.contact!==null ?  (
+                <div>TEL : {storeresult.contact}</div>) : null}
               </div>
               <div className="rightbox">
                 {logoImgSelector(storeresult.company)}
@@ -243,7 +246,7 @@ export default function Map() {
     <RenderAfterNavermapsLoaded
       ncpClientId={NAVERMAP_API_ID} // 자신의 네이버 계정에서 발급받은 Client ID
       error={<p>Maps Load Error</p>}
-      loading={<p>Maps Loading...</p>}
+      loading={<p><RiIcons.RiLoader2Line/></p>}
     >
       <NaverMapAPI />
     </RenderAfterNavermapsLoaded>

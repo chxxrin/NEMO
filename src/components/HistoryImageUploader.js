@@ -62,8 +62,8 @@ const HistoryImageUploader = ({ preview_URL, setImage, image }) => {
         ></img>
       </section>
 
-      <section id="btn">
-        <BtnPurple onClick={openModal}>초대</BtnPurple>
+      <section id="btn" style={{ justifyContent: 'center' }}>
+        {/* <BtnPurple onClick={openModal}>초대</BtnPurple> */}
         <BtnGray onClick={() => inputRef.click()}>사진 변경</BtnGray>
       </section>
 

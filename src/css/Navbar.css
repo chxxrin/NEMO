@@ -191,17 +191,22 @@ span {
   text-align: center;
 }
 .logout-btn {
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-size: 15px;
   display: flex;
   justify-items: right;
-  color: LightGray;
+  color: rgba(0, 0, 0, 0.662);
   margin-top: 5px;
   right: 30px;
 }
 
+.logout-btn:hover {
+  font-weight: 900;
+  cursor: pointer;
+}
+
 .user-name {
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-size: 20px;
   margin-bottom: 20px;
 }

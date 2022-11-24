@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import {useRef, useState, useEffect } from 'react'
-import help1 from '../assets/info1.png'
-import help2 from '../assets/info2.png'
-import help3 from '../assets/info3.png'
-import help4 from '../assets/info4.png'
-import help5 from '../assets/info5.png'
+import help1 from '../assets/help1.jpg'
+import help2 from '../assets/help2.jpg'
+import help3 from '../assets/help3.jpg'
+import help4 from '../assets/help4.jpg'
+import help5 from '../assets/help5.jpg'
 import help6 from '../assets/info6.png'
 import '../css/Help.css'
 const helpingimages = [
@@ -18,6 +18,14 @@ const helpingimages = [
   help4,
   help5,
   help6
+]
+const helpingtext = [
+  "히스토리에서 사진을 추가해서 \n 나만의 히스토리를 모아보세요 !",
+  "궁금한 네컷 사진점을 검색해 보세요! \n 위치와 정보를 알려줄거에요^.^",
+  "검색 기능으로 다양한 네컷 사진관들의 \n검색결과를 확인해볼까요?",
+  "히스토리에 사진을 추가해서 \n나만의 히스토리를 모아보세요!",
+  "카카오톡 아이디로 친구를 추가하고 \n히스토리를 공유하세요!",
+  "6: 이건 제외할것"
 ]
 
 let PageBox = styled.div`
@@ -45,25 +53,36 @@ function Help() {
   
   return (
     
-    <div style={{overflow:"hidden", scroll:"none"}}>
+    <div style={{overflow:"hidden", scroll:"none", height:"600px"}}>
       <div id="outer">
-      <div id="HelpBtn" style={{display:"flex" ,padding: "15% 35% 5% 35%"}}>
+      <div id="HelpBtn">
+        <div style={{float:"left"}}>
       <PageBtn onClick={()=>{
           if(i>1){setI(i-1);}
         }} ><BsIcons.BsCaretLeftFill /></PageBtn>
-        
+        </div>
+        <div style={{float:"left"}}>
         <PageNum>{i} / 6</PageNum>
+        </div>
+        <div style={{float:"left"}}>
         <PageBtn onClick={()=>{
           if(i<6){
             setI(i+1);
           }
         }} ><BsIcons.BsCaretRightFill /></PageBtn>
+        </div>
       </div>
       </div>
-      <div id="HelpImg" style={{display:"flex"}}>
-        <img  src = {helpingimages[i-1]}></img>
+      <div id="HelpImg" style={{display:"flex" ,height:"80%"}}>
+        <img id="imgs"src = {helpingimages[i-1]}></img>
         {/* <img src = {help1}></img> */}
       </div>
+      <div id="helpingtext" style={{justifyContent: "center" ,float:"center"}}>
+        {helpingtext[i-1]}
+      </div>
+      {/* <div id="greedydiv" style={{}}>
+        
+      </div> */}
     </div>
     
   );
