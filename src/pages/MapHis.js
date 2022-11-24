@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
-import React from 'react'
-import { json } from 'react-router'
-import jsonData from './map_info.json'
-import Storelogo from '../assets/naecut.png'
-import History from '../components/History'
-import HistoryView from './HistoryView'
-import * as AiIcons from 'react-icons/ai'
+import { useState, useEffect } from "react";
+import React from "react";
+import { json } from "react-router";
+import jsonData from "./map_info.json";
+import Storelogo from "../assets/naecut.png";
+import History from "../components/History";
+import HistoryView from "./HistoryView";
+import * as AiIcons from "react-icons/ai";
+import NavbarNone from "../components/NavbarNone";
 import {
   Routes,
   Route,
@@ -13,17 +14,19 @@ import {
   useNavigate,
   Outlet,
   useLocation,
-} from 'react-router-dom'
-import '../css/MapHis.css'
-import '../css/History.css'
+} from "react-router-dom";
+import "../css/MapHis.css";
+import "../css/History.css";
 
 export function MapHis() {
-  const location = useLocation()
-  const storeresult = location.state.storeresult
-  console.log('storeresult', storeresult)
+  const location = useLocation();
+  const storeresult = location.state.storeresult;
+  console.log(location);
+  console.log("storeresult", storeresult);
 
   return (
     <div>
+      <NavbarNone />
       <div className="flex-container">
         <div id="StoreInfo">
           <div>
@@ -54,7 +57,7 @@ export function MapHis() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default MapHis
+export default MapHis;

@@ -84,7 +84,7 @@ export default function Navbar() {
               </div>
             )}
 
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
 
             {SidebarData.map((item, index) => {
               return (

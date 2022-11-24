@@ -29,7 +29,14 @@ export default function NavbarNone() {
   const { isAuth, userData, logout } = useAuthContext();
   const [sidebar, setSidebar] = useState(false);
 
-  const showSidebar = () => setSidebar(!sidebar);
+  const showSidebar = (e) => {
+    e.preventDefault();
+    setSidebar(!sidebar);
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+  };
 
   const navigate = useNavigate();
 
@@ -54,7 +61,7 @@ export default function NavbarNone() {
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
+                <AiIcons.AiOutlineClose onClick={handleClick} />
               </Link>
               {/* <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
@@ -84,7 +91,7 @@ export default function NavbarNone() {
               </div>
             )}
 
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
 
             {SidebarData.map((item, index) => {
               return (
