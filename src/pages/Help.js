@@ -10,6 +10,7 @@ import help3 from '../assets/help3.jpg'
 import help4 from '../assets/help4.jpg'
 import help5 from '../assets/help5.jpg'
 import help6 from '../assets/info6.png'
+
 import '../css/Help.css'
 const helpingimages = [
   help2,
@@ -49,7 +50,7 @@ function Help() {
   
   return (
     
-    <div style={{overflow:"hidden", scroll:"none", height:"600px"}}>
+    <div style={{overflow:"hidden", scroll:"none", height:"80%"}}>
       <div id="outer">
       <div id="HelpBtn">
         <div style={{float:"left"}}>

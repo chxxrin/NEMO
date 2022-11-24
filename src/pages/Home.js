@@ -89,7 +89,7 @@ function Home() {
       <KakaoLoginBtn></KakaoLoginBtn>
       <MainBtn_Purple onClick={navigateToMap}>시작하기</MainBtn_Purple>
       <MainBtn_Gray onClick={openModal}>도움말</MainBtn_Gray>
-      <Modal open={modalOpen} close={closeModal} header="4cut 사용방법">
+      <Modal open={modalOpen} close={closeModal} header="4cut 사용방법" style={{}}>
         <Help></Help>
       </Modal>
     </Div>

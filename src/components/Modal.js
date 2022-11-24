@@ -46,7 +46,7 @@ const Modal = (props) => {
               close
             </button> */}
             <button className="close" onClick={close}>
-              &times;
+             닫기
             </button>
           </footer>
         </section>
