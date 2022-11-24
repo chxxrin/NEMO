@@ -30,7 +30,10 @@ export function MapHis() {
       <div className="flex-container">
         <div id="StoreInfo">
           <div>
-            <img src={Storelogo} style={{ width: 300, height: 200 }}></img>
+            <img
+              src={Storelogo}
+              style={{ width: 300, height: 140, objectFit: "contain" }}
+            ></img>
           </div>
           <div>
             <div className="leftbox">

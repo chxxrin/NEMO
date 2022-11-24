@@ -1,54 +1,52 @@
 #overmap {
-
-    position:relat;
-    z-index: 2;
+  position: relat;
+  z-index: 2;
 }
-#undermap{
-    position:absolute;
-    z-index: 10000;
+#undermap {
+  position: absolute;
+  z-index: 10000;
 }
-.hi{
-    color:red;
-    background-color: aqua;
+.hi {
+  color: red;
+  background-color: aqua;
 }
 
 span {
-    padding: none;
+  padding: none;
 }
-.SearchBar{
-    height: 40px;
-    width: 100%;
-    /* border: 1px solid rgb(44, 174, 44); */
-    border: none;
-    /* background: #ffffff; */
-    z-index: 5000;
-    position: relative;
-    
-    
+
+/*.SearchBar {
+  height: 40px;
+  width: 400px;
+   border: 1px solid rgb(44, 174, 44);
+  background: #ffffff; 
+  z-index: 5000;
+  position: relative; 
+}*/
+
+.SearchInput {
+  font-size: 20px;
+  width: 90%;
+  /* padding: 10px; */
+  border: 0px;
+  outline: none;
+  float: left;
+  z-index: 5000;
+  padding-top: 3px;
+  background-color: transparent;
 }
-.SearchInput{
-    font-size:20px;
-    width: 90%;
-    /* padding: 10px; */
-    border: 0px;
-    outline: none;
-    float: left;
-    z-index: 5000;
-    padding-top: 3px;
-    background-color: transparent;
-}
-.SearchButton{
-    width: 9%;
-    border: none;
-    /* background: rgb(44, 174, 44); */
-    outline: none;
-    float: right;
-    color:#ffffff;
-    z-index:5000;
-    position:relative;
-    background-color: transparent;
-    float:right;
-    font-size: 1.3rem;
+.SearchButton {
+  width: 9%;
+  border: none;
+  /* background: rgb(44, 174, 44); */
+  outline: none;
+  float: right;
+  color: #ffffff;
+  z-index: 5000;
+  position: relative;
+  background-color: transparent;
+  float: right;
+  font-size: 1.3rem;
 }
 
 .SearchInfo {
@@ -63,37 +61,32 @@ span {
     position: absolute;
 } */
 
-
-
-.StoreLeftBox{
-    float: left;
-    width: 60%;
-    /* padding-top: 30px; */
-    display: block;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: start;
-    margin: auto;
-    /* padding: 40px; */
+.StoreLeftBox {
+  float: left;
+  width: 60%;
+  /* padding-top: 30px; */
+  display: block;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: start;
+  margin: auto;
+  /* padding: 40px; */
 }
 .StoreRightBox {
-    float:right;
-    width:30%;
-    margin: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    
+  float: right;
+  width: 30%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-
-#StoreList{
-    font-size: 15px;
-    list-style: none;
-    padding-left: 0px;
-    text-align: left;
+#StoreList {
+  font-size: 15px;
+  list-style: none;
+  padding-left: 0px;
+  text-align: left;
 }
-
 
 #z_index {
   z-index: 100000;
@@ -104,6 +97,7 @@ span {
 
 .btns {
   background-color: transparent;
+  width: 400px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -157,69 +151,60 @@ span {
   color: #8861c2;
 }
 
-
-
-
 .StoreContainer {
-    border:1px solid D8D8D8;
-    border-radius: 10px;
-    /* padding: 20px; */
-    /* margin: 20px; */
-    background-color: #ffffff;
-    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.15);
-    position: absolute;
-    z-index:5000;
-    top: 60%;
-    left: 0%;
-    right: 0;
-    bottom: 0;
-    height:26%;
-    width: 340px;
-    display: block;
-    padding:10px;
-    align-items: center;
-    margin: auto;
-    grid-template-columns: 4fr 1fr;
-
+  border: 1px solid D8D8D8;
+  border-radius: 10px;
+  /* padding: 20px; */
+  /* margin: 20px; */
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  z-index: 5000;
+  top: 60%;
+  left: 0%;
+  right: 0;
+  bottom: 0;
+  height: 26%;
+  width: 340px;
+  display: block;
+  padding: 10px;
+  align-items: center;
+  margin: auto;
+  grid-template-columns: 4fr 1fr;
 }
 
 .StoreBorder {
-    border:none;
-    background-color: transparent;
-    grid-template-columns: 4fr 1fr;
-    display: flex;
+  border: none;
+  background-color: transparent;
+  grid-template-columns: 4fr 1fr;
+  display: flex;
 }
-.leftbox{
-    display: block;
-    padding: 10px;
-    text-align: start;
-    justify-content: center;
+.leftbox {
+  display: block;
+  padding: 10px;
+  text-align: start;
+  justify-content: center;
 }
 
 .StoreCompany {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .StoreName {
-    font-size: 15px;
-    color: gray;
+  font-size: 15px;
+  color: gray;
 }
 
 .rightbox {
-    padding: 10px;
-    margin:  auto;
-    display:flex;
+  padding: 10px;
+  margin: auto;
+  display: flex;
 }
 
-#StoreImg{
-    object-fit: cover;
-    max-width: 100px;
-    max-height: 100px;
-    margin: 0 auto;
-
-    
+#StoreImg {
+  object-fit: cover;
+  max-width: 100px;
+  max-height: 100px;
+  margin: 0 auto;
 }
-
-
-
