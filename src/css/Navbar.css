@@ -186,6 +186,31 @@ span {
   text-align: center;
 }
 
+.login-box {
+  align-items: center;
+}
+.logout-btn {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-size: 15px;
+  display: flex;
+  justify-items: left;
+  color: LightGray;
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+}
+
+.user-name {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+hr.solid {
+  border-top: 2px solid #bbb;
+  margin-bottom: 20px;
+}
+
 .profile-box {
   display: flex;
   flex-direction: column;
@@ -193,5 +218,5 @@ span {
 
 .alarm-style {
   display: inline-block;
-  float: right;
+  /* float: right; */
 }
