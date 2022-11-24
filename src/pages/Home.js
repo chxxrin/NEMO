@@ -6,6 +6,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Modal from '../components/Modal'
 import KakaoLoginBtn from '../components/KakaoLoginBtn'
+
 import Help from '../pages/Help';
 import logo from '../assets/nemo-logo.png'
 
@@ -14,7 +15,6 @@ const Div = styled.div`
   flex-direction: column;
   align-items: center;
 `
-
 
 //color : 진한보라 #8861c2,#7F669D, #827397, 연한보라 #B5A8BF
 let MainBtn_Purple = styled.button`

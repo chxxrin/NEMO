@@ -32,6 +32,7 @@ export function Zido() {
 }
 //마커띄우기
 export function GetMarker({ parentGetmarkerIndex }) {
+
   let [markers, setMarkers] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
