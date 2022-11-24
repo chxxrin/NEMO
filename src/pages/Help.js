@@ -44,27 +44,28 @@ function Help() {
   let[i,setI]= useState(1);
   
   return (
-    <div>
-    <div>
-      <div id="HelpBtn" style={{justifyContent: "center"}}>
+    
+    <div style={{overflow:"hidden", scroll:"none"}}>
+      <div id="outer">
+      <div id="HelpBtn" style={{display:"flex" ,padding: "15% 35% 5% 35%"}}>
+      <PageBtn onClick={()=>{
+          if(i>1){setI(i-1);}
+        }} ><BsIcons.BsCaretLeftFill /></PageBtn>
         
+        <PageNum>{i} / 6</PageNum>
         <PageBtn onClick={()=>{
           if(i<6){
             setI(i+1);
           }
         }} ><BsIcons.BsCaretRightFill /></PageBtn>
-        <PageNum>{i}/6</PageNum>
-        <PageBtn onClick={()=>{
-          if(i>1){setI(i-1);}
-        }} ><BsIcons.BsCaretLeftFill /></PageBtn>
       </div>
-      <div id="HelpImg">
-        <p style={{fontSize: "500"}}>css테스트</p>
+      </div>
+      <div id="HelpImg" style={{display:"flex"}}>
         <img  src = {helpingimages[i-1]}></img>
         {/* <img src = {help1}></img> */}
       </div>
     </div>
-    </div>
+    
   );
 }
 
