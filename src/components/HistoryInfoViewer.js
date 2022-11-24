@@ -12,7 +12,8 @@ const HistoryInfoViewer = ({ historyObj }) => {
           {historyObj.history.title}
         </h5>
         <Info className="info">
-          {/* {historyObj.history.studio_id}  */}
+          {historyObj.studio.company}
+          {historyObj.studio.name + " "}
           {historyObj.history.history_date}
         </Info>
       </section>
