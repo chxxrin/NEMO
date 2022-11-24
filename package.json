@@ -28,9 +28,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "cross-env REACT_APP_ENV=production react-scripts start",
-    "build": "cross-env REACT_APP_ENV=production react-scripts build",
+    "start": "cross-env REACT_APP_ENV=local react-scripts start",
     "dev": "cross-env REACT_APP_ENV=development react-scripts start",
+    "build": "cross-env REACT_APP_ENV=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "aws s3 sync ./build s3://ne-mo.me"

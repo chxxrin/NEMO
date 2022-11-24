@@ -8,9 +8,9 @@ import axios from 'axios'
 import { AuthProvider } from './contexts/AuthContext'
 
 if (process.env.REACT_APP_ENV === 'development') {
-  // yarn start (개발용 API 서버)
+  // yarn start (로컬 API 서버)
   axios.defaults.baseURL = process.env.REACT_APP_API_URL_DEV
-} else {
+} else { // local, production
   // yarn build (배포용 API 서버)
   axios.defaults.baseURL = process.env.REACT_APP_API_URL_PROD
 }
