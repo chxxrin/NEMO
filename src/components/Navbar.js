@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import KakaoLoginBtn from "./KakaoLoginBtn";
 import KakaoLoginNavBtn from "./KakaoLoginNavBtn";
+import styled from "styled-components";
 
 // ICONS
 import * as FaIcons from "react-icons/fa"; //Now i get access to all the icons

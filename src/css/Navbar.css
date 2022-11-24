@@ -16,7 +16,7 @@
 .navbar {
   /* background-color: var(--navBg); */
   height: 40px;
-  width: 90%;
+  width: 370px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,6 +77,7 @@
 }
 
 .nav-menu.active {
+  display: flex;
   left: 0;
   transition: 350ms;
 }
@@ -187,7 +188,7 @@ span {
 }
 
 .login-box {
-  align-items: center;
+  text-align: center;
 }
 .logout-btn {
   font-family: "Spoqa Han Sans Neo", "sans-serif";
