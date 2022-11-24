@@ -36,7 +36,7 @@ const Info = styled.div`
 
 const Input = styled.input`
   font-family: "Spoqa Han Sans Neo", "sans-serif";
-  width: 360px;
+  width: 100%;
   height: 32px;
   font-size: 17px;
   border: 0;

@@ -10,6 +10,7 @@ import * as BsIcons from "react-icons/bs";
 import { IconContext } from "react-icons";
 
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 // ROUTING
 
