@@ -134,11 +134,28 @@ export function MapHis() {
         <div className="picture-container">
           <div className="picture-item">{createHistoryIfUser()}</div>
           {Object.values(histories.current).map((value, i) => {
+            console.log(Object.values(histories.current)[i].files[0].url);
             return (
-              <div>
-                <MapHistoryImage
-                  historyObj={Object.values(histories.current)[i].files[0].url}
+              <div
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #e2e2e2",
+                  boxShadow: "1px 3px 4px rgba(0, 0, 0, 0.1)",
+                  borderRadius: "10px",
+                  textAlign: "center",
+                }}
+              >
+                <img
+                  style={{
+                    height: "130px",
+                    width: "130px",
+                    objectFit: "contain",
+                  }}
+                  src={Object.values(histories.current)[i].files[0].url}
                 />
+                {/* <MapHistoryImage
+                  historyObj={Object.values(histories.current)[i].files[0].url}
+                /> */}
               </div>
             );
           })}
