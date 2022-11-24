@@ -7,10 +7,9 @@ import '../css/Navbar.css'
 import axios from 'axios'
 
 const HistoryList = () => {
-  const [histories, setHistories] = useState(null)
+  const [histories, setHistories] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-
   const fetchHistories = async () => {
     try {
       setError(null)
@@ -38,6 +37,9 @@ const HistoryList = () => {
   useEffect(() => {
     fetchHistories()
   }, [])
+
+  console.log('histories', histories)
+
   return (
     <div className="container">
       <NavbarNone />
