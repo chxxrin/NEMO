@@ -26,7 +26,7 @@ const Router = ({ user }) => {
         <Route path="/oauth/kakao/callback" element={<KakaoCallback />} />
         <Route path="/map" element={<Map />} />
         <Route path="/maphis/:studio_id" element={<MapHis />} />
-        <Route path="/help" element={<Help />} />
+        <Route path="/help" element={<Help/>} />
         <Route path="/like" element={<Like />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/all_history" element={<HistoryList />} />
