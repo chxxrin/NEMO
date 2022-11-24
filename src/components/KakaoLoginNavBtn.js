@@ -35,7 +35,7 @@ const LoginBtn = styled.button`
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 250px;
+  width: 200px;
   margin: 20px auto;
   cursor: pointer;
   padding: 10px;
