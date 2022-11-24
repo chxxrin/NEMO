@@ -1,7 +1,7 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import KakaoLoginBtn from "./KakaoLoginBtn";
 import KakaoLoginNavBtn from "./KakaoLoginNavBtn";
-import axios from 'axios';
+import axios from "axios";
 import MapHis from "../pages/MapHis";
 
 // ICONS
@@ -49,28 +49,22 @@ export default function NavbarMap({ parentFunction }) {
   };
   let [search, setSearch] = useState("");
 
-
-  const [studios, setStudios] = useState([])  
-  const [query, setQuery] = useState(null)
+  const [studios, setStudios] = useState([]);
+  const [query, setQuery] = useState(null);
   useEffect(() => {
-      let completed = false;
+    let completed = false;
 
-      async function get() {
-          const result = await axios(API + `studio/?search=${query}`)
-          if(!completed) {
-              setStudios(result.data);
-          }
+    async function get() {
+      const result = await axios(API + `studio/?search=${query}`);
+      if (!completed) {
+        setStudios(result.data);
       }
-      get()
-      return () => {
-          completed = true
-      }
-  }, [query])
-
-
-
-
-
+    }
+    get();
+    return () => {
+      completed = true;
+    };
+  }, [query]);
 
   let [diff, setDiff] = useState(0); // 마커 인덱스 구분하기 위한 state 변수
   let [index, setIndex] = useState(0); // all 마커 인덱스 구분하기 위한 state 변수
@@ -106,15 +100,9 @@ export default function NavbarMap({ parentFunction }) {
     onestudio();
   };
 
-
-
-
-  
-
   return (
     <>
       <IconContext.Provider value={{ color: "#8861c2" }}>
-
         <div className="navbar">
           <Link to="#" className="map-menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
@@ -140,6 +128,14 @@ export default function NavbarMap({ parentFunction }) {
             </div>
           </div> */}
 
+          <div className="SearchBar">
+            <input
+              className="SearchInput"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+
 
             <div className="SearchBar">
 
@@ -151,47 +147,45 @@ export default function NavbarMap({ parentFunction }) {
 {query ? (
         <div className="SearchOutput">
             <div>
-                {studios.map((studio) => (
+              {studios.map((studio) => (
                 <div key={studio.id} className="output-border">
-
                   <button
                     className="Search-btn"
-                    onClick={() => {
-                    navigate(`/maphis/${studio.id}`, {
-                    state: { storeresult: studio },
-                    });
+                    onClick={(value) => {
+                      navigate(`/maphis/${studio.id}`, {
+                        state: { storeresult: studio },
+                      });
                     }}
-                    >
-                    {studio.company} {studio.name}<br/>
-                    ({studio.address})
-                    </button>
-
+                  >
+                    {studio.company} {studio.name}
+                    <br />({studio.address})
+                  </button>
                 </div>
-                ))}
+              ))}
             </div>
-      
         </div>
            ): null}
-
-
-
-
-
-
 
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
+            <div className="navbar-toggle">
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
+              {isAuth ? (
+                <div className="logout-btn" onClick={logout}>
+                  로그아웃
+                </div>
+              ) : (
+                <div></div>
+              )}
               {/* <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
                   <BiIcons.BiBell />
                 </div>
               </Link> */}
-            </li>
+            </div>
 
             {isAuth ? (
               <div className="login-box">
@@ -226,14 +220,6 @@ export default function NavbarMap({ parentFunction }) {
                 </li>
               );
             })}
-
-            {isAuth ? (
-              <div className="logout-btn" onClick={logout}>
-                로그아웃
-              </div>
-            ) : (
-              <div></div>
-            )}
           </ul>
         </nav>
       </IconContext.Provider>
