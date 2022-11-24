@@ -150,21 +150,10 @@ export function NaverMapAPI() {
       } catch (e) {
         setError(e)
       }
-<<<<<<< HEAD
-      setLoading(false)
-    }
-    onestudio()
-    //const response = axios.get(URL);
-    //console.log(response.data.id);
-    //setStoreresult(response.data);
-    //console.log(storeresult);
-  }
-=======
       setLoading(false);
     };
     onestudio();
   };
->>>>>>> master
   const onTrick = () => {
     if (trick == 0) {
       setTrick(2)
