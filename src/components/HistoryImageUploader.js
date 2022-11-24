@@ -53,8 +53,8 @@ const HistoryImageUploader = ({ preview_URL, setImage, image }) => {
         </BtnDelete>
         <img
           style={{
-            width: '350px',
-            height: '400px',
+            width: '300px',
+            height: '350px',
             objectFit: 'contain',
           }}
           src={image.preview_URL}

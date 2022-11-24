@@ -32,7 +32,7 @@ const Info = styled.div`
   height: 50px;
   display: flex;
   justify-content: space-between;
-  padding-right: 15px;
+  padding-right: 25px;
 `;
 
 const Input = styled.input`

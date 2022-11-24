@@ -147,7 +147,7 @@ span {
   left: 0%;
   right: 0;
   bottom: 0;
-  height: 26%;
+  height: 30%;
   width: 340px;
   display: block;
   padding: 10px;
@@ -171,14 +171,29 @@ span {
 
 .StoreCompany {
   font-size: 20px;
+  text-decoration: none;
+  color: black;
   font-weight: bold;
 }
 
 .StoreName {
   font-size: 17px;
+  text-decoration: none;
   color: gray;
 }
 
+.StoreAddress {
+  font-size: 17px;
+  text-decoration: none;
+  color: black;
+
+}
+
+.StoreTel {
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+}
 .rightbox {
   padding: 10px;
   margin: auto;
