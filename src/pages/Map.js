@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import React from "react";
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps"; // 패키지 불러오기
 import "../css/Map.css";
@@ -36,7 +36,7 @@ export function GetMarker({ parentGetmarkerIndex }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const params = { search: "서울" };
-
+  
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
@@ -227,7 +227,8 @@ export function NaverMapAPI() {
                 <div className="StoreCompany">{storeresult.company}</div>
                 <div className="StoreName">{storeresult.name}</div>
                 <div>{storeresult.address}</div>
-                <div>TEL : {storeresult.contact}</div>
+                {storeresult.contact!==null ?  (
+                <div>TEL : {storeresult.contact}</div>) : null}
               </div>
               <div className="rightbox">
                 {logoImgSelector(storeresult.company)}

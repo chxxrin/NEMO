@@ -13,7 +13,7 @@ const Modal = (props) => {
   const navigate = useNavigate();
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
-    <div className={open ? "openModal modal" : "modal"}>
+    <div className={open ? "openModal modal" : "modal"} style={{height: "90%",width:"80%"}}>
       {open ? (
         <section>
           <header>
@@ -30,13 +30,13 @@ const Modal = (props) => {
               );
             })}
 
-            <Nav.Link onClick={()=>{ navigate('-1')}}>
+            {/* <Nav.Link onClick={()=>{ navigate('-1')}}>
               <IoIcons.IoIosArrowBack/>
             </Nav.Link>
 
             <Nav.Link onClick={()=>{ navigate('1')}}>
               <IoIcons.IoIosArrowForward/>
-            </Nav.Link>
+            </Nav.Link> */}
             </div>
 
           </header>

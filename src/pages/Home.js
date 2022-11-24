@@ -6,6 +6,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Modal from '../components/Modal'
 import KakaoLoginBtn from '../components/KakaoLoginBtn'
+import Help from '../pages/Help';
 
 //color : 진한보라 #8861c2,#7F669D, #827397, 연한보라 #B5A8BF
 let MainBtn_Purple = styled.button`
@@ -82,17 +83,7 @@ function Home() {
       <MainBtn_Purple onClick={navigateToMap}>시작하기</MainBtn_Purple>
       <MainBtn_Gray onClick={openModal}>도움말</MainBtn_Gray>
       <Modal open={modalOpen} close={closeModal} header="4cut 사용방법">
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
-        laying out print, graphic or web designs. The passage is attributed to
-        an unknown typesetter in the 15th century who is thought to have
-        scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a
-        type specimen book. It usually begins with: “Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua.” The purpose of lorem ipsum is to create a
-        natural looking block of text (sentence, paragraph, page, etc.) that
-        doesn't distract from the layout. A practice not without controversy,
-        laying out pages with meaningless filler text can be very useful when
-        the focus is meant to be on design, not content.
+        <Help></Help>
       </Modal>
     </div>
   )
