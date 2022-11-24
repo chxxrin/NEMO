@@ -10,8 +10,6 @@ import * as BsIcons from "react-icons/bs";
 import { IconContext } from "react-icons";
 
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-
 // ROUTING
 
 import { Link } from "react-router-dom";
@@ -57,7 +55,12 @@ export default function NavbarNone() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-        </div>
+          <Link to="/map" className="map-logo">
+              {/* <img id="logo" src={logo} width="100px"></img> */}
+              NEMO
+            </Link>
+          </div>
+
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">

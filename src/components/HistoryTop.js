@@ -16,8 +16,9 @@ export default HistoryTop;
 
 const Top = styled.h2`
   color: #8861c2;
-  padding: 10px 10px 10px 10px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-bottom: 20px;
   font-weight: bold;
-  margin-top: 5px;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
 `;

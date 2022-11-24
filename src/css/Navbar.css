@@ -16,7 +16,7 @@
 .navbar {
   /* background-color: var(--navBg); */
   height: 40px;
-  width: 370px;
+  width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,7 +162,7 @@ span {
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-top: 10px;
+  margin:10px;
   padding-left: 0.8rem;
   font-size: 1.3rem;
   color: #8861c2;
@@ -217,7 +217,13 @@ hr.solid {
   flex-direction: column;
 }
 
-.alarm-style {
-  display: inline-block;
-  /* float: right; */
+
+.map-logo {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #8861c2;
+  font-weight: bold;
 }
