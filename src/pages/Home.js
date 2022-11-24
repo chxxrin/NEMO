@@ -48,6 +48,7 @@ let MainBtn_Gray = styled.button`
 `
 
 const LogoImg = styled.img`
+  margin-top: 120px;
   width: 250px;
   height: 250px;
   justify-content: center;

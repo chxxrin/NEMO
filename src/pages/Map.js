@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { useState, useEffect } from 'react'
-import React from 'react'
-import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps' // 패키지 불러오기
-import '../css/Map.css'
-import '../css/Navbar.css'
-import jsonData from './map_info.json'
-import Storelogo from '../assets/naecut.png'
-import { json } from 'react-router'
-=======
 import { useState, useEffect } from "react";
 import React from "react";
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps"; // 패키지 불러오기
@@ -21,7 +11,6 @@ import PhotoismLogo from "../assets/photoism.png";
 import PhotomaticLogo from "../assets/photomatic.png";
 import PhotosignatureLogo from "../assets/signature.png";
 import { json } from "react-router";
->>>>>>> master
 import {
   Routes,
   Route,
@@ -51,20 +40,11 @@ export function GetMarker({ parentGetmarkerIndex }) {
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
-<<<<<<< HEAD
-        setError(null)
-        setMarkers(null)
-        setLoading(true)
-        //const response = await axios.get(API + "/studio/");
-        const response = await axios.get('studio/', { params })
-        setMarkers(response.data)
-=======
         setError(null);
         setMarkers(null);
         setLoading(true);
         const response = await axios.get("studio/", { params });
         setMarkers(response.data);
->>>>>>> master
       } catch (e) {
         setError(e)
       }
@@ -231,23 +211,6 @@ export function NaverMapAPI() {
           <GetMarker parentGetmarkerIndex={parentGetmarkerIndex}></GetMarker>
         </NaverMap>
       </div>
-<<<<<<< HEAD
-      {/* 강제랜더링/새로고침버튼 */}
-      {/* <div className="new-box">
-        <button
-          onClick={() => {
-            onTrick();
-          }}
-          className="new-btn"
-        >
-          <MdIcons.MdAutorenew />
-        </button>
-      </div> */}
-
-      {/* 상세페이지요약 */}
-=======
-
->>>>>>> master
       {flag === true ? (
         <div className="StoreBigBox" storeresult={storeresult}>
           <div className="StoreContainer">
