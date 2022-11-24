@@ -66,7 +66,7 @@ const KakaoCallback = () => {
             console.log('hashHistoryId', hashHistoryId)
             if (hashHistoryId) {
               navigate(`/history/view/${hashHistoryId}?is_newUser=0`)
-              // setHashHistoryId(null)
+              localStorage.setItem('hashed_history_id', '')
             } else {
               navigate('/map') // 로그인 완료 후 /map 으로 이동
             }

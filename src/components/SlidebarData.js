@@ -49,10 +49,10 @@ export const SidebarData = [
   //   // icon: <BsIcons.BsInstagram />,
   //   cName: "nav-text"
   // },
-  {
-    title: '도움말',
-    path: '/help',
-    // icon: <BsIcons.BsQuestionCircleFill />,
-    cName: 'nav-text',
-  },
+  // {
+  //   title: '도움말',
+  //   path: '/help',
+  //   // icon: <BsIcons.BsQuestionCircleFill />,
+  //   cName: 'nav-text',
+  // },
 ]
