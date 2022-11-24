@@ -57,6 +57,13 @@ export default function Navbar() {
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
+              {isAuth ? (
+                <div className="logout-btn" onClick={logout}>
+                  로그아웃
+                </div>
+              ) : (
+                <div></div>
+              )}
               {/* <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
                   <BiIcons.BiBell />
@@ -97,13 +104,6 @@ export default function Navbar() {
                 </li>
               );
             })}
-            {isAuth ? (
-              <div className="logout-btn" onClick={logout}>
-                로그아웃
-              </div>
-            ) : (
-              <div></div>
-            )}
           </ul>
         </nav>
       </IconContext.Provider>

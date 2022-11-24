@@ -162,7 +162,7 @@ span {
   display: flex;
   justify-content: start;
   align-items: center;
-  margin:10px;
+  margin: 10px;
   padding-left: 0.8rem;
   font-size: 1.3rem;
   color: #8861c2;
@@ -194,11 +194,10 @@ span {
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: 15px;
   display: flex;
-  justify-items: left;
+  justify-items: right;
   color: LightGray;
-  position: absolute;
-  bottom: 60px;
-  left: 30px;
+  margin-top: 5px;
+  right: 30px;
 }
 
 .user-name {
@@ -216,7 +215,6 @@ hr.solid {
   display: flex;
   flex-direction: column;
 }
-
 
 .map-logo {
   margin: auto;
