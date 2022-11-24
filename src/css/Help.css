@@ -8,6 +8,7 @@
 }
 #HelpBtn{
     justify-content: center;
+    height: 5%;
 }
 #greedydiv{
     height: 50%;
@@ -22,4 +23,8 @@
     text-align: center;
     white-space: pre-wrap;
     padding-top:10%
+}
+#outer{
+    height: 30px;
+
 }
