@@ -65,7 +65,7 @@ const HistoryView = () => {
       <NavbarNone />
       <HistoryTop />
       <HistoryInfoViewer historyObj={histories} />
-      <HistoryImageViewer historyObj={histories} trace="View" idx={0} />
+      <HistoryImageViewer historyObj={histories} />
     </div>
   )
 }

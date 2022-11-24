@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
 import History from "../components/History";
 import HistoryTop from "../components/HistoryTop";
 import NavbarNone from "../components/NavbarNone";
@@ -11,7 +10,8 @@ import HistoryInfo from "../components/HistoryInfo";
 import "../css/History.css";
 import "../css/Navbar.css";
 import { BsWindowSidebar } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
+import { useAuthContext } from "../contexts/AuthContext";
 
 const HistoryCreate = ({ user }) => {
   const navigate = useNavigate();
@@ -22,12 +22,16 @@ const HistoryCreate = ({ user }) => {
     preview_URL: imgHolder,
   });
 
+  const { isAuth, userData } = useAuthContext();
+  const location = useLocation();
+  const storeresult = location.state.storeresult;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("title", title);
     formData.append("history_date", date);
-    formData.append("studio_id", 1);
+    formData.append("studio_id", storeresult.id);
     formData.append("fileObj", image.image_file);
     console.log(image.image_file);
     console.log(image.image_file instanceof Blob);
@@ -59,6 +63,8 @@ const HistoryCreate = ({ user }) => {
         date={date}
         user={user}
         idx={0}
+        studio={storeresult.company}
+        location={storeresult.name}
       />
       <HistoryImageUploader
         setImage={setImage}
