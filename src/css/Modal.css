@@ -15,7 +15,8 @@
 }
 .modal > section {
   width: 90%;
-  max-width: 450px;
+  max-width: 300px;
+  max-height:900px;
   margin: 0 auto;
   border-radius: 0.3rem;
   background-color: #fff;
@@ -32,6 +33,7 @@
   color: #8861c2;
   font-weight: 700;
   font-size: 1.5rem;
+  height: 30px;
 }
 .modal > section > header button {
   position: absolute;
@@ -60,7 +62,7 @@
   background-color: #fff;
   /* #6c757d; */
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 15px;
 }
 .modal.openModal {
   display: flex;

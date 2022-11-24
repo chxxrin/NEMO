@@ -13,7 +13,7 @@ const Modal = (props) => {
   const navigate = useNavigate();
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
-    <div className={open ? "openModal modal" : "modal"} style={{/* height: "90%",width:"80%" */}}>
+    <div className={open ? "openModal modal" : "modal"} style={{}}>
       {open ? (
         <section>
           <header>
@@ -46,7 +46,7 @@ const Modal = (props) => {
               close
             </button> */}
             <button className="close" onClick={close}>
-              &times;
+             닫기
             </button>
           </footer>
         </section>

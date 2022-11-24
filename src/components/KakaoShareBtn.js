@@ -65,8 +65,8 @@ const KakaoShareButton = styled.button`
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 250px;
-  margin: 20px auto;
+  width: 220px;
+  margin: 10px;
   cursor: pointer;
   padding: 10px;
   background-color: #fee500;
