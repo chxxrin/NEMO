@@ -29,10 +29,10 @@ const Router = ({ user }) => {
         <Route path="/help" element={<Help />} />
         <Route path="/like" element={<Like />} />
         <Route path="/notice" element={<Notice />} />
-        <Route path="/history" element={<HistoryList user={user} />} />
+        <Route path="/all_history" element={<HistoryList />} />
         <Route
           path="/history/view/:hashed_history_id"
-          element={<HistoryView user={user} />}
+          element={<HistoryView />}
         />
         <Route
           path="/history/edit/:hashed_history_id"
