@@ -81,13 +81,12 @@ export default function Navbar() {
               </div>
             ) : (
               <div className="profile-box">
-                <Link
-                  to="/login"
+                <div
                   className="login"
                   style={{ fontSize: "4rem" }}
                 >
                   <BsIcons.BsPersonCircle />
-                </Link>
+                </div>
                 <KakaoLoginNavBtn />
               </div>
             )}

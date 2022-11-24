@@ -7,8 +7,9 @@ import * as FaIcons from "react-icons/fa"; //Now i get access to all the icons
 import * as AiIcons from "react-icons/ai";
 import * as BiIcons from "react-icons/bi";
 import * as BsIcons from "react-icons/bs";
-import { IconContext } from "react-icons";
+import logo from '../assets/nemo-logo-simple.png';
 
+import { IconContext } from "react-icons";
 import { useNavigate } from "react-router-dom";
 // ROUTING
 
@@ -57,7 +58,7 @@ export default function NavbarNone() {
           </Link>
           <Link to="/map" className="map-logo">
             {/* <img id="logo" src={logo} width="100px"></img> */}
-            NEMO
+            <img src={logo} width="100px"/>
           </Link>
         </div>
 
@@ -91,13 +92,12 @@ export default function NavbarNone() {
               </div>
             ) : (
               <div className="profile-box">
-                <Link
-                  to="/login"
+                <div
                   className="login"
                   style={{ fontSize: "4rem" }}
                 >
                   <BsIcons.BsPersonCircle />
-                </Link>
+                </div>
                 <KakaoLoginNavBtn />
               </div>
             )}

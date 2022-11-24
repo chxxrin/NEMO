@@ -22,6 +22,7 @@ import {
 import NavbarMap from '../components/NavbarMap'
 import { IoMdNotificationsOff } from 'react-icons/io'
 import * as MdIcons from 'react-icons/md'
+import * as RiIcons from 'react-icons/ri'
 import axios from 'axios'
 const NAVERMAP_API_ID = process.env.REACT_APP_NAVERMAP_API_KEY
 
@@ -52,7 +53,7 @@ export function GetMarker({ parentGetmarkerIndex }) {
     }
     fetchMarkers()
   }, [])
-  if (loading) return <div>로딩중</div>
+  if (loading) return <div><RiIcons.RiLoader2Line/></div>
   if (error) return <div>에러</div>
   if (!markers) return <div>no studios</div>
   return (
@@ -243,7 +244,7 @@ export default function Map() {
     <RenderAfterNavermapsLoaded
       ncpClientId={NAVERMAP_API_ID} // 자신의 네이버 계정에서 발급받은 Client ID
       error={<p>Maps Load Error</p>}
-      loading={<p>Maps Loading...</p>}
+      loading={<p><RiIcons.RiLoader2Line/></p>}
     >
       <NaverMapAPI />
     </RenderAfterNavermapsLoaded>
