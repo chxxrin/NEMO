@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import KakaoLoginBtn from "./KakaoLoginBtn";
+import KakaoLoginNavBtn from "./KakaoLoginNavBtn";
 
 // ICONS
 import * as FaIcons from "react-icons/fa"; //Now i get access to all the icons
@@ -20,10 +22,21 @@ import { SidebarData } from "./SlidebarData";
 import "../css/Navbar.css";
 import { BsMusicNote, BsMusicNoteList } from "react-icons/bs";
 
+// Context API
+import { useAuthContext } from "../contexts/AuthContext";
+
 export default function NavbarNone() {
+  const { isAuth, userData, logout } = useAuthContext();
   const [sidebar, setSidebar] = useState(false);
 
-  const showSidebar = () => setSidebar(!sidebar);
+  const showSidebar = (e) => {
+    e.preventDefault();
+    setSidebar(!sidebar);
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+  };
 
   const navigate = useNavigate();
 
@@ -48,23 +61,37 @@ export default function NavbarNone() {
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
+                <AiIcons.AiOutlineClose onClick={handleClick} />
               </Link>
-              <Link to="/alarm" className="alarm">
+              {/* <Link to="/alarm" className="alarm">
                 <div className="alarm-style">
                   <BiIcons.BiBell />
                 </div>
-              </Link>
+              </Link> */}
             </li>
 
-            <div className="profile-box">
-              <Link to="/login" className="login" style={{ fontSize: "4rem" }}>
-                <BsIcons.BsPersonCircle />
-              </Link>
-              <Link to="/login" className="letslogin">
-                로그인하세요
-              </Link>
-            </div>
+            {isAuth ? (
+              <div className="login-box">
+                <img
+                  style={{ borderRadius: "50%", marginBottom: "20px" }}
+                  src={userData.avatar}
+                ></img>
+                <div className="user-name">{userData.name}</div>
+              </div>
+            ) : (
+              <div className="profile-box">
+                <Link
+                  to="/login"
+                  className="login"
+                  style={{ fontSize: "4rem" }}
+                >
+                  <BsIcons.BsPersonCircle />
+                </Link>
+                <KakaoLoginNavBtn />
+              </div>
+            )}
+
+            <hr className="solid"></hr>
 
             {SidebarData.map((item, index) => {
               return (
@@ -76,6 +103,13 @@ export default function NavbarNone() {
                 </li>
               );
             })}
+            {isAuth ? (
+              <div className="logout-btn" onClick={logout}>
+                로그아웃
+              </div>
+            ) : (
+              <div></div>
+            )}
           </ul>
         </nav>
       </IconContext.Provider>

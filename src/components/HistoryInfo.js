@@ -8,12 +8,12 @@ const HistoryInfo = (props) => {
   return (
     <div className="info-wrapper">
       <section id="title">
-        <input
+        <Input
           onChange={(e) => {
             setTitle(e.target.value);
           }}
           className="hisTitle"
-          placeholder="제목을 입력하세요"
+          placeholder="제목을 입력하세요!"
           value={title}
         />
         <Info className="info">
@@ -34,6 +34,15 @@ const Info = styled.div`
   justify-content: space-between;
 `;
 
-const Title = styled.h5`
-  margin-top: 5px;
+const Input = styled.input`
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  width: 360px;
+  height: 32px;
+  font-size: 17px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(233, 233, 233);
 `;
