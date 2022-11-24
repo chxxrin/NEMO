@@ -11,6 +11,7 @@ import "../css/History.css";
 import "../css/Navbar.css";
 import { useLocation } from "react-router-dom";
 import HistoryInfoViewer from "../components/HistoryInfoViewer";
+import HistoryListViewer from "../components/HistoryListViewer";
 
 const HistoryView = () => {
   const [histories, setHistories] = useState(null);
@@ -64,8 +65,8 @@ const HistoryView = () => {
     <div className="container">
       <NavbarNone />
       <HistoryTop />
-      <HistoryInfoViewer historyObj={histories} />
-      <HistoryImageViewer historyObj={histories} />
+      {/* <HistoryInfoViewer historyObj={histories} /> */}
+      <HistoryListViewer historyObj={histories} />
     </div>
   );
 };
