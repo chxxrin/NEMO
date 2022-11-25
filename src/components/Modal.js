@@ -7,6 +7,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav'; 
 import { HelpData } from "./HelpData";
 
+
 const Modal = (props) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header, next } = props;
@@ -16,11 +17,19 @@ const Modal = (props) => {
     <div className={open ? "openModal modal" : "modal"} style={{}}>
       {open ? (
         <section>
+            <footer>
+            {/* <button className="close" onClick={close}>
+              close
+            </button> */}
+            <button className="close" onClick={close}>
+            닫기
+            </button>
+          </footer>
           <header>
             {/* {header} */}
             <div className="pre-next">
             
-            {HelpData.map((item, index) => {
+            {/* {HelpData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
@@ -28,7 +37,7 @@ const Modal = (props) => {
                   </Link>
                 </li>
               );
-            })}
+            })} */}
 
             {/* <Nav.Link onClick={()=>{ navigate('-1')}}>
               <IoIcons.IoIosArrowBack/>
@@ -41,14 +50,19 @@ const Modal = (props) => {
 
           </header>
           <main>{props.children}</main>
-          <footer>
+          
+          
+          {/* <footer> */}
             {/* <button className="close" onClick={close}>
               close
             </button> */}
-            <button className="close" onClick={close}>
+            {/* <button className="close" onClick={close}>
             닫기
             </button>
-          </footer>
+          </footer> */}
+
+
+
         </section>
       ) : null}
     </div>
