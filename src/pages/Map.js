@@ -65,7 +65,6 @@ export function GetMarker({ parentGetmarkerIndex }) {
           position={new window.naver.maps.LatLng(a.latitude, a.longitude)}
           animation={0}
           onClick={() => {
-            console.log(a.id)
             parentGetmarkerIndex(a.id)
           }} // console.log 필수
         ></Marker>
@@ -111,15 +110,11 @@ export function NaverMapAPI() {
   let [flag, setFlag] = useState(false)
   let [storeresult, setStoreresult] = useState(0)
   const parentFunction = (x) => {
-    console.log(x)
   }
 
   const parentGetmarkerIndex = (x) => {
     setIndex(x)
-    console.log(index)
     setFlag(true)
-    console.log(flag)
-    //const URL = API + "/studio/"+x+"/";
 
     const onestudio = async () => {
       try {
@@ -128,7 +123,6 @@ export function NaverMapAPI() {
         setLoading(true)
         const response = await axios.get('studio/' + x)
         setStoreresult(response.data)
-        console.log(response.data)
       } catch (e) {
         setError(e)
       }
@@ -147,7 +141,6 @@ export function NaverMapAPI() {
   const [flipped, setFlipped] = useState(true)
   const onFlip = () => {
     setFlipped((current) => !current)
-    console.log(flipped)
   }
 
   const clickedMarker = () => {};

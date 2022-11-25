@@ -40,7 +40,6 @@ function App() {
       // avatar, client_id, email, id ,is_member, name
       setIsAuth(true)
       setUserData(res.data)
-      console.log(res.data)
     })
   }
 

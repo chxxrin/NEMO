@@ -28,13 +28,10 @@ const HistoryList = () => {
             { withCredentials: true }
           )
           .then((res) => {
-            console.log("1", res.data);
             setHistories(res.data);
-            console.log("2", histories);
           });
       } catch (e) {
         setError(e)
-        console.log(e)
       }
       setLoading(false)
     }

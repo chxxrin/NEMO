@@ -19,7 +19,6 @@ if (
   REDIRECT_URI = 'http://ne-mo.me/oauth/kakao/callback'
 }
 
-console.log(REDIRECT_URI)
 
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_KAKAO_RESTAPI_KEY}&response_type=code&redirect_uri=${REDIRECT_URI}`
 function KakaoLoginBtn({ trace }) {

@@ -17,7 +17,6 @@ if (process.env.REACT_APP_ENV === 'development') {
   axios.defaults.baseURL = process.env.REACT_APP_API_URL_PROD
 }
 
-console.log('axios.defaults.baseURL : ', axios.defaults.baseURL)
 
 axios.defaults.timeout = 5000
 

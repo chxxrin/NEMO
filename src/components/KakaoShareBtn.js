@@ -30,7 +30,6 @@ function KakaoShareBtn({ hashed_history_id, historyObj }) {
       kakaoSdk.init(KAKAO_JS_KEY)
     }
 
-    console.log(historyObj)
 
     kakaoSdk.Share.sendDefault({
       objectType: 'feed',

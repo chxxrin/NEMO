@@ -91,7 +91,6 @@ export default function NavbarMap({ parentFunction }) {
         setLoading(true);
         const response = await axios.get("studio/" + x);
         setStoreresult(response.data);
-        console.log(response.data);
       } catch (e) {
         setError(e);
       }

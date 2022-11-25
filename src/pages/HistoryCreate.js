@@ -33,8 +33,6 @@ const HistoryCreate = ({ user }) => {
     formData.append('history_date', date)
     formData.append('studio_id', storeresult.id)
     formData.append('fileObj', image.image_file)
-    console.log(image.image_file)
-    console.log(image.image_file instanceof Blob)
     axios
       .post('/history/', formData, {
         headers: {
@@ -43,7 +41,6 @@ const HistoryCreate = ({ user }) => {
         },
       })
       .then((res) => {
-        console.log(res.data)
         const hashed_history_id = res.data.hashed_history_id
         window.alert('히스토리가 등록되었습니다.')
         navigate(`/history/view/${hashed_history_id}?is_newUser=0`)

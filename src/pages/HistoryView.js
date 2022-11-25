@@ -47,12 +47,10 @@ const HistoryView = () => {
             { withCredentials: true }
           )
           .then((res) => {
-            console.log(res.data) // 데이터 잘 가공해주셈!!
             setHistories(res.data)
           })
       } catch (e) {
         setError(e)
-        console.log(e)
       }
       setLoading(false)
     }
@@ -71,8 +69,6 @@ const HistoryView = () => {
   if (loading) return <div>로딩중</div>
   if (error) return <div>에러</div>
   if (!histories) return <div>no histories</div>
-  console.log(histories)
-  console.log('isNewUser', isNewUser)
 
   return (
     <div className="container">

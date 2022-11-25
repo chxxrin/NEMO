@@ -51,13 +51,10 @@ export function MapHis() {
           )
           .then((res) => {
             setFlag(true);
-            console.log(res.data);
             histories.current = res.data;
-            console.log(histories);
           });
       } catch (e) {
         setError(e);
-        console.log(e);
       }
       setLoading(false);
     };
@@ -125,10 +122,8 @@ export function MapHis() {
 
   const showHistoryImages = (h) => {
     {
-      console.log(Object.values(h)[0].files[0].url);
 
       Object.values(h).map((value, i) => {
-        console.log(Object.values(h)[i].files[0].url);
 
         return (
           // <div>{<MapHistoryImage historyObj={Object.values(h)[i]} />}</div>
@@ -197,7 +192,6 @@ export function MapHis() {
           {flag ? (
             <div className="picture-container">
               {Object.values(histories.current).map((value, i) => {
-                console.log(Object.values(histories.current)[i].files[0].url);
                 return (
                   <div
                     style={{

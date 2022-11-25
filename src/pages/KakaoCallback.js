@@ -43,7 +43,6 @@ const KakaoCallback = () => {
       .post('https://kauth.kakao.com/oauth/token', queryString)
       .then((res) => {
         //서버에 토큰 전송
-        console.log(res.data.access_token)
         sendKakaoTokenToServer(res.data.access_token)
       })
   }
@@ -61,9 +60,7 @@ const KakaoCallback = () => {
             // res.data : 유저 데이터 객체
             setIsAuth(true)
             setUserData(res.data)
-            // console.log(res.data)
             const hashHistoryId = localStorage.getItem('hashed_history_id')
-            console.log('hashHistoryId', hashHistoryId)
             if (hashHistoryId) {
               navigate(`/history/view/${hashHistoryId}?is_newUser=0`)
               localStorage.setItem('hashed_history_id', '')

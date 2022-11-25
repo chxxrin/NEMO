@@ -13,7 +13,6 @@ const Test = () => {
         setLoading(true)
         const response = await axios.get('studio/')
         setStudios(response.data)
-        console.log(response.data)
       } catch (e) {
         setError(e)
       }
