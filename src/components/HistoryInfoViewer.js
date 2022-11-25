@@ -34,7 +34,13 @@ const HistoryInfoViewer = ({ historyObj, trace }) => {
             {historyObj.history.title}
           </h5>
           <Info className="info">
-            {historyObj.studio.company}
+            {historyObj.studio.company === "하루필름" ||
+            historyObj.studio.company === "포토이즘" ? (
+              <div></div>
+            ) : (
+              <div>{historyObj.studio.company}</div>
+            )}
+            {/* {historyObj.studio.company} */}
             {historyObj.studio.name + " "}
             {historyObj.history.history_date}
           </Info>

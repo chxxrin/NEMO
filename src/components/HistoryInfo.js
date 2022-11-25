@@ -18,7 +18,12 @@ const HistoryInfo = (props) => {
           value={title}
         />
         <Info className="info">
-          {studio + " "} {location} <DateSelect setDate={setDate} date={date} />
+          {studio === "하루필름" || studio === "포토이즘" ? (
+            <div />
+          ) : (
+            <div>{studio}</div>
+          )}
+          {location} <DateSelect setDate={setDate} date={date} />
         </Info>
       </section>
     </div>
@@ -33,7 +38,7 @@ const Info = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 25px;
+  padding-right: 30px;
 `;
 
 const Input = styled.input`
