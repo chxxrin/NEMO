@@ -9,7 +9,7 @@ import help2 from '../assets/lib2.jpg'
 import help3 from '../assets/lib3.jpg'
 import help4 from '../assets/lib4.jpg'
 import help5 from '../assets/lib5.jpg'
-import help6 from '../assets/lib6.jpg'
+import help6 from '../assets/last6.jpg'
 import help7 from "../assets/lib7.jpg"
 import * as MdIcons from "react-icons/md";
 import '../css/Help.css'
@@ -25,7 +25,7 @@ const helpingimages = [
 const helpingtext = [
   "모두의 추억을 '네모'에 담아보세요!",
   "지도에서 원하는 네 컷 사진점의 \n위치를 확인할 수 있어요!",
-  "검색 기능으로 다양한 네컷 사진관들의\n 검색결과를 확인해볼까요? ^.^",
+  "검색 기능으로 다양한 네컷 사진관들의\n 검색 결과를 확인해볼까요? ^.^",
   "전에 찍었던 사진의 히스토리를\n 조회하고 등록할 수 있어요!",
   "앨범에 있는 사진도, 방금 찍은 네컷도\n 올릴 수 있답니다",
   "그러면 카카오톡 친구 초대로\n 히스토리를 공유해볼까요?",
