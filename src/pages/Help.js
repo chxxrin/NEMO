@@ -4,27 +4,32 @@ import styled from "styled-components";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import {useRef, useState, useEffect } from 'react'
-import help1 from '../assets/help1.jpg'
-import help2 from '../assets/help2.jpg'
-import help3 from '../assets/help3.jpg'
-import help4 from '../assets/help4.jpg'
-import help5 from '../assets/help5.jpg'
-import help6 from '../assets/info6.png'
-
+import help1 from '../assets/lib1.jpg'
+import help2 from '../assets/lib2.jpg'
+import help3 from '../assets/lib3.jpg'
+import help4 from '../assets/lib4.jpg'
+import help5 from '../assets/lib5.jpg'
+import help6 from '../assets/lib6.jpg'
+import help7 from "../assets/lib7.jpg"
 import '../css/Help.css'
 const helpingimages = [
+  help1,
   help2,
   help3,
   help4,
   help5,
+  help6,
+  help7
 ]
 const helpingtext = [
-  "궁금한 네컷 사진점을 검색해 보세요! \n 위치와 정보를 알려줄거에요 ^.^",
-  "검색 기능으로 다양한 네컷 사진관들의 \n검색결과를 확인해볼까요?",
-  "히스토리에 사진을 추가해서 \n나만의 히스토리를 모아보세요!",
-  "카카오톡 아이디로 친구를 추가하고 \n히스토리를 공유하세요!"
+  "모두의 추억을 '네모'에 담아보세요!",
+  "지도에서 원하는 네 컷 사진점의 \n위치를 확인할 수 있어요!",
+  "검색 기능으로 다양한 네컷 사진관들의\n 검색결과를 확인해볼까요? ^.^",
+  "전에 찍었던 사진의 히스토리를\n 조회하고 등록할 수 있어요!",
+  "앨범에 있는 사진도, 방금 찍은 네컷도\n 올릴 수 있답니다",
+  "그러면 카카오톡 친구 초대로\n 히스토리를 공유해볼까요?",
+  "짜잔! 친구와 네 컷을 공유했어요\n 이제 직접 네모를 경험해보세요!"
 ]
-
 let PageBox = styled.div`
   display: block;
   text-align: right;
@@ -53,17 +58,17 @@ function Help() {
     <div style={{overflow:"hidden", scroll:"none", height:"80%"}}>
       <div id="outer">
       <div id="HelpBtn">
-        <div style={{float:"left"}}>
+        <div id="leftBtn" style={{float:"left"}}>
       <PageBtn onClick={()=>{
           if(i>1){setI(i-1);}
         }} ><BsIcons.BsCaretLeftFill /></PageBtn>
         </div>
-        <div style={{float:"left"}}>
-        <PageNum>{i} / 4</PageNum>
+        <div id="centerBtn" style={{float:"left"}}>
+        <PageNum>{i} / 7</PageNum>
         </div>
-        <div style={{float:"left"}}>
+        <div id="rightBtn" style={{float:"left"}}>
         <PageBtn onClick={()=>{
-          if(i<4){
+          if(i<7){
             setI(i+1);
           }
         }} ><BsIcons.BsCaretRightFill /></PageBtn>

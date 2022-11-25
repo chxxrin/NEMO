@@ -20,7 +20,7 @@ const Modal = (props) => {
             {/* {header} */}
             <div className="pre-next">
             
-             {HelpData.map((item, index) => {
+            {HelpData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
@@ -46,7 +46,7 @@ const Modal = (props) => {
               close
             </button> */}
             <button className="close" onClick={close}>
-             닫기
+            닫기
             </button>
           </footer>
         </section>
