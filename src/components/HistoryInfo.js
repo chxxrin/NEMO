@@ -32,6 +32,7 @@ const Info = styled.div`
   height: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-right: 25px;
 `;
 

@@ -11,7 +11,11 @@ const DateSelect = ({ setDate, date }) => {
       className="date-input"
       onClick={onClick}
       ref={ref}
-      style={{ border: "1px solid gray", backgroundColor: "transparent" }}
+      style={{
+        border: "1px solid gray",
+        backgroundColor: "transparent",
+        fontSize: "13px",
+      }}
     >
       {value}
     </button>
