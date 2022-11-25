@@ -30,6 +30,40 @@ import MapHistoryImage from "../components/MapHistoryImage";
 import axios from "axios";
 
 export function MapHis() {
+  const [flag, setFlag] = useState(false);
+  const histories = useRef([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchHistories = async () => {
+      try {
+        setError(null);
+        setLoading(true);
+        const response = await axios
+          .get(
+            "history/",
+            {
+              params: { studio_id: storeresult.id },
+              headers: { "Access-Control-Allow-Origin": "*" },
+            },
+
+            { withCredentials: true }
+          )
+          .then((res) => {
+            setFlag(true);
+            console.log(res.data);
+            histories.current = res.data;
+            console.log(histories);
+          });
+      } catch (e) {
+        setError(e);
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchHistories();
+  }, []);
+
   let navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -44,26 +78,6 @@ export function MapHis() {
 
   const location = useLocation();
   const storeresult = location.state.storeresult;
-
-  // const [histories, setHistories] = useState([]);
-  const histories = useRef([]);
-  useEffect(() => {
-    const fetch = async () => {
-      await axios
-        .get("history/", {
-          params: { studio_id: storeresult.id },
-          // headers: { 'Access-Control-Allow-Origin': '*' },
-
-          withCredentials: true,
-        })
-        .then((res) => {
-          console.log(res.data);
-          histories.current = res.data;
-          console.log(histories);
-        });
-    };
-    fetch();
-  }, []);
 
   const logoImgSelector = (param) => {
     if (param === "인생네컷") {
@@ -109,6 +123,39 @@ export function MapHis() {
     }
   };
 
+  const showHistoryImages = (h) => {
+    {
+      console.log(Object.values(h)[0].files[0].url);
+
+      Object.values(h).map((value, i) => {
+        console.log(Object.values(h)[i].files[0].url);
+
+        return (
+          // <div>{<MapHistoryImage historyObj={Object.values(h)[i]} />}</div>
+          <div
+            style={{
+              background: "#ffffff",
+              border: "1px solid #e2e2e2",
+              boxShadow: "1px 3px 4px rgba(0, 0, 0, 0.1)",
+              borderRadius: "10px",
+              textAlign: "center",
+              margin: "3px",
+            }}
+          >
+            <img
+              style={{
+                height: "130px",
+                width: "130px",
+                objectFit: "contain",
+              }}
+              src={Object.values(h)[i].files[0].url}
+            />
+          </div>
+        );
+      });
+    }
+  };
+
   return (
     <div>
       <NavbarNone />
@@ -131,34 +178,52 @@ export function MapHis() {
 
       <div className="PictureList">
         <div className="HistoryTitle">HISTORY</div>
-        <div className="picture-container">
-          <div className="picture-item">{createHistoryIfUser()}</div>
-          {Object.values(histories.current).map((value, i) => {
-            console.log(Object.values(histories.current)[i].files[0].url);
-            return (
-              <div
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #e2e2e2",
-                  boxShadow: "1px 3px 4px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "10px",
-                  textAlign: "center",
-                }}
-              >
-                <img
-                  style={{
-                    height: "130px",
-                    width: "130px",
-                    objectFit: "contain",
-                  }}
-                  src={Object.values(histories.current)[i].files[0].url}
-                />
-                {/* <MapHistoryImage
-                  historyObj={Object.values(histories.current)[i].files[0].url}
-                /> */}
-              </div>
-            );
-          })}
+        <div style={{ alignContents: "center", margin: "auto" }}>
+          <div style={{ alignContents: "center", margin: "auto" }}>
+            <div className="picture-item">{createHistoryIfUser()}</div>
+            <div
+              style={{
+                fontSize: "12px",
+                color: "#8861c2",
+                fontFamily: "Spoqa Han Sans Neo",
+                textAlign: "center",
+                marginBottom: "10px",
+              }}
+            >
+              히스토리를 추가해보세요!
+            </div>
+          </div>
+
+          {flag ? (
+            <div className="picture-container">
+              {Object.values(histories.current).map((value, i) => {
+                console.log(Object.values(histories.current)[i].files[0].url);
+                return (
+                  <div
+                    style={{
+                      background: "#ffffff",
+                      border: "1px solid #e2e2e2",
+                      boxShadow: "1px 3px 4px rgba(0, 0, 0, 0.1)",
+                      borderRadius: "10px",
+                      textAlign: "center",
+                      margin: "3px",
+                    }}
+                  >
+                    <img
+                      style={{
+                        height: "130px",
+                        width: "130px",
+                        objectFit: "contain",
+                      }}
+                      src={Object.values(histories.current)[i].files[0].url}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>

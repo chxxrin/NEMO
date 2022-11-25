@@ -123,27 +123,30 @@
 }
 
 .picture-container {
-  width: 300px;
-  height: 300px;
+  width: 288px;
+  height: 288px;
   display: grid;
-  grid-template-rows: 150px 150px; /* 명시적 2개 행 정의 */
-  grid-template-columns: 150px 150px; /* 명시적 2개 열 정의 */
-  grid-auto-rows: 100px; /*그 외(암시적) 행의 크기 정의*/
+  grid-template-rows: 144px 144px; /* 명시적 2개 행 정의 */
+  grid-template-columns: 144px 144px; /* 명시적 2개 열 정의 */
+  grid-auto-rows: 144px; /*그 외(암시적) 행의 크기 정의*/
   margin: auto;
 }
 .picture-item {
-  padding: 15px;
   background: #ffffff;
+  width: 40px;
+  height: 40px;
   border: 1px solid #e2e2e2;
   box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #8861c2;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
-  margin: 3px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
 }
 /* .picture-item:nth-child(3) {
 
@@ -154,4 +157,3 @@
 .icon-plus {
   color: #8861c2;
 }
-
