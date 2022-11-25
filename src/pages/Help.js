@@ -9,8 +9,9 @@ import help2 from '../assets/lib2.jpg'
 import help3 from '../assets/lib3.jpg'
 import help4 from '../assets/lib4.jpg'
 import help5 from '../assets/lib5.jpg'
-import help6 from '../assets/lib6.jpg'
+import help6 from '../assets/last6.jpg'
 import help7 from "../assets/lib7.jpg"
+import * as MdIcons from "react-icons/md";
 import '../css/Help.css'
 const helpingimages = [
   help1,
@@ -42,11 +43,13 @@ let PageBtn = styled.button`
   font-size: 20px;
   color: #8861c2;
   cursor: pointer;
-  float: right;
+  // float: right;
+  margin-bottom: 20px;
 `;
 let PageNum = styled.div`
-  text-align: right;
-  float: right;
+  // text-align: right;
+  // float: right;
+  margin-top: 4px;
 `;
 
 function Help() {
@@ -58,24 +61,24 @@ function Help() {
     <div style={{overflow:"hidden", scroll:"none", height:"80%"}}>
       <div id="outer">
       <div id="HelpBtn">
-        <div id="leftBtn" style={{float:"left"}}>
+        <div>
       <PageBtn onClick={()=>{
           if(i>1){setI(i-1);}
-        }} ><BsIcons.BsCaretLeftFill /></PageBtn>
+        }} ><MdIcons.MdArrowBackIos/></PageBtn>
         </div>
-        <div id="centerBtn" style={{float:"left"}}>
+        <div>
         <PageNum>{i} / 7</PageNum>
         </div>
-        <div id="rightBtn" style={{float:"left"}}>
+        <div>
         <PageBtn onClick={()=>{
           if(i<7){
             setI(i+1);
           }
-        }} ><BsIcons.BsCaretRightFill /></PageBtn>
+        }} ><MdIcons.MdArrowForwardIos/></PageBtn>
         </div>
       </div>
       </div>
-      <div id="HelpImg" style={{display:"flex" ,height:"80%"}}>
+      <div id="HelpImg" style={{display:"flex" ,height:"400px"}}>
         <img id="imgs"src = {helpingimages[i-1]}></img>
         {/* <img src = {help1}></img> */}
       </div>

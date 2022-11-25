@@ -1,13 +1,17 @@
 #outer{
     display: flex;
     justify-content: center;
+    text-align: center;
     margin:0 auto;
 }
 #HelpImg{
     text-align: center;
 }
 #HelpBtn{
+    display: flex;
     justify-content: center;
+    text-align: center;
+    margin : auto;
 }
 #greedydiv{
     height: 50%;
@@ -21,5 +25,5 @@
 #helpingtext{
     text-align: center;
     white-space: pre-wrap;
-    padding-top:10%
+    padding: 20px;
 }
