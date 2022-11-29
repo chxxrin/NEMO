@@ -1,73 +1,31 @@
-# Getting Started with Create React App
+###네모 NEMO-네모의 꿈(서강대 멋쟁이사자처럼 10기)###
+굴러다니는 추억을 방지하기 위한 네컷 사진 아카이빙 및 공유 서비스 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. 사이트 주소
+http://ne-mo.me/
+![image](https://user-images.githubusercontent.com/81915150/204498164-19485d1d-9a7c-4088-a3dc-a85116bc4a16.png)
 
-## Available Scripts
+2. 주요 기능
+(1) 백엔드
+- 카카오톡 로그인/로그아웃
+- 선택한 카카오톡 상대에게 카톡 공유 메세지 보내기
+- 네컷 사진관 크롤링(인생네컷, 하루필름, 포토그레이, 포토이즘, 포토매틱, 포토시그니처)
+- 네이버지도 api 연동 후 사진관 주소 위도/경도로 변환
+- DB연동
+- DB 설계 및 API 설계(FAST API)
+- 사진관 전체 검색 API
+- 특정 사진관 검색 API
+- 히스토리 CRUD
+- 멤버 CRUD
 
-In the project directory, you can run:
+(2) 프론트엔드
+- 히스토리 생성/수정/삭제
+- 히스토리 모아보기->상세보기 연결
+- 도움말 모달창
+- 네이버 지도 API 사용해서 지도 띄우기
+- 네이버 지도에 Marker 생성
+- 실시간 지점 검색 기능->상세보기 연결
+- 지점별 분류
+- 지점 상세보기
+- 히스토리 사진 업로드(사진촬영/사진선택)
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-abcd
-efgh
