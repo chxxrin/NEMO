@@ -1,10 +1,9 @@
-네모 NEMO-네모의 꿈(서강대 멋쟁이사자처럼 10기)
+# 네모 NEMO-네모의 꿈(서강대 멋쟁이사자처럼 10기)
 
-굴러다니는 추억을 방지하기 위한 네컷 사진 아카이빙 및 공유 서비스 
+### 목적 : 굴러다니는 추억을 방지하기 위한 네컷 사진 아카이빙 및 공유 서비스 
+사이트 주소 : http://ne-mo.me/
 
-1. 사이트 주소 : http://ne-mo.me/
-
-2. 주요 기능
+### 주요 기능
 
    
 ![스크린샷_2024-10-21_오후_7 29 51-removebg-preview](https://github.com/user-attachments/assets/ee106d59-535c-43ed-94e9-1694ba38a057)
@@ -32,3 +31,26 @@
 - 선택한 카카오톡 상대에게 카톡 공유 메세지 보내기
 - 지인과 사진 공유
 
+### 파일구조
+├── 📂 public
+│
+├── 📂 src
+│   ├── 📂 assets
+│   ├── 📂 components
+│       └── 📂 ...   
+│   ├── 📂 contexts
+│   ├── 📂 css
+│   ├── 📂 pages
+│   │    ├── 📂 Help (도움말)
+│   │    ├── 📂 History (히스토리 생성/수정/삭제/조회)
+│   │    ├── 📂 Home (메인화면)
+│   │    ├── 📂 KakaoCallback (카카오 로그인 콜백 화면)
+│   │    ├── 📂 Like (즐겨찾기)
+│   │    ├── 📂 Map (네이버 지도 + 검색 화면)
+│   │    ├── 📂 MapHis (사진관 정보 표시)
+│   │    └── 📂 Notice (공지사항)
+│   │
+│   ├── App.css, App.js
+│   └── index.css, index.js
+│
+└── package.json, README.md, gitignore
