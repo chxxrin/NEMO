@@ -30,4 +30,5 @@
 ![스크린샷_2024-10-21_오후_7 55 54-removebg-preview](https://github.com/user-attachments/assets/bfd95468-68f6-473f-834e-502b77f87a9d)
 - 카카오톡 로그인/로그아웃
 - 선택한 카카오톡 상대에게 카톡 공유 메세지 보내기
+- 지인과 사진 공유
 
