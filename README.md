@@ -33,27 +33,64 @@
 
 
 ### 파일구조
-`
-├── 📂 public
-│
-├── 📂 src
-│   ├── 📂 assets
-│   ├── 📂 components
-│       └── 📂 ...   
-│   ├── 📂 contexts
-│   ├── 📂 css
-│   ├── 📂 pages
-│   │    ├── 📂 Help (도움말)
-│   │    ├── 📂 History (히스토리 생성/수정/삭제/조회)
-│   │    ├── 📂 Home (메인화면)
-│   │    ├── 📂 KakaoCallback (카카오 로그인 콜백 화면)
-│   │    ├── 📂 Like (즐겨찾기)
-│   │    ├── 📂 Map (네이버 지도 + 검색 화면)
-│   │    ├── 📂 MapHis (사진관 정보 표시)
-│   │    └── 📂 Notice (공지사항)
-│   │
-│   ├── App.css, App.js
-│   └── index.css, index.js
-│
-└── package.json, README.md, gitignore
-`
+├── App.css
+├── App.js
+├── App.test.js
+├── assets
+├── components
+│   ├── DateSelect.js
+│   ├── DateView.js
+│   ├── HelpData.js
+│   ├── History.js
+│   ├── HistoryImageUploader.js
+│   ├── HistoryImageViewer.js
+│   ├── HistoryInfo.js
+│   ├── HistoryInfoViewer.js
+│   ├── HistoryListViewer.js
+│   ├── HistoryTop.js
+│   ├── KakaoLoginBtn.js
+│   ├── KakaoLoginModal.js
+│   ├── KakaoLoginNavBtn.js
+│   ├── KakaoShareBtn.js
+│   ├── MapHistoryImage.js
+│   ├── Member.js
+│   ├── MemberModal.js
+│   ├── Modal.js
+│   ├── Navbar.js
+│   ├── NavbarMap.js
+│   ├── NavbarNone.js
+│   ├── Router.js
+│   ├── SlidebarData.js
+│   └── useCurrentPosition.js
+├── contexts
+│   ├── AuthContext.js
+│   └── HashHistoryIdContext.js
+├── css
+│   ├── Help.css
+│   ├── History.css
+│   ├── KakaoModal.css
+│   ├── Map.css
+│   ├── MapHis.css
+│   ├── MemberModal.css
+│   ├── Modal.css
+│   ├── Navbar.css
+│   └── NavbarMap.css
+├── index.css
+├── index.js
+├── pages
+│   ├── Help.js
+│   ├── HistoryCreate.js
+│   ├── HistoryEdit.js
+│   ├── HistoryList.js
+│   ├── HistoryView.js
+│   ├── Home.js
+│   ├── InnerHelp.js
+│   ├── KakaoCallback.js
+│   ├── Like.js
+│   ├── Map.js
+│   ├── MapHis.js
+│   ├── Notice.js
+│   ├── Test.js
+│   └── map_info.json
+├── reportWebVitals.js
+└── setupTests.js
