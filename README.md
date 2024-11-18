@@ -5,7 +5,11 @@
 1. 사이트 주소
 
 http://ne-mo.me/
-![image](https://user-images.githubusercontent.com/81915150/204498164-19485d1d-9a7c-4088-a3dc-a85116bc4a16.png)
+![image](https://user-![스크린샷_2024-10-21_오후_7 55 47-removebg-preview](https://github.com/user-attachments/assets/b5d6c688-afe2-4d51-87d5-2d1f7ef88c70)
+images.githubusercontent.com/81915150/204498164-19485d1d-9a7c-4088-a3dc-a85116bc4a16.png)
+![스크린샷_2024-10-21_오후_7 55 54-removebg-preview](https://github.com/user-attachments/assets/bfd95468-68f6-473f-834e-502b77f87a9d)
+![스크린샷_2024-10-21_오후_7 29 51-removebg-preview](https://github.com/user-attachments/assets/ee106d59-535c-43ed-94e9-1694ba38a057)
+
 
 2. 주요 기능
 
